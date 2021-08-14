@@ -1,0 +1,137 @@
+.user-food-schedule-page-food-schedule .container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.user-food-schedule-page-food-schedule .row-of-food-schedule {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5vw;
+  margin-top: 5vw;
+}
+
+
+/* Food Schedule Content And Table */
+.user-food-schedule-page-food-schedule .food-schedule-contnt h1 {
+  font-weight: 600;
+  font-size: 2.60416666vw;
+  color: #000000;
+  margin-bottom: 1vw;
+}
+
+.user-food-schedule-page-food-schedule .food-schedule-contnt {
+  width: 80%;
+}
+
+.user-food-schedule-page-food-schedule .food-schedule-contnt select {
+  width: 8.4791666vw;
+  height: 3.125vw;
+  background: #ffffff;
+  border: 0.052083vw solid #2b90c4;
+  border-radius: 0.52083vw;
+  margin-bottom: 1vw;
+}
+
+/* Table */
+.user-food-schedule-page-food-schedule #food-schedule-table {
+  border-collapse: collapse;
+  /* width: 70%; */
+  margin-top: 0.5vw;
+}
+
+.user-food-schedule-page-food-schedule #food-schedule-table tr {
+  height: 3.125vw;
+}
+
+.user-food-schedule-page-food-schedule #food-schedule-table td,
+.user-food-schedule-page-food-schedule #food-schedule-table th {
+  border: 0.1041666666vw solid #000;
+  text-align: center;
+}
+
+.user-food-schedule-page-food-schedule #food-schedule-table td {
+  background-color: #fff;
+  height: 16.41666666666667vw;
+  font-weight: 600;
+  font-size: 1.5625vw;
+  color: #000000;
+}
+
+.user-food-schedule-page-food-schedule #food-schedule-table td .drag-and-drop {
+  width: 13.66666vw;
+  height: 11.42708333vw;
+  background: #ffffff;
+  border: 0.052083333vw solid #2b90c4;
+  border-radius: 0.52083333vw;
+  margin: 1vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.user-food-schedule-page-food-schedule
+  #food-schedule-table
+  td
+  .drag-and-drop
+  h1 {
+  font-weight: 600;
+  font-size: 1.5625vw;
+  color: #000000;
+  margin-bottom: 0;
+}
+
+.user-food-schedule-page-food-schedule
+  #food-schedule-table
+  td
+  .drag-and-drop
+  span {
+  font-weight: 600;
+  font-size: 1.5625vw;
+  color:#2B90C4;
+}
+
+.user-food-schedule-page-food-schedule
+  #food-schedule-table
+  td
+  input[type="submit"] {
+  width: 13.66666vw;
+  height: 2.083333333vw;
+  background: #2b90c4;
+  border: 0.052083333vw solid #2b90c4;
+  border-radius: 0.52083333vw;
+  font-weight: 600;
+  font-size: 1.5625vw;
+  color: #ffffff;
+  margin-bottom: 1vw;
+  padding: 0;
+}
+
+.user-food-schedule-page-food-schedule #food-schedule-table th {
+  font-weight: 600;
+  font-size: 1.5625vw;
+  color: #ffffff;
+}
+
+/*  Section Consult Trainer*/
+.user-food-schedule-page-food-schedule .consult-trainer-row {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.user-food-schedule-page-food-schedule .consult-trainer {
+  margin-bottom: 2vw;
+}
+
+.user-food-schedule-page-food-schedule .consult-trainer a {
+  text-decoration: none;
+  color: #000;
+}
+
+/* Section contact - us */
+.user-food-schedule-page-food-schedule .horizental-line {
+  width: 100%;
+  height: 0.52vw;
+  background: #2b90c4;
+  border-radius: 0.52vw;
+}

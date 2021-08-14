@@ -1,0 +1,91 @@
+.vedio-page .container {
+  width: 80%;
+  height: 100vh;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.vedio-page .vedio-player {
+  margin-top: 3vw;
+  margin-bottom: 3vw;
+}
+
+.vedio-page .row-of-vedio-player {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+/* Vedio box */
+.vedio-page .vedio-player-box {
+  width: 80vw;
+  height: 45vw;
+  background: #ffffff;
+  box-shadow: 0.2083vw 0.2083vw 0.52083vw 0.26vw rgba(0, 0, 0, 0.25);
+  border-radius: 0.52083vw;
+}
+
+.vedio-page .vedio-player-box h1 {
+  font-weight: 600;
+  font-size: 1.82291666666vw;
+  color: #000000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 4.6875vw;
+}
+
+.vedio-page .vedio-player-box iframe {
+  display: block;
+  margin: 0 auto;
+}
+
+.vedio-page .button-play-pause {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1.8vw;
+}
+
+.vedio-page .button-play-pause button img {
+  width: 3.08333333vw;
+  height: 3.08333333vw;
+}
+
+.vedio-page .button-play-pause button {
+  background: #ffffff;
+  border: 0px solid #fff;
+  outline: none;
+  margin: 0 1vw;
+}
+
+.vedio-page .button-play-pause button:hover {
+  cursor: pointer;
+}
+
+/* go-to-workout-page*/
+.vedio-page .go-to-workout-page a {
+  text-decoration: none;
+  color: #000000;
+}
+
+.vedio-page .go-to-workout-page-box {
+  width: 13.645833333vw;
+  height: 3.125vw;
+  background: #ffffff;
+  box-shadow: 0.2083vw 0.2083vw 0.52083vw 0.26vw rgba(0, 0, 0, 0.25);
+  border-radius: 0.52083vw;
+  margin-top: 2vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.vedio-page .go-to-workout-page-box h1 {
+  font-weight: 600;
+  font-size: 1.5625vw;
+  color: #000000;
+}

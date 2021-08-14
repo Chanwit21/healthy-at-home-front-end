@@ -1,0 +1,55 @@
+/* Global */
+* {
+  font-family: "Dosis", sans-serif;
+  padding: 0;
+  margin: 0;
+  font-size: 1.5vw;
+}
+
+body {
+  background-color: #fff6dd;
+  width: 100%;
+}
+
+input {
+  font-size: 1.041666666666667vw;
+  color: rgba(0, 0, 0, 1);
+  padding-left: 1vw;
+}
+
+input[type='submit'] {
+  padding-left: 0;
+}
+
+input:focus {
+  outline: none;
+  box-shadow: 0 0 0 0.052083vw #2b90c4;
+}
+
+textarea {
+  padding-top: 0.5vw;
+  padding-left: 0.5vw;
+  font-size: 1.041666666666667vw;
+}
+
+textarea:focus {
+  outline: none;
+  box-shadow: 0 0 0 0.052083vw #2b90c4;
+}
+
+select {
+  font-weight: 600;
+  font-size: 1.04166666666vw;
+  color: #000000;
+}
+
+option {
+  font-weight: 600;
+  font-size: 1.04166666666vw;
+  color: #000000;
+}
+
+select:focus {
+  outline: none;
+  box-shadow: 0 0 0 0.052083vw #2b90c4;
+}

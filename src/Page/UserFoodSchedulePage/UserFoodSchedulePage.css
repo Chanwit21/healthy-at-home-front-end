@@ -1,0 +1,61 @@
+.user-food-schedule-page .container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+/* Section food-menu-menu-bar-left-in-User-course-page */
+.user-food-schedule-page .row-of-food-schedule {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 5vw;
+  padding-right: 7vw;
+}
+
+
+.user-food-schedule-page .food-content h1#head-of-bax-in-main-food-page {
+  font-weight: 600;
+  font-size: 2.404166666vw;
+  color: #000000;
+  margin-bottom: 1vw;
+}
+
+.user-food-schedule-page .content-card {
+  width: 42.89583vw;
+  height: 22.04166666vw;
+  background: #ffffff;
+  box-shadow: 0.2083vw 0.2083vw 0.52083vw 0.26vw rgba(0, 0, 0, 0.25);
+  border-radius: 0.52083vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 5vw;
+}
+
+.user-food-schedule-page .content-card ul {
+  padding-left: 4.5vw;
+  padding-right: 4vw;
+}
+
+.user-food-schedule-page .content-card li {
+  font-weight: 500;
+  font-size: 2.24166666vw;
+  color: #000000;
+}
+
+/*  Consult Trainer*/
+.user-food-schedule-page .consult-trainer {
+  margin-bottom: 4vw;
+}
+
+.user-food-schedule-page .consult-trainer a {
+  text-decoration: none;
+  color: #000;
+}
+
+/* Section contact - us */
+.user-food-schedule-page .horizental-line {
+  width: 100%;
+  height: 0.52vw;
+  background: #2b90c4;
+  border-radius: 0.52vw;
+}

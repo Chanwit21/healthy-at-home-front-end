@@ -1,0 +1,105 @@
+.expen-summary-page .container {
+  width: 80%;
+  height: 86.5vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.expen-summary-page .form-sumary {
+  display: flex;
+  margin: 3.5vw auto;
+  width: 60.729166vw;
+  height: 40.208333vw;
+  background: #ffffff;
+  box-shadow: 0.2083vw 0.2083vw 0.52083vw 0.26vw rgba(0, 0, 0, 0.25);
+  border-radius: 0.52083vw;
+}
+
+.expen-summary-page .img-in-expen-summary-page {
+  background-image: url("../../PIC/Service Program/pexels-rodnae-productions-8401115.jpg");
+  width: 50%;
+  height: 100%;
+  background-size: cover;
+  border-radius: 0.52083vw 0 0 0.52083vw;
+}
+
+.expen-summary-page .content-summary {
+  padding-left: 3vw;
+  margin-top: 1.822916vw;
+  width: 45%;
+  height: 100%;
+  background-size: cover;
+}
+
+.expen-summary-page .content-summary h1 {
+  font-weight: 600;
+  font-size: 1.0416666vw;
+  color: #000000;
+}
+
+.expen-summary-page .content-summary p {
+  font-weight: normal;
+  font-size: 1.0416666vw;
+  color: #000000;
+}
+
+.expen-summary-page .summary-row {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.6vw;
+  margin-bottom: 0.6vw;
+}
+
+.expen-summary-page .col-in-summary {
+  width: 50%;
+  text-align: left;
+}
+
+.expen-summary-page .text-in-summary {
+  width: 23.875vw;
+  height: 6.19791666vw;
+  background: #ffffff;
+  border: 0.052083vw solid rgba(43, 144, 196, 0.5);
+  box-sizing: border-box;
+  border-radius: 0.52083vw;
+}
+
+.expen-summary-page .text-in-summary p {
+  padding: 0.8vw;
+  font-size: 1.0416666vw;
+}
+
+.expen-summary-page .button-in-summary {
+  display: flex;
+  margin-top: 1vw;
+  width: 23.875vw;
+  justify-content: space-between;
+}
+
+.expen-summary-page .button-in-summary button:hover {
+  cursor: pointer;
+}
+
+.expen-summary-page .confirm-your-ourder {
+  font-weight: 600;
+  font-size: 1.041666vw;
+  color: #ffffff;
+  background: #2b90c4;
+  border-radius: 0.52083vw;
+  width: 10.416666vw;
+  height: 2.34375vw;
+  border: 0.052083vw solid #2b90c4;
+}
+
+.expen-summary-page .edit-your-ourder {
+  font-weight: 600;
+  font-size: 1.041666vw;
+  color: #ffffff;
+  background: #ff88a4;
+  border-radius: 0.52083vw;
+  width: 10.416666vw;
+  height: 2.34375vw;
+  border: 0.052083vw solid #ff88a4;
+}

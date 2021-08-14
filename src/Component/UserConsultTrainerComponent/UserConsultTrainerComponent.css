@@ -1,0 +1,46 @@
+.consult-trainer-component {
+  display: flex;
+  width: 46vw;
+  justify-content: space-around;
+  align-items: flex-end;
+}
+
+.consult-trainer-component .text-to-consult-box {
+  width: 25.05208333vw;
+  height: 12.1875vw;
+  background: #ffffff;
+  box-shadow: 4px 4px 10px 3px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.consult-trainer-component .text-in-text-to-consult-box {
+  width: 75%;
+}
+
+.consult-trainer-component .text-in-text-to-consult-box h1 {
+  font-weight: 600;
+  font-size: 2.00416666vw;
+  color: #ff88a4;
+}
+
+.consult-trainer-component .text-in-text-to-consult-box span {
+  font-weight: 600;
+  font-size: 2.00416666vw;
+  color: #2b90c4;
+}
+
+.consult-trainer-component .text-in-text-to-consult-box p {
+  font-weight: normal;
+  font-size: 1.522916666vw;
+  color: #000000;
+}
+
+.consult-trainer-component img {
+  position: absolute;
+  width: 4.166666vw;
+  padding-bottom: 12vw;
+  padding-left: 14vw;
+}

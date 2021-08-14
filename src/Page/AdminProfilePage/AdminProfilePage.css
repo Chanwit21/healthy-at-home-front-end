@@ -1,0 +1,40 @@
+.admin-profile-page .container {
+    width: 80%;
+    margin: 0 auto;
+    min-height: 89vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 4vw;
+    margin-top: 4vw;
+}
+
+/* Section ProFile */
+.admin-profile-page .row-of-navbar-left-and-profile-content {
+    display: flex;
+    justify-content: space-between;
+    width: 80vw;
+}
+
+
+.admin-profile-page .profile-content .row-of-profile-content {
+    display: flex;
+    justify-content: space-between;
+    /* border: 1px solid black; */
+    margin-bottom: 2vw;
+}
+
+.admin-profile-page .profile-content {
+    width: 65%;
+    /* border: 1px solid black; */
+}
+
+.admin-profile-page .profile-content .content-profile-content-left {
+    width: 50%;
+    /* border: 1px solid black; */
+}
+
+.admin-profile-page .profile-content .content-profile-content-right {
+    width: 50%;
+    /* border: 1px solid black; */
+}

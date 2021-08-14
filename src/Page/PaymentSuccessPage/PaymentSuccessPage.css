@@ -1,0 +1,62 @@
+.payment-success-page .container {
+  width: 80%;
+  height: 89.5vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.payment-success-page .container .payment-success-box {
+  width: 58.9583333vw;
+  height: 39.010416666vw;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 2.6041666vw;
+  background: #ffffff;
+  box-shadow: 0.2083vw 0.2083vw 0.52083vw 0.26vw rgba(0, 0, 0, 0.25);
+  border-radius: 0.52083vw;
+  margin: 4vw auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.payment-success-page .content-in-payment-success-box {
+  text-align: center;
+  color: #ff88a4;
+}
+
+.payment-success-page .content-in-payment-success-box h1 {
+  font-weight: 600;
+  font-size: 2.604166666vw;
+  color: #ff88a4;
+}
+
+.payment-success-page .content-in-payment-success-box span {
+  font-weight: 600;
+  font-size: 2.604166666vw;
+  color: #2b90c4;
+}
+
+.payment-success-page .content-in-payment-success-box p {
+  font-weight: 600;
+  font-size: 2.083333vw;
+}
+
+.payment-success-page .content-in-payment-success-box button {
+  font-weight: 600;
+  font-size: 2.083333vw;
+  color: #ffffff;
+  width: 19.1145833vw;
+  height: 3.125vw;
+  background: #2b90c4;
+  border-radius: 0.5208333vw;
+  border: 0.000520833vw solid #2b90c4;
+  margin-top: 3vw;
+  padding-bottom: 0.3vw;
+}
+
+.payment-success-page .content-in-payment-success-box button:hover {
+  cursor: pointer;
+}

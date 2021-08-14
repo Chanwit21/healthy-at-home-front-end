@@ -1,0 +1,64 @@
+.service-cardEven {
+  /* border: 1px dashed black; */
+  display: flex;
+  width: 100%;
+  height: 44.58333vw;
+  background-color: #ffffff;
+  border-radius: 0.52083vw;
+  box-shadow: 0.20833333vw 0.20833333vw 0.52083vw 0.15625vw gray;
+}
+
+.service-cardEven .content-in-servicecardEven {
+  /* border: 1px dashed black; */
+  width: 50%;
+}
+
+.service-cardEven .text-content-in-servicecardEven {
+  /* border: 1px dashed black; */
+  margin-top: 14.0625vw;
+  margin-left: 3.802083vw;
+  padding-right: 1.0417vw;
+}
+
+.service-cardEven .text-content-in-servicecardEven h1 {
+  font-weight: 600;
+  font-size: 2.604167vw;
+  color: #000000;
+}
+
+.service-cardEven .text-content-in-servicecardEven p {
+  font-size: 2.0833333vw;
+  color: #000000;
+}
+
+.service-cardEven .text-content-in-servicecardEven button {
+  width: 11.09375vw;
+  height: 2.9167vw;
+  font-weight: 500;
+  font-size: 1.0417vw;
+  color: #ffffff;
+  background: #2b90c4;
+  border-radius: 0.52083vw;
+  margin-top: 1.5625vw;
+  border: 0.000520833vw solid #2b90c4;
+}
+
+.service-cardEven .text-content-in-servicecardEven button:hover {
+  cursor: pointer;
+}
+
+.service-cardEven .price-in-service-cardEven {
+  font-weight: 600;
+  font-size: 1.5625vw;
+  color: #000000;
+  margin-top: 9.895833vw;
+  margin-left: 21.3541666vw;
+}
+
+.service-cardEven .img-in-servicecardEven {
+  /* border: 1px dashed black; */
+  height: 100%;
+  width: 50%;
+  background-size: cover;
+  border-radius: 0.52083vw 0 0 0.52083vw;
+}

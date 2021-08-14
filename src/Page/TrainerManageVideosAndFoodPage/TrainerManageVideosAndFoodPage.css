@@ -1,0 +1,154 @@
+.trainer-manage-videos-and-food-page .container {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 4vw;
+    margin-top: 4vw;
+    min-height: 89vh;
+  }
+  
+  /* Section manage-videos-and-food */
+  .trainer-manage-videos-and-food-page
+    .row-of-navbar-left-and-manage-videos-and-food {
+    display: flex;
+    justify-content: space-between;
+    width: 80vw;
+  }
+  
+  .trainer-manage-videos-and-food-page .vedio-and-food-schedule {
+    width: 70%;
+  }
+  
+  /* Select and Search */
+  .trainer-manage-videos-and-food-page .row-of-select-and-search-box {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .trainer-manage-videos-and-food-page
+    .row-of-select-and-search-box
+    .select
+    select {
+    width: 8.375vw;
+    height: 2.083333333vw;
+    background: #ffffff;
+    border: 0.0520833333vw solid #2b90c4;
+    box-sizing: border-box;
+    border-radius: 0.520833333vw;
+    margin-right: 1.2vw;
+  }
+  
+  .trainer-manage-videos-and-food-page
+    .row-of-select-and-search-box
+    .select
+    select:nth-child(2) {
+    width: 11.375vw;
+  }
+  
+  .trainer-manage-videos-and-food-page .search-box form {
+    display: flex;
+    height: 2.083333333vw;
+  }
+  
+  .trainer-manage-videos-and-food-page .search-box input {
+    height: 2.083333333vw;
+    width: 10vw;
+    background: #ffffff;
+    border: 0.0520833333vw solid #2b90c4;
+    box-sizing: border-box;
+    border-radius: 0.520833333vw;
+  }
+  
+  .trainer-manage-videos-and-food-page .search-box  button[type="submit"] {
+    height: 2.083333333vw;
+    background: inherit;
+    box-sizing: border-box;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 0.5vw;
+  }
+  
+  .trainer-manage-videos-and-food-page .search-box button[type="submit"]:hover {
+    cursor: pointer;
+  }
+  
+  .trainer-manage-videos-and-food-page button img {
+    height: 1.783333333vw;
+    background: inherit;
+    box-sizing: border-box;
+    border-radius: 0.520833333vw;
+  }
+  
+  /* Vedio Schedule*/
+  /* Table */
+  .trainer-manage-videos-and-food-page .vedios-schedule table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 0.5vw;
+  }
+  
+  .trainer-manage-videos-and-food-page .vedios-schedule td,
+  .trainer-manage-videos-and-food-page .vedios-schedule th {
+    border: 0.052083333vw solid #2b90c4;
+    text-align: center;
+    font-weight: 600;
+    font-size: 1.04166666vw;
+  }
+  
+  .trainer-manage-videos-and-food-page .vedios-schedule th {
+    color: #000000;
+    height: 3.125vw;
+    background: #bee686;
+    box-sizing: border-box;
+  }
+  
+  .trainer-manage-videos-and-food-page .vedios-schedule tr th:nth-child(2) {
+    width: 26.822916666vw;
+  }
+  
+  .trainer-manage-videos-and-food-page .vedios-schedule tr td {
+    height: 3.125vw;
+    background: #ffffff;
+    box-sizing: border-box;
+  }
+  
+  .trainer-manage-videos-and-food-page .vedios-schedule tr td:nth-child(2) {
+    width: 26.822916666vw;
+    font-weight: normal;
+    font-size: 0.9375vw;
+    color: #000000;
+  }
+  
+  
+  /* IMG size */
+  .trainer-manage-videos-and-food-page .food-schedule .row-img {
+    /* width: 53.6458333vw; */
+    width: 100%;
+    display: block;
+    margin-bottom: 4vw;
+  }
+  
+  .trainer-manage-videos-and-food-page .food-schedule img {
+    /* width: 53.6458333vw; */
+    width: 100%;
+    display: block;
+    border: 1px solid black;
+  }
+  
+  .trainer-manage-videos-and-food-page .food-schedule {
+    /* width: 53.6458333vw; */
+    display: flex;
+    /* justify-content: flex-end; */
+    align-items: flex-end;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 2vw;
+  }
+  
+  
+  
+  

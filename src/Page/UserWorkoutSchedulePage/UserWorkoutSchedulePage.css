@@ -1,0 +1,183 @@
+.user-workout-schedule-page .container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+/* Section  workout-schedul And menu-bar-left-left-in-User-course-page*/
+.user-workout-schedule-page .workout-schedule {
+  width: 80%;
+}
+
+.user-workout-schedule-page
+  .workout-schedule-menu-bar-left-in-User-course-page {
+  display: flex;
+  margin-top: 5vw;
+}
+
+.user-workout-schedule-page .menu-bar-left-in-User-course {
+  display: flex;
+  justify-content: space-between;
+}
+
+.user-workout-schedule-page .workout-schedule a {
+  text-decoration: none;
+  color: #000;
+}
+
+.user-workout-schedule-page .workout-schedule #head-of-workout-schedule h1 {
+  font-weight: 600;
+  font-size: 2.604166666vw;
+  color: #000000;
+}
+
+/* Teble */
+.user-workout-schedule-page #workout-schedule-table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-top: 0.5vw;
+}
+
+.user-workout-schedule-page #workout-schedule-table tr {
+  height: 3.125vw;
+}
+
+.user-workout-schedule-page #workout-schedule-table td,
+.user-workout-schedule-page #workout-schedule-table th {
+  border: 0.1041666666vw solid #000;
+  text-align: center;
+}
+
+.user-workout-schedule-page #workout-schedule-table th {
+  font-size: 1.1416666666vw;
+}
+
+/* .user-workout-schedule-page #workout-schedule-table td {
+  width: 9.1145833vw;
+} */
+
+.user-workout-schedule-page #workout-schedule-table .contentExercise td {
+  column-span: none;
+  font-weight: 600;
+  font-size: 1.0416666666vw;
+  color: #000000;
+  height: 7.1145833vw;
+  box-sizing: border-box;
+  width: 7.1145833vw;
+  padding: 0.3vw;
+}
+
+.user-workout-schedule-page
+  #workout-schedule-table
+  .contentExercise
+  td
+  input[type="checkbox"] {
+  width: 1.1625vw;
+  height: 1.1625vw;
+  background: #ffffff;
+  border-radius: 10px;
+  margin: 0 0.2vw;
+  display: inline-block;
+}
+
+.user-workout-schedule-page
+  #workout-schedule-table
+  .contentExercise
+  .checkBox
+  label {
+  font-size: 1.3vw;
+  display: inline-block;
+}
+
+.user-workout-schedule-page #workout-schedule-table .contentExercise td a {
+  column-span: none;
+  font-weight: 600;
+  font-size: 0.9416666666vw;
+  color: #000000;
+}
+
+/* Switch Rest Day */
+.user-workout-schedule-page .switch-rest-day {
+  margin-top: 5vw;
+}
+
+.user-workout-schedule-page .switch-rest-day h1 {
+  margin-bottom: 1vw;
+  font-weight: 600;
+  font-size: 2.60416666vw;
+  color: #000000;
+}
+
+/* Input Switch Form */
+.user-workout-schedule-page .switch-box-for-form form {
+  width: 100%;
+}
+
+.user-workout-schedule-page .switch-box-for-form {
+  width: 64.11458333vw;
+  height: 13.95833vw;
+  background: #ffffff;
+  box-shadow: 0.2083vw 0.2083vw 0.52083vw 0.26vw rgba(0, 0, 0, 0.25);
+  border-radius: 0.52083vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.user-workout-schedule-page .switch-box-for-form .input-selector-row {
+  display: flex;
+  width: 85%;
+  margin: 0 auto;
+  justify-content: space-between;
+}
+
+.user-workout-schedule-page .switch-box-for-form .input-selector-row select {
+  width: 24.4791666vw;
+  height: 3.125vw;
+  background: #ffffff;
+  border: 0.052083vw solid #2b90c4;
+  border-radius: 0.52083vw;
+}
+
+.user-workout-schedule-page .switch-box-for-form .input-selector-row label {
+  font-weight: 600;
+  font-size: 1.5625vw;
+  color: #000000;
+  margin-bottom: 0.8vw;
+  display: inline-block;
+}
+
+.user-workout-schedule-page .switch-box-for-form .submit-form {
+  width: 85%;
+  margin: 0 auto;
+  margin-top: 1.3vw;
+}
+
+.user-workout-schedule-page
+  .switch-box-for-form
+  .submit-form
+  input[type="submit"] {
+  width: 100%;
+  font-weight: 600;
+  font-size: 1.5625vw;
+  color: #ffffff;
+  height: 2.604166vw;
+  background: #2b90c4;
+  border-radius: 0.52083vw;
+  border: 0.052083vw solid #2b90c4;
+}
+
+/* Consult Trainer*/
+.user-workout-schedule-page .consult-trainner {
+  margin-top: 5vw;
+  margin-bottom: 4vw;
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* Section Contact us */
+.user-workout-schedule-page .horizental-line {
+  width: 100%;
+  height: 0.52vw;
+  background: #2b90c4;
+  border-radius: 0.52vw;
+}

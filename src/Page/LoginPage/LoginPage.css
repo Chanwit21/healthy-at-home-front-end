@@ -1,0 +1,114 @@
+.loginPage {
+  margin-bottom: 6vw;
+}
+
+.loginPage .container {
+  /* border: 1px dashed black; */
+  width: 80%;
+  height: 84vh;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Background */
+.loginPage .login-form {
+  margin: 0 auto;
+  margin-top: 5.46875vw;
+  width: 40.83333333vw;
+  height: 37.8125vw;
+  background: #ffffff;
+  border: 0.052083vw solid rgba(43, 144, 196, 0.5);
+  box-sizing: border-box;
+  box-shadow: 0.20833333vw 0.20833333vw 0.52083vw 0.15625vw rgba(0, 0, 0, 0.25);
+  border-radius: 0.52083vw;
+}
+
+/* Logo */
+.loginPage .login-form .logo img:nth-child(1) {
+  position: absolute;
+  width: 3.4375vw;
+  margin-left: 14.89583vw;
+  margin-top: 4.6875vw;
+}
+
+.loginPage .login-form .logo img:nth-child(2) {
+  position: absolute;
+  margin-left: 15.1041666vw;
+  margin-top: -0.52083vw;
+  width: 13.75vw;
+}
+
+.loginPage .scope-form-login {
+  width: 20.8333vw;
+  margin: 0 auto;
+  margin-top: 8.33vw;
+}
+
+.loginPage .scope-form-login label {
+  display: inline-block;
+  font-weight: 600;
+  font-size: 1.5625vw;
+  color: #000000;
+  margin-top: 1.5625vw;
+}
+
+.loginPage .scope-form-login input {
+  width: 20.8333vw;
+  height: 3.125vw;
+  background: #ffffff;
+  border: 0.052083vw solid rgba(43, 144, 196, 0.5);
+  box-sizing: border-box;
+  border-radius: 0.52083vw;
+  margin-top: 14px;
+}
+
+.loginPage .scope-form-login input[type="submit"] {
+  margin-left: 0;
+  font-weight: 600;
+  font-size: 1.5625vw;
+  color: #ffffff;
+  width: 20.8333vw;
+  height: 3.125vw;
+  background: #2b90c4;
+  border-radius: 0.52083vw;
+}
+
+.loginPage .scope-form-login input[type="submit"]:hover {
+  cursor: pointer;
+}
+
+.loginPage .scope-form-login p {
+  font-weight: 600;
+  font-size: 0.9375vw;
+  color: #000000;
+}
+
+.loginPage .scope-form-login p .fogot-password {
+  text-decoration: none;
+  font-size: 1.1375vw;
+  color: #000000;
+}
+
+.loginPage .scope-form-login p .fogot-password:hover {
+  text-decoration: underline;
+  color: #000000;
+}
+
+.loginPage .scope-form-login p .register {
+    margin-left: 0.78125vw;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9375vw;
+  color: #2b90c4;
+}
+
+.loginPage .scope-form-login p:nth-last-child(3) {
+  margin-top: 2.0833vw;
+}
+
+.loginPage .scope-form-login p:nth-last-child(1) {
+  text-align: center;
+  margin-top: 0.7545833vw;
+}

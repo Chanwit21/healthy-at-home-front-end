@@ -1,0 +1,30 @@
+.inprogress-program-page .container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+/*  Section content-in-inprogress-program-page*/
+.inprogress-program-page .inprogress-program {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 5vw;
+}
+
+/* Consult Trainer */
+.inprogress-program-page .consult-trainner {
+  margin-top: 11vw;
+  margin-bottom: 4vw;
+}
+
+.inprogress-program-page .consult-trainner a {
+  text-decoration: none;
+  color: black;
+}
+
+/* Section Contact Us */
+.inprogress-program-page .horizental-line {
+  width: 100%;
+  height: 0.52vw;
+  background: #2b90c4;
+  border-radius: 0.52vw;
+}

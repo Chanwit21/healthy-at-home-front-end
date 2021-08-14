@@ -1,0 +1,357 @@
+.payment-page .container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+/* Section Choose Payment */
+.payment-page .contant-payment-row {
+  /* border: 1px dashed black; */
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.payment-page .payment-method {
+  /* border: 1px dashed black; */
+  width: 50%;
+}
+
+.payment-page .payment-method h1 {
+  font-weight: 600;
+  font-size: 1.5625vw;
+  color: #000000;
+  margin-top: 5.2083333vw;
+}
+
+/* credit/debitcard */
+.payment-page .credit-debit-card-payment {
+  margin-top: 0.82083333vw;
+  margin-bottom: 2.1875vw;
+  padding-top: 1vw;
+  width: 25.88541666vw;
+  height: 21.9333333vw;
+  background: #fff6dd;
+  border: 0.0520833vw solid rgba(43, 144, 196, 0.5);
+  box-sizing: border-box;
+  border-radius: 0.520833vw;
+}
+
+.payment-page .payment-method .credit-debit-card-payment p {
+  font-weight: normal;
+  font-size: 1.041666vw;
+  color: #000000;
+  margin-left: 3.3333333vw;
+  margin-top: 1vw;
+}
+
+.payment-page .payment-method .credit-debit-card-payment p:nth-last-child(2) {
+  text-align: center;
+  margin-left: -2.5vw;
+}
+
+.payment-page .payment-method .credit-debit-card-payment label {
+  margin-left: 3.3333333vw;
+}
+
+.payment-page .payment-method .credit-debit-card-payment p label {
+  font-weight: normal;
+  font-size: 1.041666vw;
+  color: #000000;
+}
+
+.payment-page .payment-method .credit-debit-card-payment input[type="radio"] {
+  position: absolute;
+  margin-top: 0.65vw;
+  margin-left: 2vw;
+  background: #fff6dd;
+  border: 0.05208333vw solid rgba(43, 144, 196, 0.5);
+  border-radius: 0.5208333vw;
+}
+
+.payment-page .payment-method .credit-debit-card-payment input[type="text"] {
+  margin-left: 3.3333333vw;
+  padding-left: 1vw;
+  width: 20.83333vw;
+  height: 2.63125vw;
+  background: #ffffff;
+  border: 0.05208333vw solid rgba(43, 144, 196, 0.5);
+  box-sizing: border-box;
+  border-radius: 0.5208333vw;
+}
+
+/* ทำไมใช้ไม่ได้ */
+/* .payment-page input:focus {
+  border: 0.05208333vw solid rgba(43, 144, 196, 0.5);
+  border-radius: 0.5208333vw;
+} */
+.payment-page
+  .payment-method
+  .credit-debit-card-payment
+  .row-expiration-date-cvv {
+  width: 20.83333vw;
+  margin-left: 3.3333333vw;
+  display: flex;
+  justify-content: space-between;
+}
+
+.payment-page .payment-method .credit-debit-card-payment input {
+  margin-top: 0.703125vw;
+}
+
+.payment-page .payment-method .credit-debit-card-payment input[type="month"] {
+  display: block;
+  width: 14.2515625vw;
+  height: 2.63125vw;
+  background: #ffffff;
+  border: 0.05208333vw solid rgba(43, 144, 196, 0.5);
+  border-radius: 0.5208333vw;
+}
+
+.payment-page
+  .payment-method
+  .credit-debit-card-payment
+  input[type="password"] {
+  padding-left: 0.4vw;
+  display: inline-block;
+  width: 4.4833333vw;
+  height: 2.63125vw;
+  background: #ffffff;
+  border: 0.05208333vw solid rgba(43, 144, 196, 0.5);
+  border-radius: 0.5208333vw;
+}
+
+.payment-page
+  .payment-method
+  .credit-debit-card-payment
+  input[type="checkbox"] {
+  position: absolute;
+  margin-top: 0.3vw;
+  margin-left: 2vw;
+  background: #fff6dd;
+  border: 0.05208333vw solid rgba(43, 144, 196, 0.5);
+  border-radius: 0.5208333vw;
+}
+
+.payment-page .credit-debit-card-payment input[type="submit"] {
+  display: block;
+  margin: 0.5vw auto;
+  font-weight: 600;
+  font-size: 1.3020833vw;
+  color: #ffffff;
+  width: 11.269791666vw;
+  height: 2.0833333vw;
+  background: #2b90c4;
+  border-radius: 0.520833vw;
+  border: 0.0520833vw solid rgba(43, 144, 196, 0.5);
+  padding-left: 0;
+}
+
+/* transfer-through-bank-account */
+.payment-page .transfer-through-bank-account {
+  padding-top: 1vw;
+  margin-bottom: 2.1875vw;
+  width: 25.8854166vw;
+  height: 16.5375vw;
+  background: #fff6dd;
+  border: 0.0520833vw solid rgba(43, 144, 196, 0.5);
+  box-sizing: border-box;
+  border-radius: 0.520833vw;
+}
+
+.payment-page .transfer-through-bank-account input[type="radio"] {
+  position: absolute;
+  margin-top: 0.65vw;
+  margin-left: 2vw;
+  background: #fff6dd;
+  border: 0.05208333vw solid rgba(43, 144, 196, 0.5);
+  border-radius: 0.5208333vw;
+}
+
+.payment-page
+  .transfer-through-bank-account
+  .contanet-in-transfer-through-bank-account {
+  margin-left: 3.3333333vw;
+  width: 80%;
+}
+
+.payment-page
+  .transfer-through-bank-account
+  .contanet-in-transfer-through-bank-account
+  label:nth-child(1) {
+  font-size: 1.3020833vw;
+  color: #000000;
+}
+
+.payment-page
+  .transfer-through-bank-account
+  .contanet-in-transfer-through-bank-account
+  p:nth-child(3) {
+  font-weight: normal;
+  font-size: 1.04166666vw;
+  color: #000000;
+  margin-top: 1vw;
+}
+
+.payment-page
+  .transfer-through-bank-account
+  .contanet-in-transfer-through-bank-account
+  select {
+  width: 20.6541666vw;
+  height: 2.63125vw;
+  font-weight: normal;
+  font-size: 1.041666666666667vw;
+  color: rgba(0, 0, 0, 0.5);
+  background: #ffffff;
+  border: 0.05208333vw solid rgba(43, 144, 196, 0.5);
+  box-sizing: border-box;
+  border-radius: 0.5208333vw;
+  padding-left: 0.4vw;
+  margin-top: 0.65vw;
+}
+
+.payment-page
+  .transfer-through-bank-account
+  .contanet-in-transfer-through-bank-account
+  input[type="submit"] {
+  display: block;
+  margin: 1vw auto;
+  font-weight: 600;
+  font-size: 1.3020833vw;
+  color: #ffffff;
+  width: 11.269791666vw;
+  height: 2.0833333vw;
+  background: #2b90c4;
+  border-radius: 0.520833vw;
+  border: 0.0520833vw solid rgba(43, 144, 196, 0.5);
+  padding-left: 0;
+}
+
+/* Counter Service */
+.payment-page .counter-service {
+  width: 25.8854166vw;
+  height: 10vw;
+  background: #fff6dd;
+  border: 0.0520833vw solid rgba(43, 144, 196, 0.5);
+  box-sizing: border-box;
+  border-radius: 0.520833vw;
+  margin-bottom: 2.1875vw;
+}
+
+.payment-page .counter-service input[type="radio"] {
+  position: absolute;
+  margin-top: 0.65vw;
+  margin-left: 2vw;
+  background: #fff6dd;
+  border: 0.05208333vw solid rgba(43, 144, 196, 0.5);
+  border-radius: 0.5208333vw;
+}
+
+.payment-page .counter-service {
+  padding-top: 1vw;
+}
+
+.payment-page .counter-service .contanet-in-counter-service {
+  margin-left: 3.3333333vw;
+  width: 80%;
+}
+
+.payment-page .counter-service .contanet-in-counter-service label:nth-child(1) {
+  font-size: 1.3020833vw;
+  color: #000000;
+}
+
+.payment-page .counter-service .contanet-in-counter-service p:nth-child(3) {
+  font-weight: normal;
+  font-size: 1.04166666vw;
+  color: #000000;
+  margin-top: 1vw;
+}
+
+.payment-page
+  .counter-service
+  .contanet-in-counter-service
+  input[type="submit"] {
+  display: block;
+  margin: 1vw auto;
+  font-weight: 600;
+  font-size: 1.3020833vw;
+  color: #ffffff;
+  width: 11.269791666vw;
+  height: 2.0833333vw;
+  background: #2b90c4;
+  border-radius: 0.520833vw;
+  border: 0.0520833vw solid rgba(43, 144, 196, 0.5);
+  padding-left: 0;
+}
+
+
+/* Section Summary */
+.payment-page .summary-payment {
+  /* border: 1px dashed black; */
+  display: flex;
+  justify-content: flex-end;
+  width: 50%;
+}
+
+.payment-page .summary-payment .content-in-summary-payment {
+  width: 24.739583vw;
+  height: 20.52083vw;
+  background: #ffffff;
+  border-radius: 10px;
+  margin-top: 7.9375vw;
+  box-shadow: 0.2083vw 0.2083vw 0.52083vw 0.26vw rgba(0, 0, 0, 0.25);
+}
+
+.payment-page .summary-payment .content-in-summary-payment > h1 {
+  font-weight: normal;
+  height: 2.44791666vw;
+  font-size: 1.5625vw;
+  padding-left: 1vw;
+  padding-top: 0.2vw;
+  color: #ffffff;
+  background: #2b90c4;
+  border-radius: 0.52083vw 0.52083vw 0 0;
+}
+
+.payment-page .summary-payment .detail-row {
+  display: flex;
+  width: 80%;
+  margin: 0.8vw auto;
+  justify-content: space-between;
+}
+
+.payment-page .summary-payment .detail-row h1 {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 1.041666666vw;
+  color: #000000;
+}
+
+.payment-page .summary-payment .detail-row p {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1.041666666vw;
+  color: #000000;
+}
+
+.payment-page .summary-payment .horizental-line {
+  background: #2b90c4;
+  width: 90%;
+  height: 0.260416666vw;
+  border-radius: 0.5208333vw;
+  margin: 0 auto;
+}
+
+
+/* Hover Pointer */
+.payment-page .payment-method input[type="submit"]:hover {
+  cursor: pointer;
+}
+/* Contact Us Section*/
+.payment-page .horizental-line {
+  width: 100%;
+  height: 0.52vw;
+  background: #2b90c4;
+  border-radius: 0.52vw;
+}

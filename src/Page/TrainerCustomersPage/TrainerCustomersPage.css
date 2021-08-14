@@ -1,0 +1,268 @@
+.trainer-customers-page .container {
+  width: 80%;
+  margin: 0 auto;
+  min-height: 89vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.trainer-customers-page .row-of-navbar-left-and-customers-list {
+  display: flex;
+  justify-content: space-between;
+  margin: 4vw 0;
+  width: 100%;
+}
+
+.trainer-customers-page .customer-form {
+  width: 67%;
+}
+
+/* Row to Select Filter */
+.trainer-customers-page .row-of-select-customer {
+  margin-bottom: 1vw;
+}
+
+.trainer-customers-page select#customer {
+  width: 14.63541666vw;
+  height: 2.0833333333vw;
+  background: #ffffff;
+  border: 0.05208333333vw solid #2b90c4;
+  box-sizing: border-box;
+  border-radius: 0.5208333333vw;
+  font-weight: 600;
+  font-size: 1.04166666666vw;
+  color: #000000;
+}
+
+.trainer-customers-page .row-of-select-customer select#customer option {
+  width: 14.63541666vw;
+  height: 2.0833333333vw;
+  background: #ffffff;
+  border: 0.05208333333vw solid #2b90c4;
+  box-sizing: border-box;
+  border-radius: 0.5208333333vw;
+  font-weight: 600;
+  font-size: 1.04166666666vw;
+  color: #000000;
+}
+
+.trainer-customers-page .row-of-select-customer select#type-of-schedule,
+.trainer-customers-page select#day-of-schedule {
+  width: 5.3645833333333vw;
+  height: 2.0833333333vw;
+  background: #ffffff;
+  border: 0.05208333333vw solid #2b90c4;
+  box-sizing: border-box;
+  border-radius: 0.5208333333vw;
+  margin-left: 1vw;
+  font-weight: 600;
+  font-size: 1.04166666666vw;
+  color: #000000;
+}
+
+.trainer-customers-page .row-of-select-customer select#type-of-schedule option,
+.trainer-customers-page select#day-of-schedule option {
+  width: 5.3645833333333vw;
+  height: 2.0833333333vw;
+  background: #ffffff;
+  border: 0.05208333333vw solid #2b90c4;
+  box-sizing: border-box;
+  border-radius: 0.5208333333vw;
+  margin-left: 1vw;
+  font-weight: 600;
+  font-size: 1.04166666666vw;
+  color: #000000;
+}
+
+/* set-customer-schedule */
+.trainer-customers-page .row-of-select-customer .set-customer-schedule h1 {
+  font-weight: 600;
+  font-size: 2.604166666666667vw;
+  color: #000000;
+  margin-top: 1vw;
+}
+
+/* Table Food */
+.trainer-customers-page .set-customer-schedule table#set-food-schedule {
+  border-collapse: collapse;
+  width: 100%;
+  margin-top: 1vw;
+}
+
+.trainer-customers-page .set-customer-schedule table#set-food-schedule td,
+.trainer-customers-page .set-customer-schedule table#set-food-schedule th {
+  border: 0.052083333vw solid #2b90c4;
+  text-align: center;
+  font-weight: 600;
+  font-size: 1.04166666vw;
+  height: 2.2682291666vw;
+}
+
+.trainer-customers-page .set-customer-schedule table#set-food-schedule th {
+  width: 10.4166666vw;
+  height: 2.2682291666vw;
+  background: #43c466;
+  font-weight: 600;
+  font-size: 1.3416666vw;
+  color: #ffffff;
+}
+
+.trainer-customers-page
+  .set-customer-schedule
+  table#set-food-schedule
+  th:last-child {
+  width: 41.145833333vw;
+}
+
+.trainer-customers-page .set-customer-schedule table#set-food-schedule td {
+  height: 5.208333333333333vw;
+  background: #ffffff;
+  font-weight: 600;
+  font-size: 1.0416666vw;
+  color: #000000;
+}
+
+.trainer-customers-page
+  .set-customer-schedule
+  table#set-food-schedule
+  td:first-child,
+.trainer-customers-page
+  .set-customer-schedule
+  table#set-food-schedule
+  td:last-child {
+  text-align: center;
+}
+
+.trainer-customers-page .set-customer-schedule table#set-food-schedule input {
+  width: 39.0625vw;
+  height: 3.385416666666667vw;
+  background: #cbc3c3;
+  border: 0.052083333333333vw solid #2b90c4;
+  box-sizing: border-box;
+  border-radius: 0.52083333333333vw;
+}
+
+.trainer-customers-page
+  .set-customer-schedule
+  table#set-food-schedule
+  input[type="submit"] {
+  width: 10.0625vw;
+  height: 2.85416666666667vw;
+  background: #2b90c4;
+  border: 0.052083333333333vw solid #2b90c4;
+  box-sizing: border-box;
+  border-radius: 0.52083333333333vw;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 1.0416666vw;
+  padding-left: 0;
+  display: block;
+  margin: 0 1.5vw 0 auto;
+}
+
+/* Vedio Table */
+.trainer-customers-page .set-customer-schedule table#set-vedio-schedule {
+  border-collapse: collapse;
+  width: 100%;
+  margin-top: 1vw;
+}
+
+.trainer-customers-page .set-customer-schedule table#set-vedio-schedule td,
+.trainer-customers-page .set-customer-schedule table#set-vedio-schedule th {
+  border: 0.052083333vw solid #2b90c4;
+  text-align: center;
+  font-weight: 600;
+  font-size: 1.04166666vw;
+  height: 2.2682291666vw;
+}
+
+.trainer-customers-page .set-customer-schedule table#set-vedio-schedule th {
+  width: 10.4166666vw;
+  height: 2.5682291666vw;
+  background: #43c466;
+  font-weight: 600;
+  font-size: 1.3416666vw;
+  color: #ffffff;
+}
+
+.trainer-customers-page
+  .set-customer-schedule
+  table#set-vedio-schedule
+  th:nth-child(1),
+.trainer-customers-page
+  .set-customer-schedule
+  table#set-vedio-schedule
+  th:nth-child(2) {
+  width: 4.07291666vw;
+}
+
+.trainer-customers-page .set-customer-schedule table#set-vedio-schedule td {
+  height: 4.208333333333333vw;
+  background: #ffffff;
+  font-weight: 600;
+  font-size: 1.0416666vw;
+  color: #000000;
+}
+
+.trainer-customers-page
+  .set-customer-schedule
+  table#set-vedio-schedule
+  td
+  select {
+  width: 6.25vw;
+  height: 2.083333333vw;
+  background: #ffffff;
+  border: 0.052083333333333vw solid #2b90c4;
+  box-sizing: border-box;
+  border-radius: 0.52083333333333vw;
+}
+
+.trainer-customers-page .set-customer-schedule table#set-vedio-schedule input {
+  width: 18.9vw;
+  height: 2.083333333vw;
+  background: #cbc3c3;
+  border: 0.052083333333333vw solid #2b90c4;
+  box-sizing: border-box;
+  border-radius: 0.52083333333333vw;
+}
+
+.trainer-customers-page
+  .set-customer-schedule
+  table#set-vedio-schedule
+  input[type="submit"] {
+  width: 10.0625vw;
+  height: 2.85416666666667vw;
+  background: #2b90c4;
+  border: 0.052083333333333vw solid #2b90c4;
+  box-sizing: border-box;
+  border-radius: 0.52083333333333vw;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 1.0416666vw;
+  padding-left: 0;
+  display: block;
+  margin: 0 1.5vw 0 auto;
+}
+
+/* Table Type Of Color */
+.trainer-customers-page .set-customer-schedule table#meaning-of-color {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 5vw;
+}
+
+.trainer-customers-page .set-customer-schedule table#meaning-of-color td,
+.trainer-customers-page .set-customer-schedule table#meaning-of-color th {
+  border: 0.052083333vw solid #000;
+  text-align: center;
+  font-weight: 600;
+  font-size: 1.04166666vw;
+  height: 2.2682291666vw;
+}
+
+.trainer-customers-page .set-customer-schedule table#meaning-of-color th {
+  height: 2.5682291666vw;
+  font-weight: 600;
+  font-size: 1.3416666vw;
+}

@@ -1,0 +1,125 @@
+.registerPage {
+  margin-bottom: 6vw;
+}
+
+.registerPage .container {
+  margin: 0 auto;
+  height: 84vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+}
+
+.registerPage .form-register {
+  margin: 0 auto;
+  margin-top: 5.2083vw;
+  width: 40.83333333vw;
+  height: 35.5833vw;
+  background: #ffffff;
+  border: 0.052083vw solid rgba(43, 144, 196, 0.5);
+  box-sizing: border-box;
+  box-shadow:  0.20833333vw 0.20833333vw 0.52083vw 0.15625vw rgba(0, 0, 0, 0.25);
+  border-radius: 0.52083vw;
+}
+
+.registerPage .form-register h1 {
+  margin-left: 4.6875vw;
+  margin-top: 2.34375vw;
+  font-weight: 600;
+  font-size: 2.08333vw;
+  color: #000000;
+}
+
+.registerPage .row-head-of-form {
+  display: flex;
+}
+
+.registerPage .form-register .logo img:nth-child(1) {
+  position: absolute;
+  margin-left: 3.9583vw;
+  margin-top: 2.08333vw;
+  width: 3.4375vw;
+}
+
+.registerPage .form-register .logo img:nth-child(2) {
+  position: absolute;
+  margin-top: -3.125vw;
+  margin-left: 4.0625vw;
+  width: 13.75vw;
+}
+
+.registerPage .scope-register-form {
+  width: 31.25vw;
+  margin: 0 auto;
+}
+
+.registerPage .form-row {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1.5625vw;
+}
+
+.registerPage .form-row label {
+  display: inline-block;
+  font-weight: 600;
+  font-size: 1.041666vw;
+  color: #000000;
+  margin-bottom: 0.78125vw;
+}
+
+.registerPage .form-row input {
+  width: 15.1208333vw;
+  height: 3.125vw;
+  background: #ffffff;
+  border: 0.052083vw solid rgba(43, 144, 196, 0.5);
+  box-sizing: border-box;
+  border-radius: 0.52083vw;
+}
+
+.registerPage .form-row input[type="email"] {
+  width: 31.25vw;
+  height: 3.125vw;
+  background: #ffffff;
+  border: 0.052083vw solid rgba(43, 144, 196, 0.5);
+  box-sizing: border-box;
+  border-radius: 0.52083vw;
+}
+
+.registerPage input[type="submit"] {
+  margin-top: 1.8229166vw;
+  width: 31.25vw;
+  height: 2.6041666vw;
+  background: #2b90c4;
+  border-radius: 0.52083vw;
+  font-weight: 600;
+  font-size: 1.041666vw;
+  color: #ffffff;
+  margin-left: 0;
+  border: 0.000520833vw solid #2b90c4;
+}
+
+.registerPage input[type="submit"]:hover {
+  cursor: pointer;
+}
+
+.registerPage .form-register p {
+  text-align: center;
+  font-weight: 600;
+  font-size: 0.9375vw;
+  line-height: 1.1979166vw;
+  color: #000000;
+  margin-top: 1.5625vw;
+}
+
+.registerPage .form-register p a {
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9375vw;
+  color: #2b90c4;
+  margin-left: 0.78125vw;
+}
+
+.registerPage .form-register p a:hover {
+  text-decoration: underline;
+}

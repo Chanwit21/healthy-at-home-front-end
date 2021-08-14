@@ -1,0 +1,55 @@
+.user-inprogress-program-card-component {
+  width: 49.84375vw;
+  height: 28.125vw;
+  background: #ffffff;
+  display: flex;
+  border-radius: 0.52083vw;
+  box-shadow: 0.20833333vw 0.20833333vw 0.52083vw 0.15625vw gray;
+}
+
+.user-inprogress-program-card-component .content-box {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.user-inprogress-program-card-component .content-in-content-box {
+  margin-left: 2.6041666vw;
+  margin-right: 1vw;
+}
+
+.user-inprogress-program-card-component .content-in-content-box h1 {
+  font-weight: 600;
+  font-size: 1.5625vw;
+  color: #000000;
+}
+
+.user-inprogress-program-card-component .content-in-content-box p {
+  font-weight: normal;
+  font-size: 1.302083vw;
+  color: #000000;
+  margin-top: 1vw;
+}
+
+.user-inprogress-program-card-component .content-in-content-box button {
+  width: 7.8125vw;
+  height: 2.1234375vw;
+  background: #2b90c4;
+  border-radius: 0.3125vw;
+  font-weight: 500;
+  font-size: 0.9375vw;
+  color: #ffffff;
+  border: 0.05208333333vw solid #2b90c4;
+}
+
+.user-inprogress-program-card-component .content-in-content-box button:hover {
+  cursor: pointer;
+}
+
+.user-inprogress-program-card-component .img-program {
+  width: 50%;
+  height: 100%;
+  background-image: url("../../PIC/Course/pexels-jacoby-clarke-1933524.jpg");
+  background-size: cover;
+}

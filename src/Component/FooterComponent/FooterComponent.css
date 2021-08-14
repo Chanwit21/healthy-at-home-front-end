@@ -1,0 +1,28 @@
+footer {
+  background-color: #abe3f3;
+  position: absolute;
+  width: 100%;
+  height: 3.125vw;
+}
+
+.footer .footerContainer {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  width: 80%;
+}
+
+.footer .footer-copyright {
+    margin-top: 0.677083vw;
+}
+
+.footer .footer-copyright span{
+    font-size: 1.30208333vw;
+    font-weight: 600;
+}
+
+.footer .footer-copyright img{
+    height: 1.30208333vw;
+    margin: 0 0.52083333vw;
+    margin-bottom: -0.15625vw;
+}

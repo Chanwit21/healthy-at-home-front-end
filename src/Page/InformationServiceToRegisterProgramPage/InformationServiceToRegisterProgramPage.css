@@ -1,0 +1,156 @@
+.informationServiceToRegisterProgramPage .container {
+  margin: 0 auto;
+  width: 80%;
+}
+
+/* Section Card */
+.informationServiceToRegisterProgramPage .service-card-section {
+  margin-top: 1.5625vw;
+}
+
+.informationServiceToRegisterProgramPage .service-card {
+  margin: 0 auto;
+  width: 40.7291666vw;
+  height: 27.708333vw;
+  background: #ffffff;
+  box-shadow: 0.20833333vw 0.20833333vw 0.52083vw 0.15625vw rgba(0, 0, 0, 0.25);
+  border-radius: 0.52083vw;
+}
+
+.informationServiceToRegisterProgramPage .service-card-section .img {
+  background-image: url("../../PIC/Service Program/pexels-karolina-grabowska-4378879.jpg");
+  background-size: cover;
+  width: 100%;
+  /* height: 22.9167vw; */
+  height: 82.706888%;
+  border-radius: 0.52083vw 0.52083vw 0 0;
+}
+
+.informationServiceToRegisterProgramPage .text-in-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 600;
+  font-size: 1.5625vw;
+  color: #000000;
+  /* height: 4.791633vw; */
+  height: 17.293112%;
+}
+
+/* Section Form Information */
+.informationServiceToRegisterProgramPage .form-information-section {
+  margin-top: 3.125vw;
+  margin-bottom: 3.125vw;
+}
+
+.informationServiceToRegisterProgramPage .form-information {
+  margin: 0 auto;
+  width: 69.84375vw;
+  height: 67.5vw;
+  background: #ffffff;
+  box-shadow: 0.20833333vw 0.20833333vw 0.52083vw 0.15625vw rgba(0, 0, 0, 0.25);
+  border-radius: 0.52083vw;
+  padding-top: 6.77083vw;
+}
+
+.informationServiceToRegisterProgramPage .form-information label {
+  font-weight: 600;
+  font-size: 1.5625vw;
+  color: #000000;
+  margin-bottom: 0.5vw;
+  display: inline-block;
+}
+
+.informationServiceToRegisterProgramPage .form-information input {
+  background: #ffffff;
+  border: 0.052083vw solid rgba(43, 144, 196, 0.5);
+  box-sizing: border-box;
+  border-radius: 0.52083vw;
+  width: 20.83333vw;
+  height: 3.125vw;
+}
+
+.informationServiceToRegisterProgramPage .form-information select {
+  background: #ffffff;
+  border: 0.052083vw solid rgba(43, 144, 196, 0.5);
+  box-sizing: border-box;
+  border-radius: 0.52083vw;
+  width: 20.83333vw;
+  height: 3.125vw;
+}
+
+.informationServiceToRegisterProgramPage .form-row {
+  display: flex;
+  justify-content: space-between;
+  width: 65%;
+  margin: 2vw auto;
+}
+
+.informationServiceToRegisterProgramPage .form-information input[type="radio"] {
+  position: absolute;
+  margin-top: 0.35vw;
+  display: inline-block;
+  width: 1.5625vw;
+  height: 1.5625vw;
+}
+
+.informationServiceToRegisterProgramPage .row-radio-check {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.informationServiceToRegisterProgramPage .row-radio-check .box-desease {
+  width: 50%;
+}
+
+.informationServiceToRegisterProgramPage .row-radio-check label {
+  display: inline-block;
+  margin-left: 2vw;
+  font-size: 1.5625vw;
+}
+
+.informationServiceToRegisterProgramPage .gender {
+  margin-top: 2.5vw;
+}
+
+.informationServiceToRegisterProgramPage #additional {
+  background: #ffffff;
+  border: 0.0520833vw solid rgba(43, 144, 196, 0.5);
+  box-sizing: border-box;
+  border-radius: 0.520833vw;
+  width: 45.885vw;
+  height: 14.53125vw;
+}
+
+.informationServiceToRegisterProgramPage .form-information-section .submit {
+  width: 65%;
+  margin: 0 auto;
+}
+
+.informationServiceToRegisterProgramPage
+  .form-information-section
+  input[type="submit"] {
+  display: inline-block;
+  width: 100%;
+  height: 3.125vw;
+  margin: 0 auto;
+  background: #2b90c4;
+  border-radius: 0.520833vw;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 1.5625vw;
+}
+
+.informationServiceToRegisterProgramPage
+  .form-information-section
+  input[type="submit"]:hover {
+  cursor: pointer;
+}
+
+/* Section Contact Us */
+.informationServiceToRegisterProgramPage .horizental-line {
+  width: 100%;
+  height: 0.52vw;
+  background: #2b90c4;
+  border-radius: 0.52vw;
+}

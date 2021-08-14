@@ -1,0 +1,117 @@
+/* PersonalProject */
+@import url("https://fonts.googleapis.com/css2?family=Dosis:wght@200;300;400;500;600;700;800&display=swap");
+
+
+
+/* Link Tag */
+
+/* Logo */
+.navBar {
+  background-color: #abe3f3;
+  position: absolute;
+  width: 100%;
+  height: 3.125vw;
+}
+
+.navBar .navContainer {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  width: 80%;
+}
+
+.navBar .Logo {
+  height: 3.125vw;
+}
+
+.navBar .H-Logo {
+  display: inline-block;
+}
+
+.navBar .H-Logo img {
+  margin-bottom: 2.864583333vw;
+  height: 2.083vw;
+}
+
+.navBar .text-logo {
+  margin-top: -2.34375vw;
+  margin-left: -1.5625vw;
+  display: inline-block;
+}
+
+.navBar .text-logo img {
+  height: 7.8125vw;
+}
+
+/* nav Bar content */
+.navBar .nav-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 2.083vw;
+  /* background-color: #2b91c5; */
+}
+
+.navBar .nav-content ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navBar li {
+  display: inline-block;
+  height: 100%;
+  margin-top: 1vw;
+}
+
+.navBar li a {
+  padding: 0.5729166vw 1.041666vw;
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.5625vw;
+  color: #43c466;
+}
+
+.navBar ul li:last-child {
+  margin-right: 0.5208333vw;
+}
+
+.navBar li a:hover {
+  background-color: #688ce9;
+}
+
+/* Login Status */
+.navBar .login-status {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 1.0416vw;
+  height: 2.4833vw;
+  width: 12.41667vw;
+  text-align: right;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 0.9375vw;
+  background-color: #fff6dd;
+  margin-top: 1.1vw;
+}
+
+.navBar .login-status p {
+  display: inline-block;
+}
+
+.navBar .userstatus-icon {
+  display: inline-block;
+  margin-right: 0.5208333vw;
+  margin-top: 0.5125vw;
+}
+
+.navBar .userstatus-icon img {
+  display: inline-block;
+  height: 1.5625vw;
+}
