@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import result1 from "../../PIC/Picxel/PIC_Result/pexels-elina-fairytale-3822905.jpg";
 import result2 from "../../PIC/Picxel/PIC_Result/pexels-hong-son-4035635.jpg";
 import result3 from "../../PIC/Picxel/PIC_Result/pexels-karolina-grabowska-4498516.jpg";
@@ -9,21 +9,30 @@ function CorasalResultSlideComponent() {
   const MOCK = [result1, result2, result3, result4];
   const [currentImg, setCurrentImg] = useState(0);
   const length = MOCK.length;
+  const [timeoutId, setTimeoutId] = useState(null);
+
   const nextSlide = () => {
     setCurrentImg((cur) => (cur === length - 1 ? 0 : cur + 1));
+    console.log(timeoutId);
+    clearTimeout(timeoutId);
   };
 
   const prevSlide = () => {
     setCurrentImg((cur) => (cur === 0 ? length - 1 : cur - 1));
+    clearTimeout(timeoutId);
   };
 
-  // // มี Bug ถ้า Click มันจะรัวเกินไปได้
-  // useEffect(() => {
-  //   setTimeout(
-  //     () => setCurrentImg((cur) => (cur === length - 1 ? 0 : cur + 1)),
-  //     5000
-  //   );
-  // }, [currentImg, length]);
+  // ได้แล้วแต่เหมือนว่าจะรีเฟรชสองรอบ
+  useEffect(() => {
+    (async () => {
+      const id = await setTimeout(
+        () => setCurrentImg((cur) => (cur === length - 1 ? 0 : cur + 1)),
+        5000
+      );
+      console.log("gen", id);
+      setTimeoutId(id);
+    })();
+  }, [currentImg, length]);
 
   const corasalSlide = MOCK.map((item, index) => {
     return (
