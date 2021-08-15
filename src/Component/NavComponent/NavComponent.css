@@ -1,14 +1,11 @@
 /* PersonalProject */
 @import url("https://fonts.googleapis.com/css2?family=Dosis:wght@200;300;400;500;600;700;800&display=swap");
 
-
-
 /* Link Tag */
 
 /* Logo */
 .navBar {
   background-color: #abe3f3;
-  position: absolute;
   width: 100%;
   height: 3.125vw;
 }
@@ -86,7 +83,7 @@
 }
 
 /* Login Status */
-.navBar .login-status {
+.navBar .log-in-status {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -101,7 +98,7 @@
   margin-top: 1.1vw;
 }
 
-.navBar .login-status p {
+.navBar .log-in-status p {
   display: inline-block;
 }
 

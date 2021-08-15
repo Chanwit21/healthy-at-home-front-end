@@ -1,0 +1,81 @@
+/* Section Promo */
+.CorasalPromotionSlideComponent {
+  width: 100%;
+}
+
+.CorasalPromotionSlideComponent .container {
+  margin: 0 auto;
+  width: 80%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 34rem;
+}
+
+.CorasalPromotionSlideComponent .img-promo {
+  position: absolute;
+  width: 100%;
+  opacity: 0;
+  height: 34rem;
+  transition-duration: 1s ease;
+}
+
+.CorasalPromotionSlideComponent .img-promo.active {
+  opacity: 100%;
+  height: 34rem;
+  transition-duration: 1s;
+}
+
+.CorasalPromotionSlideComponent .img-promo img {
+  width: 100%;
+  height: 34rem;
+  object-fit: cover;
+}
+
+.CorasalPromotionSlideComponent .arrow {
+  height: 1.5vw;
+  width: 1.5vw;
+  color: #fff;
+  opacity: 1;
+}
+
+.CorasalPromotionSlideComponent .arrow-right {
+  right: 3%;
+}
+
+.arrow-left-bg {
+  width: 5%;
+  height: 100%;
+  opacity: 0.5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #0008;
+  position: absolute;
+  z-index: 1;
+  left: 0;
+}
+
+.arrow-left-bg:hover {
+  opacity: 1;
+  cursor: pointer;
+}
+
+.arrow-right-bg {
+  width: 5%;
+  height: 100%;
+  opacity: 0.5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #0008;
+  position: absolute;
+  z-index: 1;
+  right: 0;
+}
+
+.arrow-right-bg:hover {
+  opacity: 1;
+  cursor: pointer;
+}

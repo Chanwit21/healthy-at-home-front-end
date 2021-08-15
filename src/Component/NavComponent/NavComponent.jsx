@@ -38,7 +38,7 @@ function NavComponent() {
             <Link
               to="/loginpage"
               style={{ textDecoration: "none", color: "black" }}>
-              <div className="login-status">
+              <div className="log-in-status">
                 <div className="userstatus-icon">
                   <img src={avataIcon} alt="User-icon" />
                 </div>

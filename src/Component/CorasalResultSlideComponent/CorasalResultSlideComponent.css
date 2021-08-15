@@ -1,0 +1,52 @@
+.CorasalResultSlideComponent {
+  margin-top: 5vw;
+  width: 100%;
+  height: 30rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.CorasalResultSlideComponent .arrow {
+  position: absolute;
+  height: 2vw;
+  width: 2vw;
+  background-color: inherit;
+  border: none;
+  z-index: 3;
+}
+
+.CorasalResultSlideComponent .arrow-left-result {
+  left: 0;
+}
+
+.CorasalResultSlideComponent .arrow-right-result {
+  right: 0;
+}
+
+.CorasalResultSlideComponent button:hover {
+  cursor: pointer;
+}
+
+.CorasalResultSlideComponent .resultImage {
+  width: 40%;
+  height: 30rem;
+  object-fit: cover;
+}
+
+.img-result {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  opacity: 0;
+  height: 34rem;
+  transition-duration: 1s ease;
+}
+
+.img-result.active {
+  opacity: 100%;
+  height: 34rem;
+  transition-duration: 1s;
+}

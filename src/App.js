@@ -26,11 +26,14 @@ import AdminCustomersPage from "./Page/AdminCustomersPage/AdminCustomersPage";
 import TrainerProfilePage from "./Page/TrainerProfilePage/TrainerProfilePage";
 import TrainerManageVideosAndFoodPage from "./Page/TrainerManageVideosAndFoodPage/TrainerManageVideosAndFoodPage";
 import TrainerCustomersPage from "./Page/TrainerCustomersPage/TrainerCustomersPage";
+import FooterComponent from "./Component/FooterComponent/FooterComponent";
+import NavComponent from "./Component/NavComponent/NavComponent";
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
+        <NavComponent />
         <Switch>
           <Route exact path="/" component={HomePage} />
           <Route path="/aboutpage" component={AboutPage} />
@@ -91,6 +94,9 @@ function App() {
             component={TrainerCustomersPage}
           />
         </Switch>
+        {/* Space Bottom */}
+        <div style={{ marginBottom: "2.083333333333333vw" }}></div>
+        <FooterComponent />
       </BrowserRouter>
     </div>
   );
