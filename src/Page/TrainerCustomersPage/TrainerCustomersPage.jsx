@@ -1,153 +1,151 @@
-import React, { useState } from "react";
-import FooterComponent from "../../Component/FooterComponent/FooterComponent";
-import NavBarLeftForAdminAndTrainerComponent from "../../Component/NavBarLeftForAdminAndTrainerComponent/NavBarLeftForAdminAndTrainerComponent";
-import NavComponent from "../../Component/NavComponent/NavComponent";
-import "./TrainerCustomersPage.css";
-import avatarImg from "../../PIC/Icon/user.png";
-import trainerImgAndrewDick from "../../PIC/Trainer/pexels-andrew-dick-733500.jpg";
-import trainerThisIsEngineer from "../../PIC/Trainer/pexels-thisisengineering-3912944.jpg";
+import React, { useState } from 'react';
+import NavBarLeftForAdminAndTrainerComponent from '../../Component/NavBarLeftForAdminAndTrainerComponent/NavBarLeftForAdminAndTrainerComponent';
+import './TrainerCustomersPage.css';
+import avatarImg from '../../PIC/Icon/user.png';
+import trainerImgAndrewDick from '../../PIC/Trainer/pexels-andrew-dick-733500.jpg';
+import trainerThisIsEngineer from '../../PIC/Trainer/pexels-thisisengineering-3912944.jpg';
 
 function TrainerCustomersPage() {
   const arrayProfileContents = [
     {
-      name: "Chanwit Pansila",
-      status: "Admin",
+      name: 'Chanwit Pansila',
+      status: 'Admin',
       imgPath: avatarImg,
-      imgPosition: "0 0",
+      imgPosition: '0 0',
       contents: [
-        { "col-left": "Phone Number", "col-right": "089-697-xxx" },
+        { 'col-left': 'Phone Number', 'col-right': '089-697-xxx' },
         {
-          "col-left": "Gender",
-          "col-right": "Male",
+          'col-left': 'Gender',
+          'col-right': 'Male',
         },
         {
-          "col-left": "Weight",
-          "col-right": "63 kg.",
+          'col-left': 'Weight',
+          'col-right': '63 kg.',
         },
         {
-          "col-left": "Heigth",
-          "col-right": "171 cm.",
+          'col-left': 'Heigth',
+          'col-right': '171 cm.',
         },
       ],
     },
     {
-      name: "Thanapob SingHaseanee",
-      status: "Trainer",
+      name: 'Thanapob SingHaseanee',
+      status: 'Trainer',
       imgPath: trainerThisIsEngineer,
-      imgPosition: "0 0",
+      imgPosition: '0 0',
       contents: [
-        { "col-left": "Phone Number", "col-right": "089-697-xxx" },
+        { 'col-left': 'Phone Number', 'col-right': '089-697-xxx' },
         {
-          "col-left": "Gender",
-          "col-right": "Male",
+          'col-left': 'Gender',
+          'col-right': 'Male',
         },
         {
-          "col-left": "Weight",
-          "col-right": "63 kg.",
+          'col-left': 'Weight',
+          'col-right': '63 kg.',
         },
         {
-          "col-left": "Heigth",
-          "col-right": "171 cm.",
+          'col-left': 'Heigth',
+          'col-right': '171 cm.',
         },
         {
-          "col-left": "Education",
-          "col-right":
-            "Faculty of Physical Education Srinakharinwirot university.",
+          'col-left': 'Education',
+          'col-right':
+            'Faculty of Physical Education Srinakharinwirot university.',
         },
       ],
     },
   ];
   const arrayProfileFilter = arrayProfileContents.filter(
-    (item) => item.name === "Thanapob SingHaseanee"
+    (item) => item.name === 'Thanapob SingHaseanee'
   );
   // console.log(arrayProfileFilter)
   const arrayOfCustomersList = [
     {
-      name: "Wuttichai Chankracang",
+      name: 'Wuttichai Chankracang',
       imgPathOfCustomer: avatarImg,
-      imgCustomerPosition: "0 0",
-      status: "During The Program",
-      course: "45 day program.",
-      personalTrainer: "Thanapob SingHaseanee",
+      imgCustomerPosition: '0 0',
+      status: 'During The Program',
+      course: '45 day program.',
+      personalTrainer: 'Thanapob SingHaseanee',
       imgPathOfPersonalTrainer: trainerImgAndrewDick,
-      imgTrainerPosition: "0 0",
+      imgTrainerPosition: '0 0',
     },
     {
-      name: "Boontham Saraboon",
+      name: 'Boontham Saraboon',
       imgPathOfCustomer: avatarImg,
-      imgCustomerPosition: "0 0",
-      status: "During The Program",
-      course: "3 month program.",
-      personalTrainer: "Suthep Prabkeaw",
+      imgCustomerPosition: '0 0',
+      status: 'During The Program',
+      course: '3 month program.',
+      personalTrainer: 'Suthep Prabkeaw',
       imgPathOfPersonalTrainer: avatarImg,
-      imgTrainerPosition: "0 0",
+      imgTrainerPosition: '0 0',
     },
     {
-      name: "Komchan Github",
+      name: 'Komchan Github',
       imgPathOfCustomer: avatarImg,
-      imgCustomerPosition: "0 0",
-      status: "Pending payment",
-      course: "45 day program.",
-      personalTrainer: "none",
-      imgPathOfPersonalTrainer: "",
-      imgTrainerPosition: "0 0",
+      imgCustomerPosition: '0 0',
+      status: 'Pending payment',
+      course: '45 day program.',
+      personalTrainer: 'none',
+      imgPathOfPersonalTrainer: '',
+      imgTrainerPosition: '0 0',
     },
     {
-      name: "Facetime HaHa",
+      name: 'Facetime HaHa',
       imgPathOfCustomer: avatarImg,
-      imgCustomerPosition: "0 0",
-      status: "Successful payment Start Date  14/07/2021",
-      course: "45 day program.",
-      personalTrainer: "Suthep Prabkeaw",
+      imgCustomerPosition: '0 0',
+      status: 'Successful payment Start Date  14/07/2021',
+      course: '45 day program.',
+      personalTrainer: 'Suthep Prabkeaw',
       imgPathOfPersonalTrainer: avatarImg,
-      imgTrainerPosition: "0 0",
+      imgTrainerPosition: '0 0',
     },
   ];
   const arrOfNumberoOfDaysInEachProgram = {
-    "45 day program.": 45,
-    "3 month program.": 90,
-    "9 month program.": 180,
+    '45 day program.': 45,
+    '3 month program.': 90,
+    '9 month program.': 180,
   };
   const arrayColor = [
     {
-      color: "gray",
-      colorCode: "#ADADAD",
-      fontColor: "#000000",
+      color: 'gray',
+      colorCode: '#ADADAD',
+      fontColor: '#000000',
       content: [
-        "The gray pose focuses mainly on size.",
-        "12 REPS X 3 SETS",
-        "Rest 60 seconds / Set",
+        'The gray pose focuses mainly on size.',
+        '12 REPS X 3 SETS',
+        'Rest 60 seconds / Set',
       ],
     },
     {
-      color: "white",
-      colorCode: "#ffffff",
-      fontColor: "#000000",
+      color: 'white',
+      colorCode: '#ffffff',
+      fontColor: '#000000',
       content: [
-        "White posture emphasizes stamina and size.",
-        "20 REPS X 3 SETS",
-        "Rest 30 seconds / Set",
+        'White posture emphasizes stamina and size.',
+        '20 REPS X 3 SETS',
+        'Rest 30 seconds / Set',
       ],
     },
     {
-      color: "pink",
-      colorCode: "#FF88A4",
-      fontColor: "#FFF",
-      content: ["Pink Is Rest Day"],
+      color: 'pink',
+      colorCode: '#FF88A4',
+      fontColor: '#FFF',
+      content: ['Pink Is Rest Day'],
     },
     {
-      color: "yellow",
-      colorCode: "#DCDF52",
-      fontColor: "#FFF",
-      content: ["Yellow is cardio Day."],
+      color: 'yellow',
+      colorCode: '#DCDF52',
+      fontColor: '#FFF',
+      content: ['Yellow is cardio Day.'],
     },
   ];
-  const [customer, setCustomer] = useState("none");
-  const [course, setCourse] = useState("");
+  const [customer, setCustomer] = useState('none');
+  const [course, setCourse] = useState('');
   const [arrayDay, setArrayDay] = useState([]);
   // const [detailsCustomer, setdetailsCustomer] = useState({});
-  const [typeOfSchedule, setTypeOfSchedule] = useState("none");
-  const [day, setDay] = useState("");
+  const [typeOfSchedule, setTypeOfSchedule] = useState('none');
+  const [day, setDay] = useState('');
 
   function selectCustomer(e) {
     let change = e.target.value;
@@ -156,15 +154,15 @@ function TrainerCustomersPage() {
     );
     // console.log(objOfCutomer)
     // setdetailsCustomer(objOfCutomer ? objOfCutomer : {});
-    setCourse(objOfCutomer ? objOfCutomer.course : "");
-    setTypeOfSchedule("");
-    setDay("");
+    setCourse(objOfCutomer ? objOfCutomer.course : '');
+    setTypeOfSchedule('');
+    setDay('');
     setCustomer(e.target.value);
     setArrayDay(
       createArrayOfDays(
-        arrOfNumberoOfDaysInEachProgram[objOfCutomer ? objOfCutomer.course : ""]
+        arrOfNumberoOfDaysInEachProgram[objOfCutomer ? objOfCutomer.course : '']
           ? arrOfNumberoOfDaysInEachProgram[
-              objOfCutomer ? objOfCutomer.course : ""
+              objOfCutomer ? objOfCutomer.course : ''
             ]
           : 0
       )
@@ -185,7 +183,7 @@ function TrainerCustomersPage() {
   function selectSchedule(e) {
     const change = e.target.value;
     setTypeOfSchedule(change);
-    setDay("");
+    setDay('');
     // setArrayDay([]);
   }
 
@@ -204,74 +202,75 @@ function TrainerCustomersPage() {
 
   return (
     <div>
-      <NavComponent />
-      <div style={{ paddingTop: "3.125vw", with: "100%" }}></div>
-      <div className="trainer-customers-page">
-        <section className="customers-list">
-          <div className="container">
-            <div className="row-of-navbar-left-and-customers-list">
-              <div className="navbar-left-trainer-customers-page">
+      <div className='trainer-customers-page'>
+        <section className='customers-list'>
+          <div className='container'>
+            <div className='row-of-navbar-left-and-customers-list'>
+              <div className='navbar-left-trainer-customers-page'>
                 <NavBarLeftForAdminAndTrainerComponent
-                  imgPath={arrayProfileFilter[0].imgPath}
-                  name={arrayProfileFilter[0].name}
-                  status={arrayProfileFilter[0].status}
-                  onPage="TrainerCustomersPage"
-                  imgPosition={arrayProfileFilter[0].imgPosition}
+                  onPage='TrainerCustomersPage'
+                  profile={arrayProfileFilter[0]}
                 />
               </div>
-              <div className="customer-form">
-                <div className="row-of-select-customer">
+              <div className='customer-form'>
+                <div className='row-of-select-customer'>
                   <select
-                    name="customer"
-                    id="customer"
+                    name='customer'
+                    id='customer'
                     value={customer}
-                    onChange={selectCustomer}>
-                    <option value="none">none</option>
+                    onChange={selectCustomer}
+                  >
+                    <option value='none'>none</option>
                     {arrayOfCustomersList.map((item) => {
                       return <option value={item.name}>{item.name}</option>;
                     })}
                   </select>
                   <select
-                    name="type-of-schedule"
-                    id="type-of-schedule"
+                    name='type-of-schedule'
+                    id='type-of-schedule'
                     onChange={selectSchedule}
-                    value={typeOfSchedule}>
-                    <option value="none">none</option>
-                    <option value="Food">Food</option>
-                    <option value="Vedio">Vedio</option>
+                    value={typeOfSchedule}
+                  >
+                    <option value='none'>none</option>
+                    <option value='Food'>Food</option>
+                    <option value='Vedio'>Vedio</option>
                   </select>
                   <select
-                    name="day-of-schedule"
-                    id="day-of-schedule"
+                    name='day-of-schedule'
+                    id='day-of-schedule'
                     onChange={selectDay}
-                    value={day}>
-                    <option value="none">none</option>
-                    {typeOfSchedule !== "none"
+                    value={day}
+                  >
+                    <option value='none'>none</option>
+                    {typeOfSchedule !== 'none'
                       ? arrayDay.map((item, index) => {
                           return (
                             <option
                               key={index}
-                              value={`Day${item}`}>{`Day${item}`}</option>
+                              value={`Day${item}`}
+                            >{`Day${item}`}</option>
                           );
                         })
                       : null}
                   </select>
                 </div>
-                <div className="set-customer-schedule">
+                <div className='set-customer-schedule'>
                   <h1
                     style={{
-                      display: course ? "" : "none",
-                    }}>
+                      display: course ? '' : 'none',
+                    }}
+                  >
                     Customer Program : {course}
                   </h1>
-                  <form action="#" id="set-food-schedule-form">
+                  <form action='#' id='set-food-schedule-form'>
                     <table
-                      id="set-food-schedule"
+                      id='set-food-schedule'
                       style={{
-                        display: day && typeOfSchedule === "Food" ? "" : "none",
-                      }}>
+                        display: day && typeOfSchedule === 'Food' ? '' : 'none',
+                      }}
+                    >
                       <tr>
-                        <th colSpan="2">{day}</th>
+                        <th colSpan='2'>{day}</th>
                       </tr>
                       <tr>
                         <th>Time & Activity</th>
@@ -280,66 +279,67 @@ function TrainerCustomersPage() {
                       <tr>
                         <td>Breakfast</td>
                         <td>
-                          <input type="text" name="breakfast" id="breakfast" />
+                          <input type='text' name='breakfast' id='breakfast' />
                         </td>
                       </tr>
                       <tr>
                         <td>Brunch</td>
                         <td>
-                          <input type="text" name="brunch" id="brunch" />
+                          <input type='text' name='brunch' id='brunch' />
                         </td>
                       </tr>
                       <tr>
                         <td>Lunch</td>
                         <td>
-                          <input type="text" name="lunch" id="lunch" />
+                          <input type='text' name='lunch' id='lunch' />
                         </td>
                       </tr>
                       <tr>
                         <td>Afternoon meal</td>
                         <td>
                           <input
-                            type="text"
-                            name="afternoon-meal"
-                            id="afternoon-meal"
+                            type='text'
+                            name='afternoon-meal'
+                            id='afternoon-meal'
                           />
                         </td>
                       </tr>
                       <tr>
-                        <td colSpan="2">Work Out</td>
+                        <td colSpan='2'>Work Out</td>
                       </tr>
                       <tr>
                         <td>Dinner</td>
                         <td>
-                          <input type="text" name="dinner" id="dinner" />
+                          <input type='text' name='dinner' id='dinner' />
                         </td>
                       </tr>
                       <tr>
                         <td>Late night</td>
                         <td>
                           <input
-                            type="text"
-                            name="late-night"
-                            id="late-night"
+                            type='text'
+                            name='late-night'
+                            id='late-night'
                           />
                         </td>
                       </tr>
                       <tr>
-                        <td colSpan="2">
-                          <input type="submit" value="Submit" />
+                        <td colSpan='2'>
+                          <input type='submit' value='Submit' />
                         </td>
                       </tr>
                     </table>
                   </form>
-                  <form id="set-vedio-schedule-form">
+                  <form id='set-vedio-schedule-form'>
                     <table
-                      id="set-vedio-schedule"
+                      id='set-vedio-schedule'
                       style={{
                         display:
-                          day && typeOfSchedule === "Vedio" ? "" : "none",
-                      }}>
+                          day && typeOfSchedule === 'Vedio' ? '' : 'none',
+                      }}
+                    >
                       <tr>
-                        <th colSpan="4">{day}</th>
+                        <th colSpan='4'>{day}</th>
                       </tr>
                       <tr>
                         <th>Order</th>
@@ -355,39 +355,44 @@ function TrainerCustomersPage() {
                               <select
                                 name={`color-order-${item}`}
                                 id={`color-order-${item}`}
-                                onChange={changeColorSelect}>
+                                onChange={changeColorSelect}
+                              >
                                 <option
-                                  value="#FFFFFF"
+                                  value='#FFFFFF'
                                   style={{
-                                    backgroundColor: "#FFFFFF",
-                                  }}></option>
+                                    backgroundColor: '#FFFFFF',
+                                  }}
+                                ></option>
                                 <option
-                                  value="#ADADAD"
+                                  value='#ADADAD'
                                   style={{
-                                    backgroundColor: "#ADADAD",
-                                  }}></option>
+                                    backgroundColor: '#ADADAD',
+                                  }}
+                                ></option>
                                 <option
-                                  value="#DCDF52"
+                                  value='#DCDF52'
                                   style={{
-                                    backgroundColor: "#DCDF52",
-                                  }}></option>
+                                    backgroundColor: '#DCDF52',
+                                  }}
+                                ></option>
                                 <option
-                                  value="#FF88A4"
+                                  value='#FF88A4'
                                   style={{
-                                    backgroundColor: "#FF88A4",
-                                  }}></option>
+                                    backgroundColor: '#FF88A4',
+                                  }}
+                                ></option>
                               </select>
                             </td>
                             <td>
                               <input
-                                type="text"
+                                type='text'
                                 name={`exercise-order-${item}`}
                                 id={`exercise-order-${item}`}
                               />
                             </td>
                             <td>
                               <input
-                                type="text"
+                                type='text'
                                 name={`link-order-${item}`}
                                 id={`link-order-${item}`}
                               />
@@ -396,26 +401,28 @@ function TrainerCustomersPage() {
                         );
                       })}
                       <tr>
-                        <td colSpan="4">
-                          <input type="submit" value="Submit" />
+                        <td colSpan='4'>
+                          <input type='submit' value='Submit' />
                         </td>
                       </tr>
                     </table>
                   </form>
                   <table
-                    id="meaning-of-color"
+                    id='meaning-of-color'
                     style={{
-                      display: day && typeOfSchedule === "Vedio" ? "" : "none",
-                    }}>
+                      display: day && typeOfSchedule === 'Vedio' ? '' : 'none',
+                    }}
+                  >
                     <tr
                       style={{
-                        backgroundColor: "#2B90C5",
-                        color: "#FFF",
-                        height: "3.125vw",
-                      }}>
-                      <th colSpan="4">Executive posture</th>
-                      <th colSpan="3">Reps x Setss</th>
-                      <th colSpan="2">Break period</th>
+                        backgroundColor: '#2B90C5',
+                        color: '#FFF',
+                        height: '3.125vw',
+                      }}
+                    >
+                      <th colSpan='4'>Executive posture</th>
+                      <th colSpan='3'>Reps x Setss</th>
+                      <th colSpan='2'>Break period</th>
                     </tr>
                     {arrayColor.map((element) => {
                       let count = 4;
@@ -424,10 +431,11 @@ function TrainerCustomersPage() {
                           style={{
                             backgroundColor: element.colorCode,
                             color: element.fontColor,
-                          }}>
+                          }}
+                        >
                           {element.content.map((item) => {
                             if (element.content.length === 1) {
-                              return <th colSpan="9">{item}</th>;
+                              return <th colSpan='9'>{item}</th>;
                             }
                             return <th colSpan={count--}>{item}</th>;
                           })}
@@ -441,8 +449,6 @@ function TrainerCustomersPage() {
           </div>
         </section>
       </div>
-      <div style={{ marginBottom: "2.083333333333333vw" }}></div>
-      <FooterComponent />
     </div>
   );
 }
