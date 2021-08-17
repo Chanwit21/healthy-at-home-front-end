@@ -1,6 +1,6 @@
 /* Global */
 * {
-  font-family: "Dosis", sans-serif;
+  font-family: 'Dosis', sans-serif;
   padding: 0;
   margin: 0;
   font-size: 1.5vw;
@@ -30,6 +30,7 @@ textarea {
   padding-top: 0.5vw;
   padding-left: 0.5vw;
   font-size: 1.041666666666667vw;
+  resize: none;
 }
 
 textarea:focus {

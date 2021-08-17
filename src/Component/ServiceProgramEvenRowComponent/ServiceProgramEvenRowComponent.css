@@ -31,6 +31,11 @@
   color: #000000;
 }
 
+.service-cardEven .text-content-in-servicecardEven button a {
+  text-decoration: none;
+  color: inherit;
+}
+
 .service-cardEven .text-content-in-servicecardEven button {
   width: 11.09375vw;
   height: 2.9167vw;

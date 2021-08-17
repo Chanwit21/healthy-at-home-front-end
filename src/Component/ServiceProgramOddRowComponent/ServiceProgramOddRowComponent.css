@@ -30,6 +30,11 @@
   color: #000000;
 }
 
+.service-cardOdd .text-content-in-servicecardOdd button a {
+  text-decoration: none;
+  color: inherit;
+}
+
 .service-cardOdd .text-content-in-servicecardOdd button {
   width: 11.09375vw;
   height: 2.9167vw;
@@ -43,7 +48,7 @@
 }
 
 .service-cardOdd .text-content-in-servicecardOdd button:hover {
-cursor: pointer;
+  cursor: pointer;
 }
 
 .service-cardOdd .price-in-service-cardOdd {

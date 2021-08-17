@@ -1,5 +1,6 @@
-import React from "react";
-import "./ServiceProgramOddRowComponent.css";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import './ServiceProgramOddRowComponent.css';
 
 function ServiceProgramOddRowComponent(props) {
   return (
@@ -9,7 +10,9 @@ function ServiceProgramOddRowComponent(props) {
           <div className="text-content-in-servicecardOdd">
             <h1>{props.courseName}</h1>
             <p>{props.content}</p>
-            <button>Join Now</button>
+            <button>
+              <Link to="/informatioservicetoregisterprogrampage">Join Now</Link>
+            </button>
             <p className="price-in-service-cardOdd">Price : {props.Price}</p>
           </div>
         </div>
