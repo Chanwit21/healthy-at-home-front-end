@@ -11,7 +11,18 @@ function ServiceProgramOddRowComponent(props) {
             <h1>{props.courseName}</h1>
             <p>{props.content}</p>
             <button>
-              <Link to="/informatioservicetoregisterprogrampage">Join Now</Link>
+              <Link
+                to={{
+                  pathname: '/informatioservicetoregisterprogrampage',
+                  state: {
+                    courseName: props.courseName,
+                    serImgPath: props.serImgPath,
+                    price: props.Price,
+                  },
+                }}
+              >
+                Join Now
+              </Link>
             </button>
             <p className="price-in-service-cardOdd">Price : {props.Price}</p>
           </div>

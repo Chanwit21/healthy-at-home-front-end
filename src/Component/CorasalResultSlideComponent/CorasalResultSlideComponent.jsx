@@ -11,19 +11,19 @@ function CorasalResultSlideComponent() {
   const length = MOCK.length;
 
   const nextSlide = () => {
-    setCurrentImg((cur) => (cur === length - 1 ? 0 : cur + 1));
+    setCurrentImg(cur => (cur === length - 1 ? 0 : cur + 1));
   };
 
   const prevSlide = () => {
-    setCurrentImg((cur) => (cur === 0 ? length - 1 : cur - 1));
+    setCurrentImg(cur => (cur === 0 ? length - 1 : cur - 1));
   };
 
-  // ได้แล้วแต่เหมือนว่าจะรีเฟรชสองรอบ
   useEffect(() => {
-    setInterval(
-      () => setCurrentImg((cur) => (cur === length - 1 ? 0 : cur + 1)),
+    const id = setInterval(
+      () => setCurrentImg(cur => (cur === length - 1 ? 0 : cur + 1)),
       5000
     );
+    return () => clearInterval(id);
     // console.log("gen", id);
   }, [length]);
 
@@ -33,19 +33,19 @@ function CorasalResultSlideComponent() {
         key={index}
         className={currentImg === index ? 'img-result active' : 'img-result'}
       >
-        <img src={item} alt='result' className='resultImage' />
+        <img src={item} alt="result" className="resultImage" />
       </div>
     );
   });
 
   return (
-    <div className='CorasalResultSlideComponent'>
-      <button className='arrow arrow-left-result' onClick={() => prevSlide()}>
+    <div className="CorasalResultSlideComponent">
+      <button className="arrow arrow-left-result" onClick={() => prevSlide()}>
         <BsCaretLeftFill />
       </button>
       {corasalSlide}
       {/* <img src={result1} alt="result1" className="resultImage" /> */}
-      <button className='arrow arrow-right-result' onClick={() => nextSlide()}>
+      <button className="arrow arrow-right-result" onClick={() => nextSlide()}>
         <BsCaretRightFill />
       </button>
     </div>

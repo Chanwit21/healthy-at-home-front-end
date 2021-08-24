@@ -26,6 +26,16 @@ input:focus {
   box-shadow: 0 0 0 0.052083vw #2b90c4;
 }
 
+.input-invalid {
+  box-shadow: 0 0 0 0.072083vw red !important;
+}
+
+.invalid-text {
+  color: red;
+  font-size: 1.3vw;
+  padding-top: 0.3vw;
+}
+
 textarea {
   padding-top: 0.5vw;
   padding-left: 0.5vw;

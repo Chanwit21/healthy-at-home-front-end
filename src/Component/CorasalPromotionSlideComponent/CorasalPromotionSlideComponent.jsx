@@ -36,10 +36,12 @@ function CorasalPromotionSlideComponent() {
   };
 
   useEffect(() => {
-    setInterval(
+    const id = setInterval(
       () => setCurrentImg((cur) => (cur === length - 1 ? 0 : cur + 1)),
       7000
     );
+
+    return ()=> clearInterval(id)
   }, [length]);
 
   const corasalSlide = MOCK2.map((item, index) => {

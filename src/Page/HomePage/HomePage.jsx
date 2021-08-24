@@ -1,16 +1,16 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import "./HomePage.css";
-import TrainerCardComponent from "../../Component/TrainerCardComponent/TrainerCardComponent";
-import ContactUsComponent from "../../Component/ContactUsComponent/ContactUsComponent";
-import trainerAndrewDick from "../../PIC/Trainer/pexels-andrew-dick-733500.jpg";
-import trainerThisIsEngineering from "../../PIC/Trainer/pexels-thisisengineering-3912944.jpg";
-import CorasalPromotionSlideComponent from "../../Component/CorasalPromotionSlideComponent/CorasalPromotionSlideComponent";
-import CorasalResultSlideComponent from "../../Component/CorasalResultSlideComponent/CorasalResultSlideComponent";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import './HomePage.css';
+import TrainerCardComponent from '../../Component/TrainerCardComponent/TrainerCardComponent';
+import ContactUsComponent from '../../Component/ContactUsComponent/ContactUsComponent';
+import trainerAndrewDick from '../../PIC/Trainer/pexels-andrew-dick-733500.jpg';
+import trainerThisIsEngineering from '../../PIC/Trainer/pexels-thisisengineering-3912944.jpg';
+import CorasalPromotionSlideComponent from '../../Component/CorasalPromotionSlideComponent/CorasalPromotionSlideComponent';
+import CorasalResultSlideComponent from '../../Component/CorasalResultSlideComponent/CorasalResultSlideComponent';
 
 function HomePage() {
   return (
-    <div>
+    <>
       <div className="homepage-body">
         <CorasalPromotionSlideComponent />
         <section className="result">
@@ -28,7 +28,8 @@ function HomePage() {
             </div>
             <Link
               to="/trainerpage"
-              style={{ textDecoration: "none", color: "black" }}>
+              style={{ textDecoration: 'none', color: 'black' }}
+            >
               <div className="trainer-card-row">
                 <TrainerCardComponent
                   pathOfImg={trainerAndrewDick}
@@ -51,7 +52,7 @@ function HomePage() {
           </div>
         </section>
       </div>
-    </div>
+    </>
   );
 }
 

@@ -14,11 +14,12 @@
 }
 
 .trainer-page .trainer-cardrow-trainerpage {
-    margin-top: 2.0833333;
-    display: flex;
-    justify-content: space-between;
+  margin-top: 2.0833333vw;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .trainer-page .contact-us {
-    margin-top: 4.167vw;
+  margin-top: 4.167vw;
 }
