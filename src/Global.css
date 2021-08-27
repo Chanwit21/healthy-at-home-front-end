@@ -64,3 +64,8 @@ select:focus {
   outline: none;
   box-shadow: 0 0 0 0.052083vw #2b90c4;
 }
+
+.disabled {
+  pointer-events: none;
+  opacity: 0.4;
+}

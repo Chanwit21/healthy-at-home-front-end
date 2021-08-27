@@ -1,28 +1,38 @@
-import React from 'react';
-import { useLocation } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { useHistory, useLocation } from 'react-router-dom';
 import './ExpenseSummaryPage.css';
 
 function ExpenseSummaryPage() {
+  const [state, setState] = useState({
+    fname: '',
+    lname: '',
+    weight: '',
+    height: '',
+    telNumber: '',
+    foodAllergic: '',
+    typeOfFood: '',
+    loseWeightBefore: '',
+    disease: '',
+    gender: '',
+    additional: '',
+    courseName: '',
+    price: '',
+    dateToStart: '',
+  });
   const location = useLocation();
   // console.log(location.state);
-  const {
-    fname,
-    lname,
-    weight,
-    height,
-    telNumber,
-    foodAllergic,
-    typeOfFood,
-    loseWeightBefore,
-    disease,
-    gender,
-    additional,
-    courseName,
-    price,
-    dateToStart,
-  } = location.state;
+
+  const history = useHistory();
+
+  useEffect(() => {
+    setState(location.state);
+  }, [location]);
 
   const formatDateToShow = date => date.split('-').join('/');
+
+  const handleClickSubmit = () => {
+    history.push({ pathname: '/paymentpage', state: state });
+  };
 
   return (
     <div>
@@ -36,76 +46,76 @@ function ExpenseSummaryPage() {
                 <div className="summary-row">
                   <h1>Selected Program :</h1>
                   <div className="col-in-summary">
-                    <p>{courseName}</p>
+                    <p>{state.courseName}</p>
                   </div>
                 </div>
                 <div className="summary-row">
                   <h1>Price :</h1>
                   <div className="col-in-summary">
-                    <p>{price} THB</p>
+                    <p>{state.price} THB</p>
                   </div>
                 </div>
                 <div className="summary-row">
                   <h1>Name :</h1>
                   <div className="col-in-summary">
-                    <p>{fname + ' ' + lname}</p>
+                    <p>{state.fname + ' ' + state.lname}</p>
                   </div>
                 </div>
                 <div className="summary-row">
                   <h1>Phone Numbers :</h1>
                   <div className="col-in-summary">
-                    <p>{telNumber}</p>
+                    <p>{state.telNumber}</p>
                   </div>
                 </div>
                 <div className="summary-row">
                   <h1>Gender :</h1>
                   <div className="col-in-summary">
-                    <p>{gender}</p>
+                    <p>{state.gender}</p>
                   </div>
                 </div>
                 <div className="summary-row">
                   <h1>Weight :</h1>
                   <div className="col-in-summary">
-                    <p>{weight} kg.</p>
+                    <p>{state.weight} kg.</p>
                   </div>
                 </div>
                 <div className="summary-row">
                   <h1>Heigth :</h1>
                   <div className="col-in-summary">
-                    <p>{height} cm.</p>
+                    <p>{state.height} cm.</p>
                   </div>
                 </div>
                 <div className="summary-row">
                   <h1>Food you are allergic :</h1>
                   <div className="col-in-summary">
-                    <p>{foodAllergic ? foodAllergic : '-'}</p>
+                    <p>{state.foodAllergic ? state.foodAllergic : '-'}</p>
                   </div>
                 </div>
                 <div className="summary-row">
                   <h1>Type of food :</h1>
                   <div className="col-in-summary">
-                    <p>{typeOfFood}</p>
+                    <p>{state.typeOfFood}</p>
                   </div>
                 </div>
                 <div className="summary-row">
                   <h1>Ever lost weight :</h1>
                   <div className="col-in-summary">
-                    <p>{loseWeightBefore || '-'}</p>
+                    <p>{state.loseWeightBefore || '-'}</p>
                   </div>
                 </div>
                 <div className="summary-row">
                   <h1>Date to Start :</h1>
                   <div className="col-in-summary">
-                    <p>{formatDateToShow(dateToStart)}</p>
+                    <p>{formatDateToShow(state.dateToStart)}</p>
                   </div>
                 </div>
                 <div className="summary-row">
                   <h1>Congenital disease :</h1>
                   <div className="col-in-summary">
                     <p>
-                      {disease.haveDisease === 'yes'
-                        ? disease.message
-                        : disease.haveDisease}
+                      {state.disease.haveDisease === 'yes'
+                        ? state.disease.message
+                        : state.disease.haveDisease}
                     </p>
                   </div>
                 </div>
@@ -113,10 +123,13 @@ function ExpenseSummaryPage() {
                   <h1>Additional Detail :</h1>
                 </div>
                 <div className="text-in-summary">
-                  <p>{additional || ''}</p>
+                  <p>{state.additional || ''}</p>
                 </div>
                 <div className="button-in-summary">
-                  <button className="confirm-your-ourder" type="submit">
+                  <button
+                    className="confirm-your-ourder"
+                    onClick={handleClickSubmit}
+                  >
                     Confirm Your Ourder
                   </button>
                   <button className="edit-your-ourder">Edit Your Ourder</button>

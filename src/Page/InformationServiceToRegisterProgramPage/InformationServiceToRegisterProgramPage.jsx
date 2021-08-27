@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
 import ContactUsComponent from '../../Component/ContactUsComponent/ContactUsComponent';
 import './InformationServiceToRegisterProgramPage.css';
@@ -85,11 +85,19 @@ function InformationServiceToRegisterProgramPage() {
   const [additional, setAdditional] = useState('');
   const [dateToStart, setDateToStart] = useState('');
   const [error, setError] = useState({ fname: '' });
+  const [courseName, setCourseName] = useState('');
+  const [serImgPath, setSerImgPath] = useState('');
 
   const location = useLocation();
-  const { courseName, serImgPath } = location.state;
   // console.log(location.state);
   const history = useHistory();
+
+  useEffect(() => {
+    if (location.state) {
+      setCourseName(location.state.courseName);
+      setSerImgPath(location.state.serImgPath);
+    }
+  }, [location]);
 
   const handleChangeFirstname = e => {
     setFname(e.target.value);
