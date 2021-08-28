@@ -19,6 +19,8 @@
 }
 
 .navBar .Logo {
+  display: flex;
+  align-items: center;
   height: 3.125vw;
 }
 
@@ -27,17 +29,15 @@
 }
 
 .navBar .H-Logo img {
-  margin-bottom: 2.864583333vw;
   height: 2.083vw;
 }
 
-.navBar .text-logo {
-  margin-top: -2.34375vw;
+.navBar .healthy-logo {
   margin-left: -1.5625vw;
   display: inline-block;
 }
 
-.navBar .text-logo img {
+.navBar .healthy-logo img {
   height: 7.8125vw;
 }
 
@@ -100,12 +100,13 @@
 
 .navBar .log-in-status p {
   display: inline-block;
+  margin: 0;
 }
 
 .navBar .userstatus-icon {
-  display: inline-block;
+  display: flex;
+  align-items: center;
   margin-right: 0.5208333vw;
-  margin-top: 0.5125vw;
 }
 
 .navBar .userstatus-icon img {

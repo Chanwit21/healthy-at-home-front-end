@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import ContactUsComponent from '../../Component/ContactUsComponent/ContactUsComponent';
 import './PaymentPage.css';
-import SummaryPayment from './Payment/SummaryPayment';
-import PaymentMethode from './Payment/PaymentMethode/PaymentMethode';
+import SummaryPayment from '../../Component/Payment/SummaryPayment';
+import PaymentMethode from '../../Component/Payment/PaymentMethode/PaymentMethode';
 
 function PaymentPage() {
   const [state, setState] = useState({
