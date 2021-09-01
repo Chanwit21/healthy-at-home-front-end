@@ -69,3 +69,8 @@ select:focus {
   pointer-events: none;
   opacity: 0.4;
 }
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+}

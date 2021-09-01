@@ -10,7 +10,6 @@
   margin-top: 5vw;
 }
 
-
 /* Food Schedule Content And Table */
 .user-food-schedule-page-food-schedule .food-schedule-contnt h1 {
   font-weight: 600;
@@ -61,7 +60,7 @@
   width: 13.66666vw;
   height: 11.42708333vw;
   background: #ffffff;
-  border: 0.052083333vw solid #2b90c4;
+  border: 0.052083333vw dashed #2b90c4;
   border-radius: 0.52083333vw;
   margin: 1vw;
   display: flex;
@@ -70,31 +69,24 @@
   flex-direction: column;
 }
 
-.user-food-schedule-page-food-schedule
-  #food-schedule-table
-  td
-  .drag-and-drop
-  h1 {
+.user-food-schedule-page-food-schedule #food-schedule-table td .drag-and-drop .active {
+  border: 0.052083333vw solid #2b90c4;
+}
+
+.user-food-schedule-page-food-schedule #food-schedule-table td .drag-and-drop h1 {
   font-weight: 600;
   font-size: 1.5625vw;
   color: #000000;
   margin-bottom: 0;
 }
 
-.user-food-schedule-page-food-schedule
-  #food-schedule-table
-  td
-  .drag-and-drop
-  span {
+.user-food-schedule-page-food-schedule #food-schedule-table td .drag-and-drop span {
   font-weight: 600;
   font-size: 1.5625vw;
-  color:#2B90C4;
+  color: #2b90c4;
 }
 
-.user-food-schedule-page-food-schedule
-  #food-schedule-table
-  td
-  input[type="submit"] {
+.user-food-schedule-page-food-schedule #food-schedule-table td input[type='submit'] {
   width: 13.66666vw;
   height: 2.083333333vw;
   background: #2b90c4;
