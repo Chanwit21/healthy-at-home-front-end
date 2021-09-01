@@ -191,57 +191,50 @@ export const MOCK_USER = [
     foodAllergic: '',
     typeOfFood: 'All Type of food',
     trainer_id: '',
-    workout_schedule: [
-      {
-        day: 'Day1',
+    workout_schedule: {
+      day1: {
         name: workout_schedule_name[0],
         link: link_in_workout_schedule[0],
         backgroundColor: color_bg_in_workoutschedule[0],
         fontColor: color_font_in_workoutschedule[0],
       },
-      {
-        day: 'Day',
+      day2: {
         name: workout_schedule_name[1],
         link: link_in_workout_schedule[1],
         backgroundColor: color_bg_in_workoutschedule[1],
         fontColor: color_font_in_workoutschedule[1],
       },
-      {
-        day: 'Day3',
+      day3: {
         name: workout_schedule_name[2],
         link: link_in_workout_schedule[2],
         backgroundColor: color_bg_in_workoutschedule[2],
         fontColor: color_font_in_workoutschedule[2],
       },
-      {
-        day: 'Day4',
+      day4: {
         name: workout_schedule_name[3],
         link: link_in_workout_schedule[3],
         backgroundColor: color_bg_in_workoutschedule[3],
         fontColor: color_font_in_workoutschedule[3],
       },
-      {
-        day: 'Day5',
+      day5: {
         name: workout_schedule_name[4],
         link: link_in_workout_schedule[4],
         backgroundColor: color_bg_in_workoutschedule[4],
         fontColor: color_font_in_workoutschedule[4],
       },
-      {
-        day: 'Day6',
+      day6: {
         name: workout_schedule_name[5],
         link: link_in_workout_schedule[5],
         backgroundColor: color_bg_in_workoutschedule[5],
         fontColor: color_font_in_workoutschedule[5],
       },
-      {
-        day: 'Day7',
+      day7: {
         name: workout_schedule_name[6],
         link: link_in_workout_schedule[6],
         backgroundColor: color_bg_in_workoutschedule[6],
         fontColor: color_font_in_workoutschedule[6],
       },
-    ],
+    },
   },
 ];
 

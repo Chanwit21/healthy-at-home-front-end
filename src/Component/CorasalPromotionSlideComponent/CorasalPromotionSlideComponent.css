@@ -46,6 +46,7 @@
   width: 100%;
   height: 34rem;
   object-fit: cover;
+  user-select: none;
 }
 
 .CorasalPromotionSlideComponent .arrow {

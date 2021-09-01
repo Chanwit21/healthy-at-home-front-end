@@ -1,7 +1,7 @@
 import React from 'react';
 
 function SwitchRestDay({ restDay, workoutDay }) {
-  const restDayOptions = restDay.map(({ day }, index) => {
+  const restDayOptions = restDay.map((day, index) => {
     return (
       <option key={index} value={day}>
         {day}
@@ -9,7 +9,7 @@ function SwitchRestDay({ restDay, workoutDay }) {
     );
   });
 
-  const workoutDayOptions = workoutDay.map(({ day }, index) => {
+  const workoutDayOptions = workoutDay.map((day, index) => {
     return (
       <option key={index} value={day}>
         {day}

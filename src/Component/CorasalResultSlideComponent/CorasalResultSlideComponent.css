@@ -35,6 +35,10 @@
   object-fit: cover;
 }
 
+.CorasalResultSlideComponent image {
+  user-select: none;
+}
+
 .img-result {
   position: absolute;
   display: flex;
