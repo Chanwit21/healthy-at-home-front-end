@@ -35,7 +35,7 @@ function UserFoodSchedulePageFoodSchedule() {
   const arrayOfDay = ['none', ...arrayOfFoodSchedle.map((item) => item.day)];
   const onDay = 'Day1';
   const filterByDay = arrayOfFoodSchedle.find((item) => item.day === onDay);
-  console.log(filterByDay);
+  // console.log(filterByDay);
 
   function firstUpperCase(value) {
     return value[0].toUpperCase() + value.slice(1);
@@ -44,13 +44,15 @@ function UserFoodSchedulePageFoodSchedule() {
   function genTableBody(array, day) {
     const tableBody = [];
     for (let key in array) {
-      console.log(key);
+      // console.log(key);
       if (key !== 'day') {
         if (key !== 'workout') {
-          tableBody.push(<UserFoodScheduleRow time={firstUpperCase(key)} menuAndQuality={array[key]} day={day} />);
+          tableBody.push(
+            <UserFoodScheduleRow key={`id-${key}`} time={firstUpperCase(key)} menuAndQuality={array[key]} day={day} />
+          );
         } else {
           tableBody.push(
-            <tr>
+            <tr key={`id-${key}`}>
               <td colSpan='3'>{array[key]}</td>
             </tr>
           );
@@ -59,6 +61,8 @@ function UserFoodSchedulePageFoodSchedule() {
     }
     return tableBody;
   }
+
+  const tableBody = genTableBody(filterByDay, onDay);
 
   return (
     <div>
@@ -73,8 +77,12 @@ function UserFoodSchedulePageFoodSchedule() {
                 <h1>Food schedule</h1>
                 <form action='#'>
                   <select name='filterDay' id='day'>
-                    {arrayOfDay.map((item) => {
-                      return <option value={item}>{item}</option>;
+                    {arrayOfDay.map((item, index) => {
+                      return (
+                        <option key={index} value={item}>
+                          {item}
+                        </option>
+                      );
                     })}
                   </select>
                 </form>
@@ -82,7 +90,7 @@ function UserFoodSchedulePageFoodSchedule() {
                   <thead>
                     <FoodScheduleHead day={onDay} />
                   </thead>
-                  <tbody>{genTableBody(filterByDay, onDay)}</tbody>
+                  <tbody>{tableBody}</tbody>
                 </table>
               </div>
             </div>
