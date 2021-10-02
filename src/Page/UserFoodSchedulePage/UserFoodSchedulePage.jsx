@@ -2,9 +2,6 @@ import React from 'react';
 import ContactUsComponent from '../../Component/ContactUsComponent/ContactUsComponent';
 import MenuBarComponent from '../../Component/MenuBarComponent/MenuBarComponent';
 import './UserFoodSchedulePage.css';
-import UserConsultTrainerComponent from '../../Component/UserConsultTrainerComponent/UserConsultTrainerComponent';
-import { Link } from 'react-router-dom';
-import trainerThisIsEngineering from '../../PIC/Trainer/pexels-thisisengineering-3912944.jpg';
 
 function UserFoodSchedulePage() {
   return (
@@ -17,28 +14,14 @@ function UserFoodSchedulePage() {
                 <MenuBarComponent Page='UserFoodSchedulePage' />
               </div>
               <div className='food-content'>
-                <h1 id='head-of-bax-in-main-food-page'>
-                  WHAT IS NORMAL PRE PERI POST SNACK ?
-                </h1>
+                <h1 id='head-of-bax-in-main-food-page'>WHAT IS NORMAL PRE PERI POST SNACK ?</h1>
                 <div className='content-card'>
                   <ul>
                     <li>PRE is a pre-workout meal.</li>
                     <li>POST is a post-workout meal.</li>
                     <li>SNACK is a snack during the day.</li>
-                    <li>
-                      NORMAL is any meal during the day. such as morning, noon,
-                      evening.
-                    </li>
+                    <li>NORMAL is any meal during the day. such as morning, noon, evening.</li>
                   </ul>
-                </div>
-                <div className='consult-trainer'>
-                  <Link to='/chatpage'>
-                    <UserConsultTrainerComponent
-                      pathOfImg={trainerThisIsEngineering}
-                      nickName='Trainer Job'
-                      Fullname='Thanapob SingHaseanee'
-                    />
-                  </Link>
                 </div>
               </div>
             </div>

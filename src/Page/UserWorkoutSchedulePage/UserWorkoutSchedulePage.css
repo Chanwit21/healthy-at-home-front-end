@@ -8,8 +8,7 @@
   width: 80%;
 }
 
-.user-workout-schedule-page
-  .workout-schedule-menu-bar-left-in-User-course-page {
+.user-workout-schedule-page .workout-schedule-menu-bar-left-in-User-course-page {
   display: flex;
   margin-top: 5vw;
 }
@@ -66,11 +65,7 @@
   padding: 0.3vw;
 }
 
-.user-workout-schedule-page
-  #workout-schedule-table
-  .contentExercise
-  td
-  input[type="checkbox"] {
+.user-workout-schedule-page #workout-schedule-table .contentExercise td input[type='checkbox'] {
   width: 1.1625vw;
   height: 1.1625vw;
   background: #ffffff;
@@ -79,11 +74,7 @@
   display: inline-block;
 }
 
-.user-workout-schedule-page
-  #workout-schedule-table
-  .contentExercise
-  .checkBox
-  label {
+.user-workout-schedule-page #workout-schedule-table .contentExercise .checkBox label {
   font-size: 1.3vw;
   display: inline-block;
 }
@@ -152,10 +143,7 @@
   margin-top: 1.3vw;
 }
 
-.user-workout-schedule-page
-  .switch-box-for-form
-  .submit-form
-  input[type="submit"] {
+.user-workout-schedule-page .switch-box-for-form .submit-form input[type='submit'] {
   width: 100%;
   font-weight: 600;
   font-size: 1.5625vw;
@@ -166,18 +154,11 @@
   border: 0.052083vw solid #2b90c4;
 }
 
-/* Consult Trainer*/
-.user-workout-schedule-page .consult-trainner {
-  margin-top: 5vw;
-  margin-bottom: 4vw;
-  display: flex;
-  justify-content: flex-end;
-}
-
 /* Section Contact us */
 .user-workout-schedule-page .horizental-line {
   width: 100%;
   height: 0.52vw;
   background: #2b90c4;
   border-radius: 0.52vw;
+  margin-top: 4vw;
 }

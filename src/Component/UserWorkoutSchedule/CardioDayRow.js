@@ -29,10 +29,6 @@ function CardioDayRow({ day, backgroundColor, fontColor, link, name }) {
           {name}
         </a>
       </td>
-      <td colSpan='1' style={{ backgroundColor: '#FFFFFF' }} className='checkBox'>
-        <input type='checkbox' name={`execise-${day}`} id={`execise ${day}`} />
-        <label htmlFor={`execise ${day}`}>Success</label>
-      </td>
     </tr>
   );
 }

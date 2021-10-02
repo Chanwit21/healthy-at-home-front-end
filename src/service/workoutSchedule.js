@@ -60,10 +60,6 @@ const genWorkoutRow = (workout_schedule) => {
         <tr className='contentExercise' key={`id-${key}`}>
           <td style={{ backgroundColor: '#2B90C5', color: '#FFF' }}>{firstUpperCase(key)}</td>
           {row}
-          <td colSpan='1' style={{ backgroundColor: '#FFFFFF' }} className='checkBox'>
-            <input type='checkbox' name={`execise-${firstUpperCase(key)}`} id={`execise-${firstUpperCase(key)}`} />
-            <label htmlFor={`execise ${firstUpperCase(key)}`}>Success</label>
-          </td>
         </tr>
       );
     }

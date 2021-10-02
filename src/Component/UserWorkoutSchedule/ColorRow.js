@@ -8,7 +8,7 @@ function ColorRow({ element }) {
         color: element.fontColor,
       }}
     >
-      <th colSpan={4}>{element.executive_posture}</th>
+      <th colSpan={3}>{element.executive_posture}</th>
       <th colSpan={3}>{element.reps_sets}</th>
       <th colSpan={2}>{element.break_period}</th>
     </tr>

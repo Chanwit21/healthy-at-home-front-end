@@ -1,10 +1,7 @@
 import React from 'react';
 import ContactUsComponent from '../../Component/ContactUsComponent/ContactUsComponent';
 import MenuBarComponent from '../../Component/MenuBarComponent/MenuBarComponent';
-import UserConsultTrainerComponent from '../../Component/UserConsultTrainerComponent/UserConsultTrainerComponent';
-import { Link } from 'react-router-dom';
 import './UserWorkoutSchedulePage.css';
-import trainerThisIsEngineering from '../../PIC/Trainer/pexels-thisisengineering-3912944.jpg';
 import { MOCK_USER, COLOR_OF_THE_TYPE_OF_EXERCISE } from '../../mocks/user_data';
 import SwitchRestDay from '../../Component/UserWorkoutSchedule/SwitchResDay/SwitchRestDay.jsx';
 import { genWorkoutRow, filterWorkoutAndRestDay } from '../../service/workoutSchedule';
@@ -43,7 +40,7 @@ function UserWorkoutSchedulePage() {
                         height: '3.125vw',
                       }}
                     >
-                      <th colSpan='4'>Executive posture</th>
+                      <th colSpan='3'>Executive posture</th>
                       <th colSpan='3'>Reps x Setss</th>
                       <th colSpan='2'>Break period</th>
                     </tr>
@@ -54,15 +51,6 @@ function UserWorkoutSchedulePage() {
                   </tbody>
                 </table>
                 <SwitchRestDay restDay={restDay} workoutDay={workoutDay} />
-                <div className='consult-trainner'>
-                  <Link to='/chat-page'>
-                    <UserConsultTrainerComponent
-                      pathOfImg={trainerThisIsEngineering}
-                      nickName='Trainer Job'
-                      Fullname='Thanapob SingHaseanee'
-                    />
-                  </Link>
-                </div>
               </div>
             </div>
           </div>

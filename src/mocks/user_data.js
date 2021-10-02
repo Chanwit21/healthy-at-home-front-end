@@ -1,5 +1,6 @@
 const color_bg_in_workoutschedule = [
   {
+    id: '5dgdfdfgs',
     col1: '#ADADAD',
     col2: '#FFFFFF',
     col3: '#ADADAD',

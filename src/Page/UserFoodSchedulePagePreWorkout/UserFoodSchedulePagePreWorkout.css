@@ -60,25 +60,11 @@
   border: 1px solid black;
 }
 
-/*  Section Consult Trainer*/
-.user-food-schedule-page-pre-workout .consult-trainer-row {
-  display: flex;
-  justify-content: flex-end;
-}
-
-.user-food-schedule-page-pre-workout .consult-trainer {
-  margin-bottom: 4vw;
-}
-
-.user-food-schedule-page-pre-workout .consult-trainer a {
-  text-decoration: none;
-  color: #000;
-}
-
 /* Section contact - us */
 .user-food-schedule-page-pre-workout .horizental-line {
   width: 100%;
   height: 0.52vw;
   background: #2b90c4;
   border-radius: 0.52vw;
+  margin-top: 4vw;
 }

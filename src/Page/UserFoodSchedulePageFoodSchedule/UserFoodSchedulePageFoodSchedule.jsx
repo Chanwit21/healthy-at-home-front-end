@@ -1,10 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import './UserFoodSchedulePageFoodSchedule.css';
 import ContactUsComponent from '../../Component/ContactUsComponent/ContactUsComponent';
-import UserConsultTrainerComponent from '../../Component/UserConsultTrainerComponent/UserConsultTrainerComponent';
 import MenuBarComponent from '../../Component/MenuBarComponent/MenuBarComponent';
-import trainerThisIsEngineering from '../../PIC/Trainer/pexels-thisisengineering-3912944.jpg';
 import UserFoodScheduleRow from '../../Component/UserFoodSchedule/UserFoodScheduleRow';
 import FoodScheduleHead from '../../Component/UserFoodSchedule/FoodScheduleHead';
 
@@ -92,21 +89,6 @@ function UserFoodSchedulePageFoodSchedule() {
                   </thead>
                   <tbody>{tableBody}</tbody>
                 </table>
-              </div>
-            </div>
-          </div>
-        </section>
-        <section className='consult-trainer'>
-          <div className='container'>
-            <div className='consult-trainer-row'>
-              <div className='consult-trainer'>
-                <Link to='/chatpage'>
-                  <UserConsultTrainerComponent
-                    pathOfImg={trainerThisIsEngineering}
-                    nickName='Trainer Job'
-                    Fullname='Thanapob SingHaseanee'
-                  />
-                </Link>
               </div>
             </div>
           </div>

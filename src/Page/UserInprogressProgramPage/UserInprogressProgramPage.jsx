@@ -4,8 +4,6 @@ import NavBarLeftForUserComponent from '../../Component/NavBarLeftForUserCompone
 import UserInprogressProgramCardComponent from '../../Component/UserInprogressProgramCardComponent/UserInprogressProgramCardComponent';
 import './UserInprogressProgramPage.css';
 import { Link } from 'react-router-dom';
-import UserConsultTrainerComponent from '../../Component/UserConsultTrainerComponent/UserConsultTrainerComponent';
-import trainerThisIsEngineering from '../../PIC/Trainer/pexels-thisisengineering-3912944.jpg';
 
 function UserInprogressProgramPage() {
   return (
@@ -15,10 +13,7 @@ function UserInprogressProgramPage() {
           <div className='container'>
             <div className='inprogress-program'>
               <div className='nav-left-user'>
-                <NavBarLeftForUserComponent
-                  Name='Wuttichai Chankracang'
-                  Page='UserInprogressProgramPage'
-                />
+                <NavBarLeftForUserComponent Name='Wuttichai Chankracang' Page='UserInprogressProgramPage' />
               </div>
               <div className='inprogress-course-enrolled-and-consult-trainer'>
                 <Link
@@ -33,15 +28,6 @@ function UserInprogressProgramPage() {
                     ContentInProgram='Suitable for people who want to change their shape in a short time.'
                   />
                 </Link>
-                <div className='consult-trainner'>
-                  <Link to='/chat-page'>
-                    <UserConsultTrainerComponent
-                      pathOfImg={trainerThisIsEngineering}
-                      nickName='Trainer Job'
-                      Fullname='Thanapob SingHaseanee'
-                    />
-                  </Link>
-                </div>
               </div>
             </div>
           </div>

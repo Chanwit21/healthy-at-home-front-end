@@ -13,10 +13,10 @@
 /* Form Weekly Update */
 .user-weekly-update-page .form-weekly-update {
   width: 59.84375vw;
-  height: 69.41041666666667vw;
   background: #ffffff;
   box-shadow: 0.2083vw 0.2083vw 0.52083vw 0.26vw rgba(0, 0, 0, 0.25);
   border-radius: 0.52083vw;
+  padding-bottom: 4vw;
 }
 
 .user-weekly-update-page #first-of-row {
@@ -53,30 +53,7 @@
   border-radius: 0.52083vw;
 }
 
-/* Drag and Drop */
-.user-weekly-update-page .drag-and-drop-front-photo {
-  width: 22.8333333vw;
-  height: 22.8333333vw;
-  background: #ffffff;
-  border: 0.052083vw solid #2b90c4;
-  border-radius: 0.52083vw;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-
-.user-weekly-update-page .drag-and-drop-front-photo h2 {
-  font-weight: 600;
-  font-size: 1.5625vw;
-  color: #000000;
-}
-
-.user-weekly-update-page .drag-and-drop-front-photo span {
-  color: #2b90c4;
-}
-
-.user-weekly-update-page .form-weekly-update input[type="submit"] {
+.user-weekly-update-page .form-weekly-update input[type='submit'] {
   width: 80%;
   height: 3.125vw;
   border: 0.052083vw solid #2b90c4;
@@ -97,25 +74,11 @@
   margin-bottom: 1vw;
 }
 
-/*  Section Consult Trainer*/
-.user-weekly-update-page .consult-trainer-row {
-  display: flex;
-  justify-content: flex-end;
-}
-
-.user-weekly-update-page .consult-trainer {
-  margin-bottom: 2vw;
-}
-
-.user-weekly-update-page .consult-trainer a {
-  text-decoration: none;
-  color: #000;
-}
-
 /* Section contact - us */
 .user-weekly-update-page .horizental-line {
   width: 100%;
   height: 0.52vw;
   background: #2b90c4;
   border-radius: 0.52vw;
+  margin-top: 4vw;
 }

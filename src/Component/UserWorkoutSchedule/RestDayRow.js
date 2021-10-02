@@ -12,7 +12,7 @@ function RestDayRow({ day, backgroundColor, fontColor, name }) {
         {day}
       </td>
       <td
-        colSpan='8'
+        colSpan='7'
         style={{
           backgroundColor: backgroundColor,
         }}

@@ -126,25 +126,11 @@
   color: #ffffff;
 }
 
-/*  Section Consult Trainer*/
-.user-food-schedule-page-food-schedule .consult-trainer-row {
-  display: flex;
-  justify-content: flex-end;
-}
-
-.user-food-schedule-page-food-schedule .consult-trainer {
-  margin-bottom: 2vw;
-}
-
-.user-food-schedule-page-food-schedule .consult-trainer a {
-  text-decoration: none;
-  color: #000;
-}
-
 /* Section contact - us */
 .user-food-schedule-page-food-schedule .horizental-line {
   width: 100%;
   height: 0.52vw;
   background: #2b90c4;
   border-radius: 0.52vw;
+  margin-top: 4vw;
 }

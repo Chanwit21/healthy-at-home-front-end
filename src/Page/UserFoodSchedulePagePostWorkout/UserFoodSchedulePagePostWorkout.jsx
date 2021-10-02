@@ -1,10 +1,7 @@
 import React from 'react';
 import ContactUsComponent from '../../Component/ContactUsComponent/ContactUsComponent';
 import MenuBarComponent from '../../Component/MenuBarComponent/MenuBarComponent';
-import UserConsultTrainerComponent from '../../Component/UserConsultTrainerComponent/UserConsultTrainerComponent';
-import { Link } from 'react-router-dom';
 import './UserFoodSchedulePagePostWorkout.css';
-import trainerThisIsEngineering from '../../PIC/Trainer/pexels-thisisengineering-3912944.jpg';
 import postWorkoutImg from '../../PIC/FoodTable/POST-WORKOUT-MEAL.jpg';
 
 function UserFoodSchedulePagePostWorkout() {
@@ -15,10 +12,7 @@ function UserFoodSchedulePagePostWorkout() {
           <div className='container'>
             <div className='row-of-food-card'>
               <div className='menubar'>
-                <MenuBarComponent
-                  Page='UserFoodSchedulePage'
-                  FoodMenu='UserFoodSchedulePagePostWorkout'
-                />
+                <MenuBarComponent Page='UserFoodSchedulePage' FoodMenu='UserFoodSchedulePagePostWorkout' />
               </div>
               <div className='food-content-card'>
                 <div className='content-card'>
@@ -26,10 +20,7 @@ function UserFoodSchedulePagePostWorkout() {
                   <p>Meal after exercise 30-60 minutes.</p>
                   <ul>
                     <li>The most important meal of the day</li>
-                    <li>
-                      Emphasize powder X2 to give strength to TRAIN the next
-                      day.
-                    </li>
+                    <li>Emphasize powder X2 to give strength to TRAIN the next day.</li>
                     <li>Focus on protein to repair and strengthen muscles.</li>
                   </ul>
                 </div>
@@ -41,21 +32,6 @@ function UserFoodSchedulePagePostWorkout() {
           <div className='container'>
             <div className='imgtable-row'>
               <img src={postWorkoutImg} alt='POST-WORKOUT-MEAL' />
-            </div>
-          </div>
-        </section>
-        <section className='consult-trainer'>
-          <div className='container'>
-            <div className='consult-trainer-row'>
-              <div className='consult-trainer'>
-                <Link to='/chatpage'>
-                  <UserConsultTrainerComponent
-                    pathOfImg={trainerThisIsEngineering}
-                    nickName='Trainer Job'
-                    Fullname='Thanapob SingHaseanee'
-                  />
-                </Link>
-              </div>
             </div>
           </div>
         </section>
