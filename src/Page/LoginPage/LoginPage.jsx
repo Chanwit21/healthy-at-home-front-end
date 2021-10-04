@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { Link, useHistory, useLocation } from 'react-router-dom';
 import './LoginPage.css';
 import h_Logo from '../../PIC/LOGO/h.png';
 import healthyAtHomeLogo from '../../PIC/LOGO/He__2_-removebg-preview.png';
@@ -11,8 +11,21 @@ function LoginPage() {
   const [login, setLogin] = useState({ email: '', password: '' });
   const [err, setErr] = useState({ email: '', password: '' });
   const [loginError, setLoginError] = useState('');
+  const [alertMessage, setAlertMessage] = useState('');
   const { dispatch } = useUserContext();
   const history = useHistory();
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.state) {
+      setAlertMessage(location.state.message);
+      setTimeout(() => {
+        setAlertMessage('');
+        // Clear history
+        history.replace();
+      }, 3000);
+    }
+  }, [location, history]);
 
   const handleSubmitLogin = async (e) => {
     e.preventDefault();
@@ -37,7 +50,7 @@ function LoginPage() {
     }
     try {
       const res = await axios.post('/users/login', { email: login.email, password: login.password });
-      console.log(res.data);
+      // console.log(res.data);
       dispatch({ type: 'LOGIN', payload: { token: res.data.token } });
       history.push('/');
     } catch (error) {
@@ -66,6 +79,7 @@ function LoginPage() {
       <section className='login'>
         <div className='container'>
           <div className='login-form'>
+            {alertMessage ? <div className='alert-box '>{alertMessage}</div> : null}
             <div className='logo'>
               <img src={h_Logo} alt='H-LOGO' />
               <img src={healthyAtHomeLogo} alt='Text-LOGO' />

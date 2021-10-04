@@ -63,9 +63,8 @@ function RegisterPage() {
         password: 'Passwords did not match',
       }));
     } else {
-      const res = await axios.post('/users/register', { ...register });
-      console.log(res);
-      history.push('/loginpage');
+      await axios.post('/users/register', { ...register });
+      history.push({ pathname: '/loginpage', state: { message: 'Successfully registered and you can login.' } });
       try {
       } catch (err) {
         console.dir(err);

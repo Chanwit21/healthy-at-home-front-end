@@ -1,11 +1,12 @@
 import { createContext, useContext, useReducer } from 'react';
 import { removeToken, setToken } from '../service/localStorage';
+import { user as initUser } from '../service/localStorage';
 import jwtDecode from 'jwt-decode';
 
 const UserContext = createContext();
 
 const INITIAL_STATE = {
-  user: null,
+  user: initUser,
   token: '',
 };
 

@@ -10,6 +10,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 }
 
 /* Background */
@@ -18,6 +19,7 @@
   margin-top: 5.46875vw;
   width: 40.83333333vw;
   padding-bottom: 3vw;
+  padding-top: 3vw;
   background: #ffffff;
   border: 0.052083vw solid rgba(43, 144, 196, 0.5);
   box-sizing: border-box;
@@ -30,13 +32,13 @@
   position: absolute;
   width: 3.4375vw;
   margin-left: 14.89583vw;
-  margin-top: 4.6875vw;
+  margin-top: 1.6875vw;
 }
 
 .loginPage .login-form .logo img:nth-child(2) {
   position: absolute;
   margin-left: 15.1041666vw;
-  margin-top: -0.52083vw;
+  margin-top: -3.52083vw;
   width: 13.75vw;
 }
 
@@ -130,4 +132,18 @@
 .loginPage .error {
   font-size: 3px;
   margin-top: 1vw;
+}
+
+/* Alert Box */
+.loginPage .alert-box {
+  color: #4f8a10;
+  background-color: #dff2bf;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  margin: 0 auto;
+  height: 5vw;
+  padding: 1vw;
+  border-radius: 2vw;
 }

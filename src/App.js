@@ -4,20 +4,23 @@ import React from 'react';
 import FooterComponent from './Component/FooterComponent/FooterComponent';
 import NavComponent from './Component/NavComponent/NavComponent';
 import { routesAll } from './routes/routes';
-import { user as stateUser } from './service/localStorage';
+import { useUserContext } from './contetext/Usercontext';
 
 function App() {
-  const user = stateUser ? stateUser.role : 'GUEST';
+  const {
+    state: { user: stateUser },
+  } = useUserContext();
+  const role = stateUser ? stateUser.role : 'GUEST';
   // console.log(user);
 
   return (
     <>
       <NavComponent />
       <Switch>
-        {routesAll[user].routes.map((component) => {
+        {routesAll[role].routes.map((component) => {
           return <Route key={component.path} exact path={component.path} component={component.component} />;
         })}
-        <Redirect to={routesAll[user].redirect} />
+        <Redirect to={routesAll[role].redirect} />
       </Switch>
       {/* Space Bottom */}
       <div style={{ marginBottom: '2.083333333333333vw' }}></div>

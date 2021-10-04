@@ -52,6 +52,7 @@ const routesAll = {
   ADMIN: {
     routes: [
       ...guest,
+      { component: UserProfilePage, path: '/user-profile-page' },
       { component: AdminProfilePage, path: '/admin-profile-page' },
       { component: AdminManageVediosAndFoodPage, path: '/admin-manage-vedios-and-food-page' },
       { component: AdminCustomersPage, path: '/admin-customers-page' },
@@ -61,6 +62,7 @@ const routesAll = {
   TRAINER: {
     routes: [
       ...guest,
+      { component: UserProfilePage, path: '/user-profile-page' },
       { component: TrainerProfilePage, path: '/trainer-profile-page' },
       { component: TrainerManageVideosAndFoodPage, path: '/trainer-manage-vedios-and-food-page' },
       { component: TrainerCustomersPage, path: '/trainer-customers-page' },
