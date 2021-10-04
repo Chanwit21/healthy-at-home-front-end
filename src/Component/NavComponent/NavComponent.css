@@ -110,4 +110,27 @@
 .navBar .userstatus-icon img {
   display: inline-block;
   height: 1.5625vw;
+  width: 1.5625vw;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+/* Log out */
+.navBar .log-out-status button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 1.0416vw;
+  height: 2.4833vw;
+  width: 7.41667vw;
+  text-align: right;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 0.9375vw;
+  border: none;
+  background-color: #b23b3b;
+  color: #ffffff;
+  margin-left: 0.5208333vw;
+  cursor: pointer;
+  /* margin-top: 1.1vw; */
 }

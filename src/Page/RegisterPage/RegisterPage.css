@@ -15,11 +15,11 @@
   margin: 0 auto;
   margin-top: 5.2083vw;
   width: 40.83333333vw;
-  height: 35.5833vw;
+  padding-bottom: 2vw;
   background: #ffffff;
   border: 0.052083vw solid rgba(43, 144, 196, 0.5);
   box-sizing: border-box;
-  box-shadow:  0.20833333vw 0.20833333vw 0.52083vw 0.15625vw rgba(0, 0, 0, 0.25);
+  box-shadow: 0.20833333vw 0.20833333vw 0.52083vw 0.15625vw rgba(0, 0, 0, 0.25);
   border-radius: 0.52083vw;
 }
 
@@ -77,7 +77,7 @@
   border-radius: 0.52083vw;
 }
 
-.registerPage .form-row input[type="email"] {
+.registerPage .form-row input[type='email'] {
   width: 31.25vw;
   height: 3.125vw;
   background: #ffffff;
@@ -86,7 +86,7 @@
   border-radius: 0.52083vw;
 }
 
-.registerPage input[type="submit"] {
+.registerPage input[type='submit'] {
   margin-top: 1.8229166vw;
   width: 31.25vw;
   height: 2.6041666vw;
@@ -99,7 +99,7 @@
   border: 0.000520833vw solid #2b90c4;
 }
 
-.registerPage input[type="submit"]:hover {
+.registerPage input[type='submit']:hover {
   cursor: pointer;
 }
 

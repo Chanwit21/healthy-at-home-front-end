@@ -17,7 +17,7 @@
   margin: 0 auto;
   margin-top: 5.46875vw;
   width: 40.83333333vw;
-  height: 37.8125vw;
+  padding-bottom: 3vw;
   background: #ffffff;
   border: 0.052083vw solid rgba(43, 144, 196, 0.5);
   box-sizing: border-box;
@@ -64,7 +64,7 @@
   margin-top: 14px;
 }
 
-.loginPage .scope-form-login input[type="submit"] {
+.loginPage .scope-form-login input[type='submit'] {
   margin-left: 0;
   font-weight: 600;
   font-size: 1.5625vw;
@@ -75,7 +75,7 @@
   border-radius: 0.52083vw;
 }
 
-.loginPage .scope-form-login input[type="submit"]:hover {
+.loginPage .scope-form-login input[type='submit']:hover {
   cursor: pointer;
 }
 
@@ -97,7 +97,7 @@
 }
 
 .loginPage .scope-form-login p .register {
-    margin-left: 0.78125vw;
+  margin-left: 0.78125vw;
   text-decoration: none;
   font-weight: 600;
   font-size: 0.9375vw;
@@ -105,10 +105,29 @@
 }
 
 .loginPage .scope-form-login p:nth-last-child(3) {
-  margin-top: 2.0833vw;
+  margin-top: 1.0833vw;
 }
 
 .loginPage .scope-form-login p:nth-last-child(1) {
   text-align: center;
   margin-top: 0.7545833vw;
+}
+
+/* Login error */
+.loginPage .login-error {
+  background-color: #b23b3b;
+  color: #ffffff;
+  width: 20.8333vw;
+  height: 2vw;
+  margin-top: 1vw;
+  border-radius: 0.52083vw;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+/* error-password */
+.loginPage .error {
+  font-size: 3px;
+  margin-top: 1vw;
 }

@@ -4,8 +4,16 @@ import './NavComponent.css';
 import h_Logo from '../../PIC/LOGO/h.png';
 import healthyAtHomeLogo from '../../PIC/LOGO/He__2_-removebg-preview.png';
 import avataIcon from '../../PIC/Icon/user.png';
+import { useUserContext } from '../../contetext/Usercontext';
+import { user as stateUser } from '../../service/localStorage';
 
 function NavComponent() {
+  const { dispatch } = useUserContext();
+
+  const handleClickLogout = () => {
+    dispatch({ type: 'LOGOUT' });
+  };
+
   return (
     <>
       <nav className='navBar'>
@@ -35,14 +43,32 @@ function NavComponent() {
                 <Link to='/aboutpage'>About</Link>
               </li>
             </ul>
-            <Link to='/loginpage' style={{ textDecoration: 'none', color: 'black' }}>
-              <div className='log-in-status'>
-                <div className='userstatus-icon'>
-                  <img src={avataIcon} alt='User-icon' />
+            {stateUser ? (
+              <Link to='/user-profile-page' style={{ textDecoration: 'none', color: 'black' }}>
+                <div className='log-in-status'>
+                  <div className='userstatus-icon'>
+                    <img src={stateUser.image} alt='User-icon' />
+                  </div>
+                  <p>
+                    {stateUser.firstName} {stateUser.lastName}
+                  </p>
                 </div>
-                <p>Login/Register</p>
+              </Link>
+            ) : (
+              <Link to='/loginpage' style={{ textDecoration: 'none', color: 'black' }}>
+                <div className='log-in-status'>
+                  <div className='userstatus-icon'>
+                    <img src={avataIcon} alt='User-icon' />
+                  </div>
+                  <p>Login/Register</p>
+                </div>
+              </Link>
+            )}
+            {stateUser ? (
+              <div className='log-out-status'>
+                <button onClick={handleClickLogout}>Logout</button>
               </div>
-            </Link>
+            ) : null}
           </div>
         </div>
       </nav>
