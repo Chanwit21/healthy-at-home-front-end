@@ -25,6 +25,7 @@ function ServicePage() {
       return (
         <ServiceProgramOddRowComponent
           key={service.id}
+          serviceId={service.id}
           imgPath={service.imageLink1}
           serImgPath={service.imageLink2}
           courseName={service.name}
@@ -36,6 +37,7 @@ function ServicePage() {
     return (
       <ServiceProgramEvenRowComponent
         key={service.id}
+        serviceId={service.id}
         imgPath={service.imageLink1}
         serImgPath={service.imageLink2}
         courseName={service.name}

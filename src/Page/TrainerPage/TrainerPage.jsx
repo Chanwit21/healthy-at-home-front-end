@@ -6,17 +6,17 @@ import avatar_Image from '../../PIC/Icon/user.png';
 import axios from '../../config/axios';
 
 function TrainerPage() {
-  const [trainer, setTrainer] = useState([]);
+  const [trainers, setTrainers] = useState([]);
 
   useEffect(() => {
     const fetchTrainer = async () => {
       const res = await axios.get('/trainer_info');
-      setTrainer(res.data.trainers);
+      setTrainers(res.data.trainers);
     };
     fetchTrainer();
   }, []);
 
-  const trainersCards = trainer.map((item) => {
+  const trainersCards = trainers.map((item) => {
     return (
       <TrainerCardMiniSizeComponent
         key={item.id}

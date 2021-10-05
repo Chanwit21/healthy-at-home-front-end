@@ -16,18 +16,21 @@ import {
 
 function InformationServiceToRegisterProgramPage() {
   const location = useLocation();
-  const [fname, setFname] = useState('');
-  const [lname, setLname] = useState('');
-  const [weight, setWeight] = useState('');
-  const [height, setHeight] = useState('');
-  const [telNumber, setTelNumber] = useState('');
-  const [foodAllergic, setFoodAllergic] = useState('');
-  const [typeOfFood, setTypeOfFood] = useState('');
-  const [loseWeightBefore, setLoseWeightBefore] = useState('');
-  const [disease, setDisease] = useState({ haveDisease: '', message: '' });
-  const [gender, setGender] = useState('');
-  const [additional, setAdditional] = useState('');
-  const [dateToStart, setDateToStart] = useState('');
+  const [fname, setFname] = useState(location.state?.fname || '');
+  const [lname, setLname] = useState(location.state?.lname || '');
+  const [weight, setWeight] = useState(location.state?.weight || '');
+  const [height, setHeight] = useState(location.state?.height || '');
+  const [telNumber, setTelNumber] = useState(location.state?.telNumber || '');
+  const [foodAllergic, setFoodAllergic] = useState(location.state?.foodAllergic || '');
+  const [typeOfFood, setTypeOfFood] = useState(location.state?.typeOfFood || '');
+  const [loseWeightBefore, setLoseWeightBefore] = useState(location.state?.loseWeightBefore || '');
+  const [disease, setDisease] = useState({
+    haveDisease: location.state?.disease?.haveDisease || '',
+    message: location.state?.disease?.message || '',
+  });
+  const [gender, setGender] = useState(location.state?.gender || '');
+  const [additional, setAdditional] = useState(location.state?.additional || '');
+  const [dateToStart, setDateToStart] = useState(location.state?.dateToStart || '');
   const [error, setError] = useState({ fname: '' });
   const courseName = location.state.courseName;
   const serImgPath = location.state.serImgPath;
@@ -100,6 +103,9 @@ function InformationServiceToRegisterProgramPage() {
   const handleChangeDisease = (e, key) => {
     const cloneDisease = { ...disease };
     cloneDisease[key] = e.target.value;
+    if (key === 'haveDisease') {
+      cloneDisease['message'] = '';
+    }
     setDisease(cloneDisease);
     setError((current) => ({
       ...current,
@@ -176,7 +182,9 @@ function InformationServiceToRegisterProgramPage() {
           dateToStart,
           additional,
           courseName: location.state.courseName,
+          serImgPath: location.state.serImgPath,
           price: location.state.price,
+          serviceId: location.state.serviceId,
         },
       });
     }
@@ -334,6 +342,7 @@ function InformationServiceToRegisterProgramPage() {
                           id='disease-yes'
                           value='yes'
                           onChange={(e) => handleChangeDisease(e, 'haveDisease')}
+                          checked={'yes' === disease.haveDisease}
                         />
                         <label htmlFor='disease-yes'>Yes</label>
                       </div>
@@ -344,6 +353,7 @@ function InformationServiceToRegisterProgramPage() {
                           id='disease-no'
                           value='no'
                           onChange={(e) => handleChangeDisease(e, 'haveDisease')}
+                          checked={'no' === disease.haveDisease}
                         />
                         <label htmlFor='disease-no'>No</label>
                       </div>
@@ -386,6 +396,7 @@ function InformationServiceToRegisterProgramPage() {
                       id='dateToStart'
                       value={dateToStart}
                       onChange={handleChangDateToStart}
+                      className={`${error.dateToStart ? 'input-invalid' : ''}`}
                     />
                     {error.dateToStart ? <div className='invalid-text'>{error.dateToStart}</div> : null}
                   </div>

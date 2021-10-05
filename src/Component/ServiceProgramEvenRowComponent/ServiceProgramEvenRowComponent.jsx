@@ -22,6 +22,7 @@ function ServiceProgramEvenRowComponent(props) {
                   state: {
                     courseName: props.courseName,
                     serImgPath: props.serImgPath,
+                    serviceId: props.serviceId,
                     price: props.Price,
                     message: !userState.user ? 'You must login before buy course.' : null,
                   },
