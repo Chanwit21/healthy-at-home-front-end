@@ -55,8 +55,6 @@ function ExpenseSummaryPage() {
       defaultPaymentMethod: 'credit_card',
       otherPaymentMethods: ['internet_banking', 'truemoney', 'rabbit_linepay'],
     });
-    OmiseCard.configureButton('#order_now');
-    OmiseCard.attach();
   };
 
   const handleClickOrderNow = (e) => {
