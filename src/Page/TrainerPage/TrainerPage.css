@@ -20,6 +20,14 @@
   flex-wrap: wrap;
 }
 
+/* Section Contact us */
 .trainer-page .contact-us {
   margin-top: 4.167vw;
+}
+
+.trainer-page .horizental-line {
+  width: 100%;
+  height: 0.52vw;
+  background: #2b90c4;
+  border-radius: 0.52vw;
 }

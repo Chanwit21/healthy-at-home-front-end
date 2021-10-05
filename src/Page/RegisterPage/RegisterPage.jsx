@@ -32,18 +32,29 @@ function RegisterPage() {
 
   const handleSubmitRegister = async (e) => {
     e.preventDefault();
+    let allPass = true;
 
     if (!register.firstName) {
+      allPass = false;
       setError((cur) => ({ ...cur, firstName: 'firstName is require' }));
-    } else if (!register.lastName) {
+    }
+    if (!register.lastName) {
+      allPass = false;
       setError((cur) => ({ ...cur, lastName: 'lastName is require' }));
-    } else if (!isEmail(register.email)) {
+    }
+    if (!isEmail(register.email)) {
+      allPass = false;
       setError((cur) => ({ ...cur, email: 'email is invalid' }));
-    } else if (!register.email) {
+    }
+    if (!register.email) {
+      allPass = false;
       setError((cur) => ({ ...cur, email: 'email is require' }));
-    } else if (!register.password) {
+    }
+    if (!register.password) {
+      allPass = false;
       setError((cur) => ({ ...cur, password: 'password is require' }));
-    } else if (
+    }
+    if (
       !isStrongPassword(register.password, {
         minLength: 8,
         minLowercase: 1,
@@ -52,17 +63,22 @@ function RegisterPage() {
         minSymbols: 1,
       })
     ) {
+      allPass = false;
       setError((cur) => ({
         ...cur,
         password:
           'Password must be at least 8 characters, must contain at least one lower-case letter, one upper-case letter, one digit and a special character',
       }));
-    } else if (register.password !== register.confirmPassword) {
+    }
+    if (register.password !== register.confirmPassword) {
+      allPass = false;
       setError((cur) => ({
         ...cur,
         password: 'Passwords did not match',
       }));
-    } else {
+    }
+
+    if (allPass) {
       await axios.post('/users/register', { ...register });
       history.push({ pathname: '/loginpage', state: { message: 'Successfully registered and you can login.' } });
       try {
@@ -152,7 +168,10 @@ function RegisterPage() {
                         id='confirmPassword'
                         className={`${error.password ? 'input-invalid' : ''}`}
                         value={register.confirmPassword}
-                        onChange={(e) => handleChangeInput('confirmPassword', e)}
+                        onChange={(e) => {
+                          handleChangeInput('confirmPassword', e);
+                          setError((cur) => ({ ...cur, password: '' }));
+                        }}
                       />
                       {/* {error.confirmPassword ? <div className='invalid-text'>{error.confirmPassword}</div> : null} */}
                     </div>

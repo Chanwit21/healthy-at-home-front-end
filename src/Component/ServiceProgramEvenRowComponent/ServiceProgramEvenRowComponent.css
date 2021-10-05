@@ -6,6 +6,7 @@
   background-color: #ffffff;
   border-radius: 0.52083vw;
   box-shadow: 0.20833333vw 0.20833333vw 0.52083vw 0.15625vw gray;
+  margin-bottom: 3.64583vw;
 }
 
 .service-cardEven .content-in-servicecardEven {
@@ -57,7 +58,7 @@
   font-size: 1.5625vw;
   color: #000000;
   margin-top: 9.895833vw;
-  margin-left: 21.3541666vw;
+  margin-left: 17.3541666vw;
 }
 
 .service-cardEven .img-in-servicecardEven {

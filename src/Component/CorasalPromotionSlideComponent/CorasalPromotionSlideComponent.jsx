@@ -1,31 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import { BsCaretRightFill, BsCaretLeftFill } from 'react-icons/bs';
 import promotionImg1 from '../../PIC/Picxel/PIC_Promo/pexels-ella-olsson-1640771.jpg';
-import promotionImg2 from '../../PIC/Picxel/PIC_Promo/pexels-jane-d-1128678.jpg';
-import promotionImg3 from '../../PIC/Picxel/PIC_Promo/pexels-kaboompics-com-5938.jpg';
-import promotionImg4 from '../../PIC/Picxel/PIC_Promo/pexels-tirachard-kumtanom-347134.jpg';
-import promotionImg5 from '../../PIC/Picxel/PIC_Promo/pexels-william-choquette-1954524.jpg';
+import axios from '../../config/axios';
 import './CorasalPromotionSlideComponent.css';
 
 function CorasalPromotionSlideComponent() {
-  const MOCK = [
-    { img: promotionImg1 },
-    { img: promotionImg2 },
-    { img: promotionImg3 },
-    { img: promotionImg4 },
-    { img: promotionImg5 },
-  ];
-
-  const MOCK2 = [
-    { img: 'https://picsum.photos/id/1000/1000/800' },
-    { img: 'https://picsum.photos/id/1001/1000/800' },
-    { img: 'https://picsum.photos/id/1025/1000/800' },
-    { img: 'https://picsum.photos/id/1029/1000/800' },
-    { img: 'https://picsum.photos/id/1051/1000/800' },
-  ];
-
+  const [promotionImage, setPromotionImage] = useState([
+    { imageLink: promotionImg1 },
+    { imageLink: promotionImg1 },
+    { imageLink: promotionImg1 },
+    { imageLink: promotionImg1 },
+    { imageLink: promotionImg1 },
+  ]);
   const [currentImg, setCurrentImg] = useState(0);
-  const length = MOCK2.length;
+  const length = promotionImage.length;
 
   const nextSlide = () => {
     setCurrentImg((cur) => (cur === length - 1 ? 0 : cur + 1));
@@ -36,15 +24,20 @@ function CorasalPromotionSlideComponent() {
   };
 
   useEffect(() => {
-    const id = setInterval(
-      () => setCurrentImg((cur) => (cur === length - 1 ? 0 : cur + 1)),
-      7000
-    );
+    const fetchImage = async () => {
+      const res = await axios.get('/promotion_image');
+      setPromotionImage(res.data.promotion_images);
+    };
+    fetchImage();
+  }, []);
 
-    return ()=> clearInterval(id)
+  useEffect(() => {
+    const id = setInterval(() => setCurrentImg((cur) => (cur === length - 1 ? 0 : cur + 1)), 7000);
+
+    return () => clearInterval(id);
   }, [length]);
 
-  const corasalSlide = MOCK2.map((item, index) => {
+  const corasalSlide = promotionImage.map((item, index) => {
     return (
       <div
         id={index}
@@ -56,19 +49,19 @@ function CorasalPromotionSlideComponent() {
             ? 'img-promo before'
             : index === currentImg + 1
             ? 'img-promo after'
-            : currentImg === MOCK.length - 1 && index === 0
+            : currentImg === promotionImage.length - 1 && index === 0
             ? 'img-promo after'
-            : currentImg === 0 && index === MOCK.length - 1
+            : currentImg === 0 && index === promotionImage.length - 1
             ? 'img-promo before'
             : 'img-promo'
         }
       >
-        <img src={item.img} alt='run-promo' className='image' />
+        <img src={item.imageLink} alt='run-promo' className='image' />
       </div>
     );
   });
 
-  if (!Array.isArray(MOCK) || MOCK.length <= 0) {
+  if (!Array.isArray(promotionImage) || promotionImage.length <= 0) {
     return null;
   }
 

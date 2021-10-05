@@ -11,43 +11,40 @@ import CorasalResultSlideComponent from '../../Component/CorasalResultSlideCompo
 function HomePage() {
   return (
     <>
-      <div className="homepage-body">
+      <div className='homepage-body'>
         <CorasalPromotionSlideComponent />
-        <section className="result">
-          <div className="container">
-            <div className="result-text">
+        <section className='result'>
+          <div className='container'>
+            <div className='result-text'>
               <h1>Result</h1>
             </div>
             <CorasalResultSlideComponent />
           </div>
         </section>
-        <section className="trainer">
-          <div className="container">
-            <div className="trainer-text">
+        <section className='trainer'>
+          <div className='container'>
+            <div className='trainer-text'>
               <h1>Trainer</h1>
             </div>
-            <Link
-              to="/trainerpage"
-              style={{ textDecoration: 'none', color: 'black' }}
-            >
-              <div className="trainer-card-row">
+            <Link to='/trainerpage' style={{ textDecoration: 'none', color: 'black' }}>
+              <div className='trainer-card-row'>
                 <TrainerCardComponent
                   pathOfImg={trainerAndrewDick}
-                  nickName="Trainer Ball"
-                  Fullname="Suthep Prabkeaw"
+                  nickName='Trainer Ball'
+                  Fullname='Suthep Prabkeaw'
                 />
                 <TrainerCardComponent
                   pathOfImg={trainerThisIsEngineering}
-                  nickName="Trainer Job"
-                  Fullname="Thanapob SingHaseanee"
+                  nickName='Trainer Job'
+                  Fullname='Thanapob SingHaseanee'
                 />
               </div>
             </Link>
           </div>
         </section>
-        <section className="contact-us">
-          <div className="container">
-            <div className="horizental-line"></div>
+        <section className='contact-us'>
+          <div className='container'>
+            <div className='horizental-line'></div>
             <ContactUsComponent />
           </div>
         </section>

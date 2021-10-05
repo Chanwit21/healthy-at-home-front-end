@@ -2,76 +2,20 @@ import React, { useEffect, useState } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
 import ContactUsComponent from '../../Component/ContactUsComponent/ContactUsComponent';
 import './InformationServiceToRegisterProgramPage.css';
-import { isEmpty } from '../../service/validationService';
-
-function validateFname(fname) {
-  return isEmpty(fname) ? 'Firstname is require' : '';
-}
-
-function validateLname(lname) {
-  return isEmpty(lname) ? 'Lastname is require' : '';
-}
-
-function validateWeight(weight) {
-  if (isEmpty(weight)) {
-    return 'Weight is Require';
-  } else if (isNaN(weight)) {
-    return 'Weight must be a number';
-  }
-  return '';
-}
-
-function validateHeight(height) {
-  if (isEmpty(height)) {
-    return 'Height is Require';
-  } else if (isNaN(height)) {
-    return 'Height must be a number';
-  }
-  return '';
-}
-
-function validatePhoneNumber(phoneNumber, isSubmit) {
-  if (isEmpty(phoneNumber)) {
-    return 'PhoneNumber is Require';
-  } else if (isNaN(phoneNumber)) {
-    return 'PhoneNumber must be a number';
-  } else if (+phoneNumber.length !== 10 && isSubmit) {
-    return 'Invalid lenght';
-  }
-  return '';
-}
-
-function validateTypeOfFood(type) {
-  if (isEmpty(type)) {
-    return 'Please Select Types of Food';
-  }
-  return '';
-}
-
-function validateDisease(disease) {
-  const { haveDisease, message } = disease;
-  if (isEmpty(haveDisease)) {
-    return 'Please select disease';
-  } else if (isEmpty(message) && haveDisease === 'yes') {
-    return 'Disease is require';
-  }
-  return '';
-}
-
-function validateGender(gender) {
-  if (isEmpty(gender)) {
-    return 'Please Select Gender';
-  }
-  return '';
-}
-function validateDate(date) {
-  if (!date) {
-    return 'Date to start is invalid';
-  }
-  return '';
-}
+import {
+  validateWeight,
+  validateLname,
+  validateHeight,
+  validateFname,
+  validateDate,
+  validateGender,
+  validateDisease,
+  validateTypeOfFood,
+  validatePhoneNumber,
+} from '../../service/validateInformationServiceToRegister';
 
 function InformationServiceToRegisterProgramPage() {
+  const location = useLocation();
   const [fname, setFname] = useState('');
   const [lname, setLname] = useState('');
   const [weight, setWeight] = useState('');
@@ -85,67 +29,71 @@ function InformationServiceToRegisterProgramPage() {
   const [additional, setAdditional] = useState('');
   const [dateToStart, setDateToStart] = useState('');
   const [error, setError] = useState({ fname: '' });
-  const [courseName, setCourseName] = useState('');
-  const [serImgPath, setSerImgPath] = useState('');
+  const courseName = location.state.courseName;
+  const serImgPath = location.state.serImgPath;
 
-  const location = useLocation();
   // console.log(location.state);
   const history = useHistory();
+  console.log(location);
 
   useEffect(() => {
-    if (location.state) {
-      setCourseName(location.state.courseName);
-      setSerImgPath(location.state.serImgPath);
-    }
-  }, [location]);
+    window.scrollTo(0, 0);
+  }, []);
 
-  const handleChangeFirstname = e => {
+  // useEffect(() => {
+  //   if (location.state) {
+  //     setCourseName(location.state.courseName);
+  //     setSerImgPath(location.state.serImgPath);
+  //   }
+  // }, [location]);
+
+  const handleChangeFirstname = (e) => {
     setFname(e.target.value);
-    setError(current => ({ ...current, fname: validateFname(e.target.value) }));
+    setError((current) => ({ ...current, fname: validateFname(e.target.value) }));
   };
 
-  const handleChangeLastname = e => {
+  const handleChangeLastname = (e) => {
     setLname(e.target.value);
-    setError(current => ({ ...current, lname: validateLname(e.target.value) }));
+    setError((current) => ({ ...current, lname: validateLname(e.target.value) }));
   };
 
-  const handleChangeWeight = e => {
+  const handleChangeWeight = (e) => {
     setWeight(e.target.value);
-    setError(current => ({
+    setError((current) => ({
       ...current,
       weight: validateWeight(e.target.value),
     }));
   };
 
-  const handleChangeHeight = e => {
+  const handleChangeHeight = (e) => {
     setHeight(e.target.value);
-    setError(current => ({
+    setError((current) => ({
       ...current,
       height: validateHeight(e.target.value),
     }));
   };
 
-  const handleChangeTelephoneNumber = e => {
+  const handleChangeTelephoneNumber = (e) => {
     setTelNumber(e.target.value);
-    setError(current => ({
+    setError((current) => ({
       ...current,
       phone: validatePhoneNumber(e.target.value, false),
     }));
   };
 
-  const handleChangeFoodAllergic = e => {
+  const handleChangeFoodAllergic = (e) => {
     setFoodAllergic(e.target.value);
   };
 
-  const handleChangeTypeOfFood = e => {
+  const handleChangeTypeOfFood = (e) => {
     setTypeOfFood(e.target.value);
-    setError(current => ({
+    setError((current) => ({
       ...current,
       'type-of-food': validateTypeOfFood(e.target.value),
     }));
   };
 
-  const handleChangeLoseWeightBefore = e => {
+  const handleChangeLoseWeightBefore = (e) => {
     setLoseWeightBefore(e.target.value);
   };
 
@@ -153,31 +101,31 @@ function InformationServiceToRegisterProgramPage() {
     const cloneDisease = { ...disease };
     cloneDisease[key] = e.target.value;
     setDisease(cloneDisease);
-    setError(current => ({
+    setError((current) => ({
       ...current,
       disease: '',
     }));
   };
 
-  const handleChangeGender = e => {
+  const handleChangeGender = (e) => {
     setGender(e.target.value);
-    setError(current => ({
+    setError((current) => ({
       ...current,
       gender: validateGender(e.target.value),
     }));
   };
 
-  const handleChangDateToStart = e => {
+  const handleChangDateToStart = (e) => {
     const date = e.target.value;
     // console.log(date);
     setDateToStart(date);
-    setError(current => ({
+    setError((current) => ({
       ...current,
       dateToStart: validateDate(e.target.value),
     }));
   };
 
-  const handleSubmitForm = e => {
+  const handleSubmitForm = (e) => {
     e.preventDefault();
     const error_fname = validateFname(fname);
     const error_lname = validateLname(lname);
@@ -199,7 +147,7 @@ function InformationServiceToRegisterProgramPage() {
       error_gender ||
       error_dateToStart
     ) {
-      setError(current => ({
+      setError((current) => ({
         ...current,
         fname: error_fname,
         lname: error_lname,
@@ -236,275 +184,234 @@ function InformationServiceToRegisterProgramPage() {
 
   return (
     <>
-      <div className="informationServiceToRegisterProgramPage">
-        <section className="service-card-section">
-          <div className="container">
-            <div className="service-card">
-              <div
-                className="img"
-                style={{ backgroundImage: `url(${serImgPath})` }}
-              ></div>
-              <div className="text-in-card">
+      <div className='informationServiceToRegisterProgramPage'>
+        <section className='service-card-section'>
+          <div className='container'>
+            <div className='service-card'>
+              <div className='img' style={{ backgroundImage: `url(${serImgPath})` }}></div>
+              <div className='text-in-card'>
                 <p>{courseName}</p>
               </div>
             </div>
           </div>
         </section>
-        <section className="form-information-section">
-          <div className="container">
-            <div className="form-information">
+        <section className='form-information-section'>
+          <div className='container'>
+            <div className='form-information'>
               <form onSubmit={handleSubmitForm}>
-                <div className="form-row">
-                  <div className="first-name">
-                    <label htmlFor="firstname">Firstname</label>
+                <div className='form-row'>
+                  <div className='first-name'>
+                    <label htmlFor='firstname'>Firstname</label>
                     <br />
                     <input
                       className={`${error.fname ? 'input-invalid' : ''}`}
-                      type="text"
-                      name="firstname"
-                      id="firstname"
+                      type='text'
+                      name='firstname'
+                      id='firstname'
                       value={fname}
                       onChange={handleChangeFirstname}
                     />
-                    {error.fname ? (
-                      <div className="invalid-text">{error.fname}</div>
-                    ) : null}
+                    {error.fname ? <div className='invalid-text'>{error.fname}</div> : null}
                   </div>
-                  <div className="last-name">
-                    <label htmlFor="lastname">Lastname</label>
+                  <div className='last-name'>
+                    <label htmlFor='lastname'>Lastname</label>
                     <br />
                     <input
                       className={`${error.lname ? 'input-invalid' : ''}`}
-                      type="text"
-                      name="lastname"
-                      id="lastname"
+                      type='text'
+                      name='lastname'
+                      id='lastname'
                       value={lname}
                       onChange={handleChangeLastname}
                     />
-                    {error.lname ? (
-                      <div className="invalid-text">{error.lname}</div>
-                    ) : null}
+                    {error.lname ? <div className='invalid-text'>{error.lname}</div> : null}
                   </div>
                 </div>
-                <div className="form-row">
-                  <div className="weight">
-                    <label htmlFor="weight">Weight(kg.)</label>
+                <div className='form-row'>
+                  <div className='weight'>
+                    <label htmlFor='weight'>Weight(kg.)</label>
                     <br />
                     <input
                       className={`${error.weight ? 'input-invalid' : ''}`}
-                      type="text"
-                      name="weight"
-                      id="weight"
+                      type='text'
+                      name='weight'
+                      id='weight'
                       value={weight}
                       onChange={handleChangeWeight}
                       maxLength={3}
                     />
-                    {error.weight ? (
-                      <div className="invalid-text">{error.weight}</div>
-                    ) : null}
+                    {error.weight ? <div className='invalid-text'>{error.weight}</div> : null}
                   </div>
-                  <div className="height">
-                    <label htmlFor="height">Heigth(cm.)</label>
+                  <div className='height'>
+                    <label htmlFor='height'>Heigth(cm.)</label>
                     <br />
                     <input
                       className={`${error.height ? 'input-invalid' : ''}`}
-                      type="text"
-                      name="height"
-                      id="height"
+                      type='text'
+                      name='height'
+                      id='height'
                       value={height}
                       onChange={handleChangeHeight}
                       maxLength={3}
                     />
-                    {error.height ? (
-                      <div className="invalid-text">{error.height}</div>
-                    ) : null}
+                    {error.height ? <div className='invalid-text'>{error.height}</div> : null}
                   </div>
                 </div>
-                <div className="form-row">
-                  <div className="telephone">
-                    <label htmlFor="telephone">Telephone Numbers</label>
+                <div className='form-row'>
+                  <div className='telephone'>
+                    <label htmlFor='telephone'>Telephone Numbers</label>
                     <br />
                     <input
                       className={error.phone ? 'input-invalid' : ''}
-                      type="tel"
-                      name="telephone"
-                      id="telephone"
+                      type='tel'
+                      name='telephone'
+                      id='telephone'
                       value={telNumber}
                       onChange={handleChangeTelephoneNumber}
                     />
-                    {error.phone ? (
-                      <div className="invalid-text">{error.phone}</div>
-                    ) : null}
+                    {error.phone ? <div className='invalid-text'>{error.phone}</div> : null}
                   </div>
-                  <div className="food-allergic">
-                    <label htmlFor="food-allergic">
-                      Food you are allergic?
-                    </label>
+                  <div className='food-allergic'>
+                    <label htmlFor='food-allergic'>Food you are allergic?</label>
                     <br />
                     <input
-                      type="text"
-                      name="food-allergic"
-                      id="food-allergic"
+                      type='text'
+                      name='food-allergic'
+                      id='food-allergic'
                       value={foodAllergic}
                       onChange={handleChangeFoodAllergic}
                     />
                   </div>
                 </div>
-                <div className="form-row">
-                  <div className="type-of-food">
-                    <label htmlFor="type-of-food">Type of food</label>
+                <div className='form-row'>
+                  <div className='type-of-food'>
+                    <label htmlFor='type-of-food'>Type of food</label>
                     <br />
                     <select
-                      className={`${
-                        error['type-of-food'] ? 'input-invalid' : ''
-                      }`}
-                      name="type-of-food"
-                      id="type-of-food"
+                      className={`${error['type-of-food'] ? 'input-invalid' : ''}`}
+                      name='type-of-food'
+                      id='type-of-food'
                       value={typeOfFood}
                       onChange={handleChangeTypeOfFood}
                     >
-                      <option value="">none</option>
-                      <option value="vegan">Vegan</option>
-                      <option value="halal">Halal</option>
-                      <option value="plant-base">Plant Base</option>
-                      <option value="meat-and-poultry">
-                        Meat and poultry.
-                      </option>
-                      <option value="fish-and-seafood">
-                        Fish and seafood.
-                      </option>
-                      <option value="all-types">All types of food</option>
+                      <option value=''>none</option>
+                      <option value='vegan'>Vegan</option>
+                      <option value='halal'>Halal</option>
+                      <option value='plant-base'>Plant Base</option>
+                      <option value='meat-and-poultry'>Meat and poultry.</option>
+                      <option value='fish-and-seafood'>Fish and seafood.</option>
+                      <option value='all-types'>All types of food</option>
                     </select>
-                    {error['type-of-food'] ? (
-                      <div className="invalid-text">
-                        {error['type-of-food']}
-                      </div>
-                    ) : null}
+                    {error['type-of-food'] ? <div className='invalid-text'>{error['type-of-food']}</div> : null}
                   </div>
-                  <div className="type-lose-weight-before">
-                    <label htmlFor="type-lose-weight-before">
-                      How did you lose weight before?
-                    </label>
+                  <div className='type-lose-weight-before'>
+                    <label htmlFor='type-lose-weight-before'>How did you lose weight before?</label>
                     <br />
                     <select
-                      name="lose-weight-before"
-                      id="lose-weight-before"
+                      name='lose-weight-before'
+                      id='lose-weight-before'
                       value={loseWeightBefore}
                       onChange={handleChangeLoseWeightBefore}
                     >
-                      <option value="">none</option>
-                      <option value="intermediate-fasting">
-                        Intermediate Fasting
-                      </option>
-                      <option value="keto-diet">Keto Diet</option>
-                      <option value="mediterranean-diet">
-                        The Mediterranean diet
-                      </option>
-                      <option value="atkins-diet">Atkins Diet</option>
-                      <option value="Paleo">Paleo</option>
+                      <option value=''>none</option>
+                      <option value='intermediate-fasting'>Intermediate Fasting</option>
+                      <option value='keto-diet'>Keto Diet</option>
+                      <option value='mediterranean-diet'>The Mediterranean diet</option>
+                      <option value='atkins-diet'>Atkins Diet</option>
+                      <option value='Paleo'>Paleo</option>
                     </select>
                   </div>
                 </div>
-                <div className="form-row">
-                  <div className="disease">
-                    <label htmlFor="disease">
-                      Do you have any underlying disease?
-                    </label>
+                <div className='form-row'>
+                  <div className='disease'>
+                    <label htmlFor='disease'>Do you have any underlying disease?</label>
                     <br />
-                    <div className="row-radio-check">
-                      <div className="box-desease">
+                    <div className='row-radio-check'>
+                      <div className='box-desease'>
                         <input
-                          type="radio"
-                          name="disease"
-                          id="disease-yes"
-                          value="yes"
-                          onChange={e => handleChangeDisease(e, 'haveDisease')}
+                          type='radio'
+                          name='disease'
+                          id='disease-yes'
+                          value='yes'
+                          onChange={(e) => handleChangeDisease(e, 'haveDisease')}
                         />
-                        <label htmlFor="disease-yes">Yes</label>
+                        <label htmlFor='disease-yes'>Yes</label>
                       </div>
-                      <div className="box-desease">
+                      <div className='box-desease'>
                         <input
-                          type="radio"
-                          name="disease"
-                          id="disease-no"
-                          value="no"
-                          onChange={e => handleChangeDisease(e, 'haveDisease')}
+                          type='radio'
+                          name='disease'
+                          id='disease-no'
+                          value='no'
+                          onChange={(e) => handleChangeDisease(e, 'haveDisease')}
                         />
-                        <label htmlFor="disease-no">No</label>
+                        <label htmlFor='disease-no'>No</label>
                       </div>
                     </div>
                     <input
-                      disabled={
-                        !disease.haveDisease || disease.haveDisease === 'no'
-                      }
-                      type="text"
-                      name="disease"
-                      id="disease"
+                      disabled={!disease.haveDisease || disease.haveDisease === 'no'}
+                      type='text'
+                      name='disease'
+                      id='disease'
                       value={disease.message}
-                      onChange={e => handleChangeDisease(e, 'message')}
+                      onChange={(e) => handleChangeDisease(e, 'message')}
                     />
-                    {error.disease ? (
-                      <div className="invalid-text">{error.disease}</div>
-                    ) : null}
+                    {error.disease ? <div className='invalid-text'>{error.disease}</div> : null}
                   </div>
-                  <div className="gender">
-                    <label htmlFor="gender">Gender</label>
+                  <div className='gender'>
+                    <label htmlFor='gender'>Gender</label>
                     <br />
                     <select
                       className={`${error.gender ? 'input-invalid' : ''}`}
-                      name="gender"
-                      id="gender"
+                      name='gender'
+                      id='gender'
                       value={gender}
                       onChange={handleChangeGender}
                     >
-                      <option value="">none</option>
-                      <option value="male">Male</option>
-                      <option value="female">Female</option>
-                      <option value="other">Other</option>
+                      <option value=''>none</option>
+                      <option value='male'>Male</option>
+                      <option value='female'>Female</option>
+                      <option value='other'>Other</option>
                     </select>
-                    {error.gender ? (
-                      <div className="invalid-text">{error.gender}</div>
-                    ) : null}
+                    {error.gender ? <div className='invalid-text'>{error.gender}</div> : null}
                   </div>
                 </div>
-                <div className="form-row">
-                  <div className="dateToStart">
-                    <label htmlFor="dateToStart">Date to Start ?</label>
+                <div className='form-row'>
+                  <div className='dateToStart'>
+                    <label htmlFor='dateToStart'>Date to Start ?</label>
                     <br />
                     <input
-                      type="date"
-                      name="dateToStart"
-                      id="dateToStart"
+                      type='date'
+                      name='dateToStart'
+                      id='dateToStart'
                       value={dateToStart}
                       onChange={handleChangDateToStart}
                     />
-                    {error.dateToStart ? (
-                      <div className="invalid-text">{error.dateToStart}</div>
-                    ) : null}
+                    {error.dateToStart ? <div className='invalid-text'>{error.dateToStart}</div> : null}
                   </div>
                 </div>
-                <div className="form-row">
-                  <div className="additional">
-                    <label htmlFor="additional">Additional Detail</label>
+                <div className='form-row'>
+                  <div className='additional'>
+                    <label htmlFor='additional'>Additional Detail</label>
                     <br />
                     <textarea
-                      name="additional"
-                      id="additional"
+                      name='additional'
+                      id='additional'
                       value={additional}
-                      onChange={e => setAdditional(e.target.value)}
+                      onChange={(e) => setAdditional(e.target.value)}
                     ></textarea>
                   </div>
                 </div>
-                <div className="submit">
-                  <input type="submit" value="Order Now" />
+                <div className='submit'>
+                  <input type='submit' value='Order Now' />
                 </div>
               </form>
             </div>
           </div>
         </section>
-        <section className="contact-us">
-          <div className="container">
-            <div className="horizental-line"></div>
+        <section className='contact-us'>
+          <div className='container'>
+            <div className='horizental-line'></div>
             <ContactUsComponent />
           </div>
         </section>

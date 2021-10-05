@@ -64,20 +64,20 @@
   position: absolute;
 }
 
-.contact-us-content .contact-us-form .label label{
+.contact-us-content .contact-us-form .label label {
   display: inline-block;
   height: 3.3vw;
-  margin-top:0.6vw;
+  margin-top: 0.6vw;
   margin-bottom: 1.1vw;
 }
 
-.contact-us-content .contact-us-form .label label:nth-child(5){
+.contact-us-content .contact-us-form .label label:nth-child(5) {
   display: inline-block;
   height: 3.3vw;
   margin-bottom: 1vw;
 }
 
-.contact-us-content .contact-us-form .label label:nth-child(7){
+.contact-us-content .contact-us-form .label label:nth-child(7) {
   margin-top: 0vw;
 }
 
@@ -101,7 +101,7 @@
   margin-top: 2.448vw;
 } */
 
-.contact-us-content .contact-us-form .input {
+.contact-us-content .contact-us-form .input-group {
   display: inline-block;
   /* border: 1px dashed black; */
   text-align: left;
@@ -109,7 +109,7 @@
   margin-left: 13.78333vw;
 }
 
-.contact-us-content .contact-us-form .input input {
+.contact-us-content .contact-us-form .input-group input {
   display: inline-block;
   margin-bottom: 1.823vw;
   width: 20vw;
@@ -121,12 +121,12 @@
   border-radius: 0.520833vw;
 }
 
-.contact-us-content .contact-us-form .input input#email {
+.contact-us-content .contact-us-form .input-group input#email {
   width: 33.073vw;
   height: 3.125vw;
 }
 
-.contact-us-content .contact-us-form .input textarea {
+.contact-us-content .contact-us-form .input-group textarea {
   width: 33.073vw;
   height: 7.96875vw;
   background: #ffffff;
@@ -135,7 +135,7 @@
   border-radius: 0.520833vw;
 }
 
-.contact-us-content input[type="submit"] {
+.contact-us-content input[type='submit'] {
   margin-top: 0.83333vw;
   margin-left: 3vw;
   width: 44.01vw;
@@ -149,7 +149,7 @@
   border: 0.052083vw solid #2b90c4;
 }
 
-.contact-us-content input[type="submit"]:hover {
+.contact-us-content input[type='submit']:hover {
   cursor: pointer;
 }
 
@@ -165,4 +165,33 @@
   margin-left: 36.5vw;
   margin-top: 0.520833vw;
   width: 10.9895vw;
+}
+
+/* alert box */
+.contact-us-content .alert-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  margin: 0 auto;
+  height: 5vw;
+  padding: 1vw;
+  border-radius: 1vw;
+  position: fixed;
+  z-index: 2;
+  bottom: 0;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0.2083vw 0.2083vw 0.42083vw 0.16vw rgba(0, 0, 0, 0.25);
+}
+
+.contact-us-content .alert-box-invalid {
+  color: #ffffff !important;
+  background-color: #f44336 !important;
+}
+
+.contact-us-content .alert-box-valid {
+  color: #4f8a10;
+  background-color: #dff2bf;
 }

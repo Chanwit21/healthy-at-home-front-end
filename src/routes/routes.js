@@ -25,13 +25,15 @@ const guest = [
   { component: AboutPage, path: '/aboutpage' },
   { component: TrainerPage, path: '/trainerpage' },
   { component: ServicePage, path: '/servicepage' },
-  { component: LoginPage, path: '/loginpage' },
-  { component: RegisterPage, path: '/registerpage' },
 ];
 
 const routesAll = {
   GUEST: {
-    routes: [...guest],
+    routes: [
+      ...guest,
+      { component: LoginPage, path: '/loginpage' },
+      { component: RegisterPage, path: '/registerpage' },
+    ],
     redirect: '/',
   },
   CUSTOMER: {

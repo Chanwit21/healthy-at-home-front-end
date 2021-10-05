@@ -31,9 +31,7 @@ function LoginPage() {
     e.preventDefault();
     if (!isEmail(login.email)) {
       return setErr((cur) => ({ ...cur, email: 'Email is invalid Format' }));
-    }
-
-    if (
+    } else if (
       !isStrongPassword(login.password, {
         minLength: 8,
         minLowercase: 1,
