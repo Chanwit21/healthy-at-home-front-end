@@ -1,19 +1,21 @@
 import React, { useEffect, useState } from 'react';
 import axios from '../../config/axios';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import './PaymentSuccessPage.css';
 import { firstUpperCase } from '../../service/formatting';
 
 function PaymentSuccessPage() {
   const [status, setStatus] = useState('.......');
+  const history = useHistory();
 
   useEffect(() => {
     const fetchLatestTransaction = async () => {
       const res = await axios.get('/transaction');
       setStatus(res.data.latestTransaction.status);
+      setTimeout(() => history.push('/user-profile-page'), 5000);
     };
     fetchLatestTransaction();
-  }, []);
+  }, [history]);
 
   return (
     <div>

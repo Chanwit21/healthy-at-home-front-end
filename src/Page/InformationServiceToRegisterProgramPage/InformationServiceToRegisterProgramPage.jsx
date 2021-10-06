@@ -8,7 +8,6 @@ import {
   validateHeight,
   validateFname,
   validateDate,
-  validateGender,
   validateDisease,
   validateTypeOfFood,
   validatePhoneNumber,
@@ -37,7 +36,7 @@ function InformationServiceToRegisterProgramPage() {
 
   // console.log(location.state);
   const history = useHistory();
-  console.log(location);
+  // console.log(location);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -115,10 +114,6 @@ function InformationServiceToRegisterProgramPage() {
 
   const handleChangeGender = (e) => {
     setGender(e.target.value);
-    setError((current) => ({
-      ...current,
-      gender: validateGender(e.target.value),
-    }));
   };
 
   const handleChangDateToStart = (e) => {
@@ -140,7 +135,6 @@ function InformationServiceToRegisterProgramPage() {
     const error_telNumber = validatePhoneNumber(telNumber);
     const error_typeOfFood = validateTypeOfFood(typeOfFood);
     const error_disease = validateDisease(disease);
-    const error_gender = validateGender(gender);
     const error_dateToStart = validateDate(dateToStart);
     if (
       error_fname ||
@@ -150,7 +144,6 @@ function InformationServiceToRegisterProgramPage() {
       error_telNumber ||
       error_typeOfFood ||
       error_disease ||
-      error_gender ||
       error_dateToStart
     ) {
       setError((current) => ({
@@ -161,7 +154,6 @@ function InformationServiceToRegisterProgramPage() {
         height: error_height,
         phone: error_telNumber,
         'type-of-food': error_typeOfFood,
-        gender: error_gender,
         disease: error_disease,
         dateToStart: error_dateToStart,
       }));
@@ -381,7 +373,7 @@ function InformationServiceToRegisterProgramPage() {
                       <option value=''>none</option>
                       <option value='male'>Male</option>
                       <option value='female'>Female</option>
-                      <option value='other'>Other</option>
+                      <option value={null}>Other</option>
                     </select>
                     {error.gender ? <div className='invalid-text'>{error.gender}</div> : null}
                   </div>

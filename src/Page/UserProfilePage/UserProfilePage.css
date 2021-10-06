@@ -14,39 +14,6 @@
   margin-bottom: 5vw;
 }
 
-/* Content Profile */
-.user-profile-page .text-in-content-profile-and-consult-trainer {
-  width: 52vw;
-  margin-top: 2vw;
-}
-
-.user-profile-page .text-in-content-profile-and-consult-trainer .text-row {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 1.5vw;
-}
-
-.user-profile-page
-  .text-in-content-profile-and-consult-trainer
-  .text-row
-  .content-in-right {
-  width: 55%;
-}
-
-.user-profile-page .text-in-content-profile-and-consult-trainer .text-row h1 {
-  font-style: normal;
-  font-weight: 600;
-  font-size: 1.5625vw;
-  color: #000000;
-}
-
-.user-profile-page .text-in-content-profile-and-consult-trainer .text-row p {
-  font-style: normal;
-  font-weight: normal;
-  font-size: 1.5625vw;
-  color: #000000;
-}
-
 /* Consult Trainer */
 .user-profile-page .consult-trainner {
   margin-top: 11vw;
@@ -64,4 +31,11 @@
   height: 0.52vw;
   background: #2b90c4;
   border-radius: 0.52vw;
+}
+
+/*  Section content-in-inprogress-program-page*/
+.user-profile-page .inprogress-program {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 5vw;
 }

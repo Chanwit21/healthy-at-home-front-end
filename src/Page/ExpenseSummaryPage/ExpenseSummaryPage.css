@@ -18,7 +18,7 @@
 }
 
 .expen-summary-page .img-in-expen-summary-page {
-  background-image: url("../../PIC/Service Program/pexels-rodnae-productions-8401115.jpg");
+  background-image: url('../../PIC/Service Program/pexels-rodnae-productions-8401115.jpg');
   width: 50%;
   height: 100%;
   background-size: cover;
@@ -83,8 +83,6 @@
 }
 
 .expen-summary-page .confirm-your-ourder {
-  font-weight: 600;
-  font-size: 1.041666vw;
   color: #ffffff;
   background: #2b90c4;
   border-radius: 0.52083vw;
@@ -102,4 +100,65 @@
   width: 10.416666vw;
   height: 2.34375vw;
   border: 0.052083vw solid #ff88a4;
+}
+
+.expen-summary-page .alert-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 35%;
+  margin: 0 auto;
+  height: 10vw;
+  padding: 1vw;
+  border-radius: 1vw;
+  position: fixed;
+  z-index: 2;
+  bottom: 0;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0.2083vw 0.2083vw 0.42083vw 0.16vw rgba(0, 0, 0, 0.25);
+}
+
+.expen-summary-page .alert-box button {
+  color: #ffffff;
+  background: #2b90c4;
+  border-radius: 0.5208333vw;
+  border: 0.000520833vw solid #2b90c4;
+  margin-top: 0.5vw;
+  padding: 0.3vw;
+}
+
+.expen-summary-page .alert-box button:hover {
+  cursor: pointer;
+  color: #ffffff;
+}
+.expen-summary-page .alert-box-invalid {
+  color: #ffffff;
+  background-color: #f44336;
+}
+
+.expen-summary-page .alert-box-valid {
+  color: #4f8a10;
+  background-color: #dff2bf;
+}
+
+.expen-summary-page .alert-box-icon {
+  position: absolute;
+  z-index: 2;
+  bottom: 0;
+  right: 3%;
+  top: 6%;
+}
+
+.expen-summary-page .alert-box-icon button {
+  background-color: inherit;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.expen-summary-page .alert-box-icon:hover {
+  color: #000000;
 }

@@ -1,10 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { useHistory, useLocation } from 'react-router-dom';
-import Script from 'react-load-script';
+import { Link, useHistory, useLocation } from 'react-router-dom';
 import axios from '../../config/axios';
 import './ExpenseSummaryPage.css';
-
-let OmiseCard;
 
 function ExpenseSummaryPage() {
   const [state, setState] = useState({
@@ -24,6 +21,7 @@ function ExpenseSummaryPage() {
     dateToStart: '',
     serviceId: '',
   });
+  const [aleartMessage, setAleartMessage] = useState('');
   const location = useLocation();
   // console.log(location.state);
 
@@ -39,16 +37,16 @@ function ExpenseSummaryPage() {
     history.push({ pathname: '/informatioservicetoregisterprogrampage', state: state });
   };
 
-  const handleScriptLoad = () => {
-    OmiseCard = window.OmiseCard;
-    OmiseCard.configure({
-      publicKey: 'pkey_test_5pdoxhl4p3erc27pgew',
-      currency: 'THB',
-      frameLabel: 'Healthy At Home',
-      submitLabel: 'PAY NOW',
-      buttonLabel: 'Pay',
-    });
-  };
+  // const handleScriptLoad = () => {
+  const OmiseCard = window.OmiseCard;
+  OmiseCard.configure({
+    publicKey: 'pkey_test_5pdoxhl4p3erc27pgew',
+    currency: 'THB',
+    frameLabel: 'Healthy At Home',
+    submitLabel: 'PAY NOW',
+    buttonLabel: 'Pay',
+  });
+  // };
 
   const orderConfigure = () => {
     OmiseCard.configure({
@@ -65,19 +63,47 @@ function ExpenseSummaryPage() {
       onCreateTokenSuccess: async (nonce) => {
         if (nonce.startsWith('tokn_')) {
           console.log(nonce);
-          await axios.post('/payment/card', {
-            token: nonce,
-            amount: +state.price.slice(1).split(',').join('') * 100,
-            serviceId: state.serviceId,
-          });
-          // console.log(res.data.charge);
-          history.push('/paymentsuccesspage');
+          try {
+            const res = await axios.post('/payment/card', {
+              token: nonce,
+              amount: +state.price.slice(1).split(',').join('') * 100,
+              serviceId: state.serviceId,
+              state: state,
+            });
+            // console.log(res.data.charge);
+            if (res.data.charge.status === 'successful') {
+              await axios.post('/user_trainer_relational/create_user_trainer_relational', {
+                loseWeightBefore: state.loseWeightBefore || null,
+                desease: state.disease.message || null,
+                dateStart: state.dateToStart,
+                foodAllergic: state.foodAllergic || null,
+                typeOfFood: state.typeOfFood,
+                courseServiceId: state.serviceId,
+              });
+              const message = (
+                <>
+                  <h1>Pay Ment Successful !!</h1>
+                  <p>Go to Your Program Now !</p>
+                  <Link to='/user-profile-page'>
+                    <button>Go To Program</button>
+                  </Link>
+                </>
+              );
+              setAleartMessage(message);
+              setTimeout(() => history.push('/user-profile-page'), 3000);
+            } else {
+              setAleartMessage('Payment failed');
+            }
+          } catch (err) {
+            setAleartMessage('Payment failed');
+          }
         } else {
           console.log(nonce);
           const res = await axios.post('/payment/source', {
             source: nonce,
             amount: +state.price.slice(1).split(',').join('') * 100,
             serviceId: state.serviceId,
+            state: state,
           });
           // console.log(res.data.charge);
           // window.open(res.data.charge.authorize_uri, '_blank');
@@ -90,9 +116,12 @@ function ExpenseSummaryPage() {
     });
   };
 
+  const handleClickCloseAlertBox = () => {
+    setAleartMessage('');
+  };
+
   return (
     <div>
-      <Script url='https://cdn.omise.co/omise.js' onLoad={handleScriptLoad} />
       <div style={{ marginBottom: '2.083333333333333vw' }}></div>
       <div className='expen-summary-page'>
         <section className='expense-summary'>
@@ -180,16 +209,35 @@ function ExpenseSummaryPage() {
                 </div>
                 <div className='button-in-summary'>
                   <form>
-                    <button id='order_now' className='confirm-your-ourder' onClick={handleClickOrderNow}>
+                    <button
+                      id='order_now'
+                      className='confirm-your-ourder'
+                      onClick={handleClickOrderNow}
+                      disabled={!!aleartMessage}
+                    >
                       Order now
                     </button>
                   </form>
-                  <button className='edit-your-ourder' onClick={handleClickEditYourOrder}>
+                  <button className='edit-your-ourder' onClick={handleClickEditYourOrder} disabled={!!aleartMessage}>
                     Edit Your Ourder
                   </button>
                 </div>
               </div>
             </div>
+            {aleartMessage ? (
+              <div
+                className={`alert-box ${typeof aleartMessage === 'string' ? 'alert-box-invalid' : 'alert-box-valid'}`}
+              >
+                {typeof aleartMessage === 'string' ? (
+                  <div className='alert-box-icon'>
+                    <button onClick={handleClickCloseAlertBox}>
+                      <i style={{ fontSize: '25px' }} className='bi bi-x'></i>
+                    </button>
+                  </div>
+                ) : null}
+                {aleartMessage}
+              </div>
+            ) : null}
           </div>
         </section>
       </div>

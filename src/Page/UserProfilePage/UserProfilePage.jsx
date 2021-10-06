@@ -1,10 +1,40 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import ContactUsComponent from '../../Component/ContactUsComponent/ContactUsComponent';
 import NavBarLeftForUserComponent from '../../Component/NavBarLeftForUserComponent/NavBarLeftForUserComponent';
-
+import Profile from '../../Component/ProfileComponent/Profile';
+import UpdateProfileForm from '../../Component/UpdateProfileForm/UpdateProfileForm';
+import UserInprogressProgramCardComponent from '../../Component/UserInprogressProgramCardComponent/UserInprogressProgramCardComponent';
+import axios from '../../config/axios';
 import './UserProfilePage.css';
 
 function UserProfilePage() {
+  const [profile, setProfile] = useState({
+    education: null,
+    email: null,
+    firstName: null,
+    gender: null,
+    height: null,
+    id: null,
+    image: null,
+    lastName: null,
+    nickName: null,
+    phoneNumber: null,
+    role: null,
+    weight: null,
+  });
+  const [onPage, setOnPage] = useState('UserProfilePage');
+
+  useEffect(() => {
+    const fetchUserAndInprogressProgram = async () => {
+      const res = await axios.get('/users/user_info');
+      const res2 = await axios.get('/inprogress_program/current_program');
+
+      setProfile({ ...res.data.user, ...res2.data.relation });
+    };
+    fetchUserAndInprogressProgram();
+  }, []);
+
   return (
     <div>
       <div className='user-profile-page'>
@@ -13,74 +43,45 @@ function UserProfilePage() {
             <div className='user-profile'>
               <div className='nav-left-user'>
                 <NavBarLeftForUserComponent
-                  Name='Wuttichai Chankracang'
-                  Page='UserProfilePage'
+                  profileImage={profile.image}
+                  Name={`${profile.firstName} ${profile.lastName}`}
+                  Page={onPage}
+                  role={profile.role}
+                  setOnPage={setOnPage}
+                  haveCourseService={!!profile.CourseService}
                 />
               </div>
-              <div className='content-profile-and-consult-trainer'>
-                <div className='text-in-content-profile-and-consult-trainer'>
-                  <div className='text-row'>
-                    <h1>Name</h1>
-                    <div className='content-in-right'>
-                      <p>Wuttichai Chankracang</p>
-                    </div>
-                  </div>
-                  <div className='text-row'>
-                    <h1>Phone Numbers</h1>
-                    <div className='content-in-right'>
-                      <p>089-698-xxxx</p>
-                    </div>
-                  </div>
-                  <div className='text-row'>
-                    <h1>Gender</h1>
-                    <div className='content-in-right'>
-                      <p>Male</p>
-                    </div>
-                  </div>
-                  <div className='text-row'>
-                    <h1>Weight</h1>
-                    <div className='content-in-right'>
-                      <p>70 kg.</p>
-                    </div>
-                  </div>
-                  <div className='text-row'>
-                    <h1>Heigth</h1>
-                    <div className='content-in-right'>
-                      <p>170 cm.</p>
-                    </div>
-                  </div>
-                  <div className='text-row'>
-                    <h1>Food you are allergic</h1>
-                    <div className='content-in-right'>
-                      <p>Shrimp</p>
-                    </div>
-                  </div>
-                  <div className='text-row'>
-                    <h1>Type of food</h1>
-                    <div className='content-in-right'>
-                      <p>Vegan Food</p>
-                    </div>
-                  </div>
-                  <div className='text-row'>
-                    <h1>Ever lost weight</h1>
-                    <div className='content-in-right'>
-                      <p>Intermitent Fasting</p>
-                    </div>
-                  </div>
-                  <div className='text-row'>
-                    <h1>Exercise ever done</h1>
-                    <div className='content-in-right'>
-                      <p>Cardio,Body Weight</p>
-                    </div>
-                  </div>
-                  <div className='text-row'>
-                    <h1>Congenital disease</h1>
-                    <div className='content-in-right'>
-                      <p>Allergy</p>
-                    </div>
-                  </div>
+              {onPage === 'UserProfilePage' ? <Profile profile={profile} /> : null}
+              {onPage === 'UserInprogressProgramPage' && profile.CourseService ? (
+                <div>
+                  <Link
+                    to='/user-workout-schedule-page'
+                    style={{
+                      textDecoration: 'none',
+                      color: '#000',
+                    }}
+                  >
+                    <UserInprogressProgramCardComponent
+                      ProgramName={profile.CourseService.name}
+                      ContentInProgram={profile.CourseService.title}
+                      Image={profile.CourseService.imageLink1}
+                    />
+                  </Link>
                 </div>
-              </div>
+              ) : null}
+              {onPage === 'EditProfilePage' ? (
+                <UpdateProfileForm
+                  firstName={profile.firstName}
+                  lastName={profile.lastName}
+                  weight={profile.weight}
+                  height={profile.height}
+                  nickName={profile.nickName}
+                  phoneNumber={profile.phoneNumber}
+                  gender={profile.gender}
+                  education={profile.education}
+                  profileImage={profile.image}
+                />
+              ) : null}
             </div>
           </div>
         </section>
