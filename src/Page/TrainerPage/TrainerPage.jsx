@@ -9,6 +9,7 @@ function TrainerPage() {
   const [trainers, setTrainers] = useState([]);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     const fetchTrainer = async () => {
       const res = await axios.get('/trainer_info');
       setTrainers(res.data.trainers);

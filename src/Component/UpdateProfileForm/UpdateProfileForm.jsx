@@ -1,6 +1,11 @@
 import React, { useRef, useState } from 'react';
 import './UpdateProfileForm.css';
 import AlertBox from '../AlertBox/AlertBox';
+import axios from '../../config/axios';
+import { useUserContext } from '../../contetext/Usercontext';
+import { removeToken } from '../../service/localStorage';
+import { css } from '@emotion/react';
+import BounceLoader from 'react-spinners/BounceLoader';
 
 function UpdateProfileForm({
   firstName,
@@ -13,6 +18,7 @@ function UpdateProfileForm({
   education,
   profileImage,
 }) {
+  let [loading, setLoading] = useState(false);
   const [updateProfile, setUpdateProfile] = useState({
     firstName,
     lastName,
@@ -27,6 +33,7 @@ function UpdateProfileForm({
   const [updateProfileImage, setUpdateProfileImage] = useState(profileImage);
   const [imagefile, setImagefile] = useState(null);
   const [alertMessage, setAlertMessage] = useState('');
+  const { dispatch } = useUserContext();
 
   const inputProfileImage = useRef();
 
@@ -55,7 +62,6 @@ function UpdateProfileForm({
   };
 
   const handleChangeInputFile = (e) => {
-    console.log(e.target.files[0].type);
     if (['image/jpg', 'image/jpeg', 'image/png'].includes(e.target.files[0].type)) {
       const file = e.target.files[0];
       setImagefile(file);
@@ -70,41 +76,92 @@ function UpdateProfileForm({
     }
   };
 
-  const handleSubmitUpdateProfile = (e) => {
+  const handleSubmitUpdateProfile = async (e) => {
     e.preventDefault();
 
+    let allPass = true;
+
     if (!updateProfile.firstName) {
+      allPass = false;
       setError((cur) => ({ ...cur, firstName: 'First name is require.' }));
     }
 
     if (!updateProfile.lastName) {
+      allPass = false;
       setError((cur) => ({ ...cur, lastName: 'Last name is require.' }));
     }
 
     if (!updateProfile.nickName) {
+      allPass = false;
       setError((cur) => ({ ...cur, nickName: 'Nickname is require.' }));
     }
 
     if (updateProfile.phoneNumber.length !== 10 && updateProfile.phoneNumber !== '') {
+      allPass = false;
       setError((cur) => ({ ...cur, phoneNumber: 'Phone Number is invalid length.' }));
     }
 
     if (isNaN(updateProfile.phoneNumber)) {
+      allPass = false;
       setError((cur) => ({ ...cur, phoneNumber: 'Phone Number must be numeric.' }));
     }
 
     if (isNaN(updateProfile.weight)) {
+      allPass = false;
       setError((cur) => ({ ...cur, weight: 'Weight must be numeric.' }));
     }
 
     if (isNaN(updateProfile.height)) {
+      allPass = false;
       setError((cur) => ({ ...cur, height: 'Height must be numeric.' }));
     }
 
     if (updateProfile.gender === '') {
+      allPass = false;
       setError((cur) => ({ ...cur, gender: 'Gender is require.' }));
     }
+
+    if (allPass) {
+      const form = new FormData();
+      form.append('firstName', updateProfile.firstName);
+      form.append('lastName', updateProfile.lastName);
+      form.append('weight', updateProfile.weight);
+      form.append('height', updateProfile.height);
+      form.append('nickName', updateProfile.nickName);
+      form.append('phoneNumber', updateProfile.phoneNumber);
+      form.append('gender', updateProfile.gender);
+      form.append('education', updateProfile.education);
+
+      if (imagefile) {
+        form.append('profile-image', imagefile);
+      }
+
+      try {
+        setLoading(true);
+        window.scrollTo(0, 0);
+        await axios.put('/users/update_profile', form);
+        const res = await axios.get('/refresh_token');
+        console.log(res.data);
+        removeToken();
+        dispatch({ type: 'LOGIN', payload: { token: res.data.token } });
+        window.location.reload();
+        setLoading(false);
+      } catch (err) {}
+    }
   };
+
+  const cssOverride = css`
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    border-color: #000;
+  `;
+
+  if (loading) {
+    return <BounceLoader color='#000' loading={loading} css={cssOverride} size={150} />;
+  }
 
   return (
     <div className='UpdateProfileForm'>
@@ -170,7 +227,7 @@ function UpdateProfileForm({
               className={`${error.nickName ? 'input-invalid' : ''}`}
               type='text'
               id='nickName'
-              value={updateProfile.nickName}
+              value={updateProfile.nickName || ''}
               onChange={(e) => handelChangeInput('nickName', e)}
             />
             {error.nickName ? <div className='invalid-text'>{error.nickName}</div> : null}
@@ -182,7 +239,7 @@ function UpdateProfileForm({
               className={`${error.phoneNumber ? 'input-invalid' : ''}`}
               type='text'
               id='phoneNumber'
-              value={updateProfile.phoneNumber}
+              value={updateProfile.phoneNumber || ''}
               onChange={(e) => handelChangeInput('phoneNumber', e)}
             />
             {error.phoneNumber ? <div className='invalid-text'>{error.phoneNumber}</div> : null}
@@ -197,7 +254,7 @@ function UpdateProfileForm({
               className={`${error.weight ? 'input-invalid' : ''}`}
               type='text'
               id='weight'
-              value={updateProfile.weight}
+              value={updateProfile.weight || ''}
               onChange={(e) => handelChangeInput('weight', e)}
             />
             {error.weight ? <div className='invalid-text'>{error.weight}</div> : null}
@@ -209,7 +266,7 @@ function UpdateProfileForm({
               className={`${error.height ? 'input-invalid' : ''}`}
               type='text'
               id='height'
-              value={updateProfile.height}
+              value={updateProfile.height || ''}
               onChange={(e) => handelChangeInput('height', e)}
             />
             {error.height ? <div className='invalid-text'>{error.height}</div> : null}
@@ -224,7 +281,7 @@ function UpdateProfileForm({
               className={`${error.gender ? 'input-invalid' : ''}`}
               name='gender'
               id='gender'
-              value={updateProfile.gender}
+              value={updateProfile.gender || ''}
               onChange={(e) => handelChangeInput('gender', e)}
             >
               <option value=''>none</option>
@@ -240,7 +297,7 @@ function UpdateProfileForm({
             <input
               type='text'
               id='education'
-              value={updateProfile.education}
+              value={updateProfile.education || ''}
               onChange={(e) => handelChangeInput('education', e)}
             />
           </div>

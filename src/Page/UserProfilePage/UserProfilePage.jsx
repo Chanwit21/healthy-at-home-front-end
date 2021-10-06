@@ -28,9 +28,13 @@ function UserProfilePage() {
   useEffect(() => {
     const fetchUserAndInprogressProgram = async () => {
       const res = await axios.get('/users/user_info');
-      const res2 = await axios.get('/inprogress_program/current_program');
+      const objProfile = { ...res.data.user };
+      if (res.data.user.role === 'CUSTOMER') {
+        const res2 = await axios.get('/inprogress_program/current_program');
+        Object.assign(objProfile, res2.data.relation);
+      }
 
-      setProfile({ ...res.data.user, ...res2.data.relation });
+      setProfile({ ...objProfile });
     };
     fetchUserAndInprogressProgram();
   }, []);

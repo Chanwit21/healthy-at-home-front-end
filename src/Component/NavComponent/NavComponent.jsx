@@ -57,7 +57,13 @@ function NavComponent() {
             </ul>
             {user ? (
               <Link to='/user-profile-page' style={{ textDecoration: 'none', color: 'black' }}>
-                <div className='log-in-status'>
+                <div
+                  className='log-in-status'
+                  style={{
+                    backgroundColor:
+                      user.role === 'ADMIN' ? '#ff88a4' : user.role === 'TRAINER' ? '#61D196' : '#FFF6DD',
+                  }}
+                >
                   <div className='userstatus-icon'>
                     <img src={user.image || avataIcon} alt='User-icon' />
                   </div>

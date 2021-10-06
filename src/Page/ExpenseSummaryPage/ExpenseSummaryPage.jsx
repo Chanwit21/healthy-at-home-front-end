@@ -62,7 +62,6 @@ function ExpenseSummaryPage() {
       amount: +state.price.slice(1).split(',').join('') * 100,
       onCreateTokenSuccess: async (nonce) => {
         if (nonce.startsWith('tokn_')) {
-          console.log(nonce);
           try {
             const res = await axios.post('/payment/card', {
               token: nonce,
