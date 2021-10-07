@@ -1,0 +1,76 @@
+/* Form Weekly Update */
+.form-weekly-update {
+  width: 59.84375vw;
+  background: #ffffff;
+  box-shadow: 0.2083vw 0.2083vw 0.52083vw 0.26vw rgba(0, 0, 0, 0.25);
+  border-radius: 0.52083vw;
+  padding-bottom: 4vw;
+}
+
+.form-weekly-update h1:first-child {
+  text-align: center;
+  margin-top: 3vw;
+  font-size: 2vw;
+}
+
+#first-of-row {
+  margin-top: 2vw;
+}
+
+.row-of-content-in-form {
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+  margin: 1.5vw auto;
+}
+
+.form-weekly-update label {
+  font-weight: 600;
+  font-size: 1.5625vw;
+  color: #000000;
+  margin-bottom: 1vw;
+  display: inline-block;
+}
+
+.form-weekly-update #first-row label {
+  font-weight: 600;
+  font-size: 1.30208333vw;
+  color: #000000;
+}
+
+.form-weekly-update input {
+  width: 22.8333333vw;
+  height: 3.125vw;
+  background: #ffffff;
+  border: 0.052083vw solid rgba(43, 144, 196, 0.5);
+  box-sizing: border-box;
+  border-radius: 0.52083vw;
+}
+
+.form-weekly-update input[type='submit'] {
+  width: 80%;
+  height: 3.125vw;
+  border: 0.052083vw solid #2b90c4;
+  background: #2b90c4;
+  border-radius: 0.52083vw;
+  font-weight: 600;
+  font-size: 1.5625vw;
+  color: #ffffff;
+  margin: 0 auto;
+  display: block;
+  cursor: pointer;
+}
+
+.form-weekly-update .row-of-content-in-form h1 {
+  font-weight: 600;
+  font-size: 2.6041666666vw;
+  color: #000000;
+  text-align: center;
+  margin-bottom: 1vw;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}

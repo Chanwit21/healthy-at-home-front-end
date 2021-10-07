@@ -31,7 +31,7 @@ function MenuBarComponent(props) {
           Food
         </button>
         <div
-          className='food-menu-bar'
+          className={`food-menu-bar`}
           style={{
             display: Page.includes('UserFoodSchedulePage') ? '' : 'none',
           }}

@@ -1,20 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { COLOR_OF_THE_TYPE_OF_EXERCISE, MOCK_USER } from '../../mocks/user_data';
-import { filterWorkoutAndRestDay, genWorkoutRow } from '../../service/workoutSchedule';
+import { genWorkoutRow } from '../../service/workoutSchedule';
+// import { filterWorkoutAndRestDay } from '../../service/workoutSchedule';
+import Pagination from '../Pagination/Pagination';
 import ColorRow from '../UserWorkoutSchedule/ColorRow';
-import SwitchRestDay from '../UserWorkoutSchedule/SwitchResDay/SwitchRestDay';
+// import SwitchRestDay from '../UserWorkoutSchedule/SwitchResDay/SwitchRestDay';
 import './WorkoutSchedule.css';
 
 function WorkoutSchedule() {
+  const [onPage, setOnPage] = useState(2);
+
   const rowColors = COLOR_OF_THE_TYPE_OF_EXERCISE.map((element) => {
     return <ColorRow element={element} key={element.id} />;
   });
 
   const { workout_schedule } = MOCK_USER.find((item) => item.id === 1);
 
-  const restDay = filterWorkoutAndRestDay(workout_schedule).rest;
+  // const restDay = filterWorkoutAndRestDay(workout_schedule).rest;
 
-  const workoutDay = filterWorkoutAndRestDay(workout_schedule).workout;
+  // const workoutDay = filterWorkoutAndRestDay(workout_schedule).workout;
 
   const workoutRow = genWorkoutRow(workout_schedule);
   return (
@@ -39,7 +43,8 @@ function WorkoutSchedule() {
           {workoutRow}
         </tbody>
       </table>
-      <SwitchRestDay restDay={restDay} workoutDay={workoutDay} />
+      {/* <SwitchRestDay restDay={restDay} workoutDay={workoutDay} /> */}
+      <Pagination length={3} onPage={onPage} setOnPage={setOnPage} />
     </div>
   );
 }

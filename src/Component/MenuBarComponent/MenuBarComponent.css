@@ -16,12 +16,8 @@
   border-width: 100%;
 }
 
-/* .menu-bar-component .food-menu-bar  button {
-  background-color: #ffffff;
-} */
-
 /* Button  */
-.menu-bar-component button {
+.menu-bar-component .content-box button {
   border: none;
   display: flex;
   justify-content: center;

@@ -49,7 +49,12 @@ const genWorkoutRow = (workout_schedule) => {
                 backgroundColor: backgroundColor[key1],
               }}
             >
-              <a target='_blank' rel='noreferrer' href={link[key1]} style={{ color: fontColor[key1] }}>
+              <a
+                target='_blank'
+                rel='noreferrer'
+                href={link[key1]}
+                style={{ color: fontColor[key1], textDecoration: 'none' }}
+              >
                 {name[key1]}
               </a>
             </td>

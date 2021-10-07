@@ -7,6 +7,7 @@ import NormalMeal from '../../Component/NormalMealConponent/NormalMeal';
 import PostWorkout from '../../Component/PostWorkoutComponent/PostWorkout';
 import PreWorkout from '../../Component/PreworkOutComponent/PreWorkout';
 import Snack from '../../Component/SnackComponent/Snack';
+import WeeklyUpdate from '../../Component/WeeklyUpdate/WeeklyUpdate';
 import WorkoutSchedule from '../../Component/WorkoutSchedule/WorkoutSchedule';
 import './UserProgramPage.css';
 
@@ -39,6 +40,7 @@ function UserProgramPage() {
               {onPage === 'UserFoodSchedulePageSnack' ? <Snack /> : null}
               {onPage === 'UserFoodSchedulePageNormalMeal' ? <NormalMeal /> : null}
               {onPage === 'UserFoodSchedulePageFoodSchedule' ? <FoodSchedule /> : null}
+              {onPage === 'UserWeeklyUpdatePage' ? <WeeklyUpdate /> : null}
             </div>
           </div>
         </div>

@@ -33,20 +33,18 @@ function FoodSchedule() {
   const arrayOfDay = [...arrayOfFoodSchedle.map((item) => item.day)];
   const filterByDay = arrayOfFoodSchedle.find((item) => item.day === onDay);
 
-  function genTableBody(array, day) {
+  function genTableBody(obj, day) {
+    const timeRow = ['breakfast', 'brunch', 'lunch', 'afternoon', 'dinner', 'lastnight'];
     const tableBody = [];
-    for (let key in array) {
-      // console.log(key);
-      if (key !== 'day') {
-        tableBody.push(
-          <UserFoodScheduleRow key={`id-${key}`} time={firstUpperCase(key)} menuAndQuality={array[key]} day={day} />
-        );
-      }
+    for (let key of timeRow) {
+      tableBody.push(
+        <UserFoodScheduleRow key={`id-${key}`} time={firstUpperCase(key)} menuAndQuality={obj[key]} day={day} />
+      );
     }
     return tableBody;
   }
 
-  const tableBody = genTableBody(filterByDay, onDay);
+  const tableBody = filterByDay ? genTableBody(filterByDay, onDay) : null;
 
   return (
     <div className='food-schedule-contnt'>

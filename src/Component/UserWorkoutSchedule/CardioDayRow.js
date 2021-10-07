@@ -24,6 +24,7 @@ function CardioDayRow({ day, backgroundColor, fontColor, link, name }) {
           style={{
             color: fontColor,
             fontSize: '2.5vw',
+            textDecoration: 'none',
           }}
         >
           {name}
