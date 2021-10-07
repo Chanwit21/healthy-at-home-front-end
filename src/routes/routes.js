@@ -19,6 +19,7 @@ import AdminCustomersPage from '../Page/AdminCustomersPage/AdminCustomersPage';
 import TrainerProfilePage from '../Page/TrainerProfilePage/TrainerProfilePage';
 import TrainerManageVideosAndFoodPage from '../Page/TrainerManageVideosAndFoodPage/TrainerManageVideosAndFoodPage';
 import TrainerCustomersPage from '../Page/TrainerCustomersPage/TrainerCustomersPage';
+import UserProgramPage from '../Page/UserProgrampage/UserProgramPage';
 
 const guest = [
   { component: HomePage, path: '/' },
@@ -43,11 +44,12 @@ const routesAll = {
       { component: ExpenseSummaryPage, path: '/expensesummarypage' },
       { component: PaymentPage, path: '/paymentpage' },
       { component: PaymentSuccessPage, path: '/paymentsuccesspage' },
-      { component: UserInprogressProgramPage, path: '/inprogressprogrampage' },
+      // { component: UserInprogressProgramPage, path: '/inprogressprogrampage' },
       { component: UserProfilePage, path: '/user-profile-page' },
-      { component: UserWorkoutSchedulePage, path: '/user-workout-schedule-page' },
-      { component: UserFoodSchedulePage, path: '/user-food-schedule-page' },
-      { component: UserWeeklyUpdatePage, path: '/user-weekly-update-page' },
+      // { component: UserWorkoutSchedulePage, path: '/user-workout-schedule-page' },
+      // { component: UserFoodSchedulePage, path: '/user-food-schedule-page' },
+      // { component: UserWeeklyUpdatePage, path: '/user-weekly-update-page' },
+      { component: UserProgramPage, path: '/user-program-page' },
     ],
     redirect: '/',
   },

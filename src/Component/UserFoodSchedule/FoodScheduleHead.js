@@ -25,22 +25,13 @@ function FoodScheduleHead({ day }) {
           Time
         </th>
         <th
-          colSpan='1'
+          colSpan='2'
           style={{
             backgroundColor: '#61D196',
             color: '#FFF',
           }}
         >
           Menu and quantity
-        </th>
-        <th
-          colSpan='1'
-          style={{
-            backgroundColor: '#61D196',
-            color: '#FFF',
-          }}
-        >
-          Upload Picture
         </th>
       </tr>
     </>

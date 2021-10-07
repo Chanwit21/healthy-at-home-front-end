@@ -28,6 +28,7 @@ function UserProfilePage() {
   useEffect(() => {
     const fetchUserAndInprogressProgram = async () => {
       const res = await axios.get('/users/user_info');
+      console.log(res.data.user);
       const objProfile = { ...res.data.user };
       if (res.data.user.role === 'CUSTOMER') {
         const res2 = await axios.get('/inprogress_program/current_program');
@@ -59,7 +60,7 @@ function UserProfilePage() {
               {onPage === 'UserInprogressProgramPage' && profile.CourseService ? (
                 <div>
                   <Link
-                    to='/user-workout-schedule-page'
+                    to='/user-program-page'
                     style={{
                       textDecoration: 'none',
                       color: '#000',

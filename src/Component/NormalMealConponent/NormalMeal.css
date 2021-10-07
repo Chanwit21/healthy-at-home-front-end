@@ -1,0 +1,12 @@
+.NormalMeal .imgtable-row {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 1vw;
+  flex-direction: column;
+}
+
+.NormalMeal .img-table img {
+  width: 60.7291666vw;
+  border: 1px solid black;
+  margin-bottom: 5vw;
+}

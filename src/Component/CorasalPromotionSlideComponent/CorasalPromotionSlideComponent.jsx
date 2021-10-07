@@ -32,7 +32,7 @@ function CorasalPromotionSlideComponent() {
   }, []);
 
   useEffect(() => {
-    const id = setInterval(() => setCurrentImg((cur) => (cur === length - 1 ? 0 : cur + 1)), 7000);
+    const id = setInterval(() => setCurrentImg((cur) => (cur === length - 1 ? 0 : cur + 1)), 5000);
 
     return () => clearInterval(id);
   }, [length]);

@@ -3,7 +3,7 @@ import { Link, useHistory, useLocation } from 'react-router-dom';
 import './LoginPage.css';
 import h_Logo from '../../PIC/LOGO/h.png';
 import healthyAtHomeLogo from '../../PIC/LOGO/He__2_-removebg-preview.png';
-import { isEmail, isStrongPassword } from 'validator';
+import { isEmail } from 'validator';
 import axios from '../../config/axios';
 import { useUserContext } from '../../contetext/Usercontext';
 
@@ -31,20 +31,6 @@ function LoginPage() {
     e.preventDefault();
     if (!isEmail(login.email)) {
       return setErr((cur) => ({ ...cur, email: 'Email is invalid Format' }));
-    } else if (
-      !isStrongPassword(login.password, {
-        minLength: 8,
-        minLowercase: 1,
-        minUppercase: 1,
-        minNumbers: 1,
-        minSymbols: 1,
-      })
-    ) {
-      return setErr((cur) => ({
-        ...cur,
-        password:
-          'Password must be at least 8 characters, must contain at least one lower-case letter, one upper-case letter, one digit and a special character',
-      }));
     }
     try {
       const res = await axios.post('/users/login', { email: login.email, password: login.password });

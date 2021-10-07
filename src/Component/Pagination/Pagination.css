@@ -1,0 +1,33 @@
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.pagination ul {
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.pagination li {
+  margin-left: 0.3vw;
+}
+
+.pagination button {
+  cursor: pointer;
+  border: none;
+  background-color: inherit;
+  font-weight: 400;
+  width: 2vw;
+  height: 2vw;
+}
+
+.pagination button:hover {
+  font-weight: 600;
+  background-color: khaki;
+  border-radius: 50%;
+}

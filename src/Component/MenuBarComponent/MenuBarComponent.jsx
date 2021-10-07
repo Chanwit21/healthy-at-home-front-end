@@ -1,125 +1,106 @@
 import React from 'react';
 import './MenuBarComponent.css';
-import { Link } from 'react-router-dom';
 
 function MenuBarComponent(props) {
+  const { setOnPage, Page } = props;
+
+  const colorOnPage = 'rgba(97, 209, 150, 0.25)';
+  const fontWeightOnPage = '600';
+  const fontWeightUnOnPage = '400';
+  const borderOnPage = '1px solid #0003';
+
   return (
     <div className='menu-bar-component'>
       <div className='content-box'>
-        <Link
-          to='/user-workout-schedule-page'
-          className={props.Page === 'UserWorkoutSchedulePage' ? 'onPage' : ''}
-          style={{ borderRadius: '0.520833vw 0.520833vw 0 0' }}
-        >
-          <h1
-            style={{
-              borderRadius: '0.52083vw 0.52083vw 0 0',
-              color: props.Page === 'UserWorkoutSchedulePage' ? '#000000FF' : '',
-            }}
-          >
-            Workout
-          </h1>
-        </Link>
-        <Link
-          to='/user-food-schedule-page'
-          className={props.Page === 'UserFoodSchedulePage' ? 'onPage' : ''}
+        <button
+          onClick={(e) => setOnPage('UserWorkoutSchedulePage')}
+          className={Page === 'UserWorkoutSchedulePage' ? 'onPage' : ''}
           style={{
-            color: props.Page === 'UserFoodSchedulePage' ? '#000000FF' : '',
+            fontWeight: Page === 'UserWorkoutSchedulePage' ? '900' : '600',
           }}
         >
-          <h1>Food</h1>
-        </Link>
+          Workout
+        </button>
+        <button
+          onClick={(e) => setOnPage('UserFoodSchedulePage')}
+          className={Page.includes('UserFoodSchedulePage') ? 'onPage' : ''}
+          style={{
+            fontWeight: Page.includes('UserFoodSchedulePage') ? '900' : '600',
+          }}
+        >
+          Food
+        </button>
         <div
           className='food-menu-bar'
           style={{
-            display: props.Page === 'UserFoodSchedulePage' ? '' : 'none',
+            display: Page.includes('UserFoodSchedulePage') ? '' : 'none',
           }}
         >
-          <Link
-            to='/user-food-schedule-page-pre-workout'
+          <button
+            onClick={(e) => setOnPage('UserFoodSchedulePagePreWorkout')}
             style={{
-              background: props.FoodMenu === 'UserFoodSchedulePagePreWorkout' ? 'rgba(97, 209, 150, 0.25)' : '',
+              backgroundColor: Page === 'UserFoodSchedulePagePreWorkout' ? colorOnPage : '',
+              fontWeight: Page === 'UserFoodSchedulePagePreWorkout' ? fontWeightOnPage : fontWeightUnOnPage,
+              border: Page === 'UserFoodSchedulePagePreWorkout' ? borderOnPage : '',
             }}
           >
-            <h1
-              style={{
-                color: props.FoodMenu === 'UserFoodSchedulePagePreWorkout' ? '#000000FF' : '',
-              }}
-            >
-              Pre Workout
-            </h1>
-          </Link>
-          <Link
-            to='/user-food-schedule-page-post-workout'
+            Pre Workout
+          </button>
+
+          <button
+            onClick={(e) => setOnPage('UserFoodSchedulePagePostWorkout')}
             style={{
-              background: props.FoodMenu === 'UserFoodSchedulePagePostWorkout' ? 'rgba(97, 209, 150, 0.25)' : '',
+              backgroundColor: Page === 'UserFoodSchedulePagePostWorkout' ? colorOnPage : '',
+              fontWeight: Page === 'UserFoodSchedulePagePostWorkout' ? fontWeightOnPage : fontWeightUnOnPage,
+              border: Page === 'UserFoodSchedulePagePostWorkout' ? borderOnPage : '',
             }}
           >
-            <h1
-              style={{
-                color: props.FoodMenu === 'UserFoodSchedulePagePostWorkout' ? '#000000FF' : '',
-              }}
-            >
-              Post Workout
-            </h1>
-          </Link>
-          <Link
-            to='#'
+            Post Workout
+          </button>
+
+          <button
+            onClick={(e) => setOnPage('UserFoodSchedulePageSnack')}
             style={{
-              background: props.FoodMenu === 'UserFoodSchedulePageSnack' ? 'rgba(97, 209, 150, 0.25)' : '',
+              backgroundColor: Page === 'UserFoodSchedulePageSnack' ? colorOnPage : '',
+              fontWeight: Page === 'UserFoodSchedulePageSnack' ? fontWeightOnPage : fontWeightUnOnPage,
+              border: Page === 'UserFoodSchedulePageSnack' ? borderOnPage : '',
             }}
           >
-            <h1
-              style={{
-                color: props.FoodMenu === 'UserFoodSchedulePageSnack' ? '#000000FF' : '',
-              }}
-            >
-              Snack
-            </h1>
-          </Link>
-          <Link
-            to='#'
+            Snacks
+          </button>
+
+          <button
+            onClick={(e) => setOnPage('UserFoodSchedulePageNormalMeal')}
             style={{
-              background: props.FoodMenu === 'UserFoodSchedulePageNormalMeal' ? 'rgba(97, 209, 150, 0.25)' : '',
+              backgroundColor: Page === 'UserFoodSchedulePageNormalMeal' ? colorOnPage : '',
+              fontWeight: Page === 'UserFoodSchedulePageNormalMeal' ? fontWeightOnPage : fontWeightUnOnPage,
+              border: Page === 'UserFoodSchedulePageNormalMeal' ? borderOnPage : '',
             }}
           >
-            <h1
-              style={{
-                color: props.FoodMenu === 'UserFoodSchedulePageNormalMeal' ? '#000000FF' : '',
-              }}
-            >
-              Normal Meal
-            </h1>
-          </Link>
-          <Link
-            to='/user-food-schedule-page-food-schedule'
+            Normal Meal
+          </button>
+
+          <button
+            onClick={(e) => setOnPage('UserFoodSchedulePageFoodSchedule')}
             style={{
-              background: props.FoodMenu === 'UserFoodSchedulePageFoodSchedule' ? 'rgba(97, 209, 150, 0.25)' : '',
+              backgroundColor: Page === 'UserFoodSchedulePageFoodSchedule' ? colorOnPage : '',
+              fontWeight: Page === 'UserFoodSchedulePageFoodSchedule' ? fontWeightOnPage : fontWeightUnOnPage,
+              border: Page === 'UserFoodSchedulePageFoodSchedule' ? borderOnPage : '',
             }}
           >
-            <h1
-              style={{
-                color: props.FoodMenu === 'UserFoodSchedulePageFoodSchedule' ? '#000000FF' : '',
-              }}
-            >
-              Food schedule
-            </h1>
-          </Link>
+            Food schedule
+          </button>
         </div>
-        <Link
-          to='/user-weekly-update-page'
-          className={props.Page === 'UserWeeklyUpdatePage' ? 'onPage' : ''}
-          style={{ borderRadius: ' 0 0 0.520833vw 0.520833vw' }}
+
+        <button
+          onClick={(e) => setOnPage('UserWeeklyUpdatePage')}
+          className={Page === 'UserWeeklyUpdatePage' ? 'onPage' : ''}
+          style={{
+            fontWeight: Page === 'UserWeeklyUpdatePage' ? '900' : '600',
+          }}
         >
-          <h1
-            style={{
-              borderRadius: '0 0 0.52083vw 0.52083vw',
-              color: props.Page === 'UserWeeklyUpdatePage' ? '#000000FF' : '',
-            }}
-          >
-            Weekly Update
-          </h1>
-        </Link>
+          Weekly Update
+        </button>
       </div>
     </div>
   );
