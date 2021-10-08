@@ -1,17 +1,31 @@
-import React, { useState } from 'react';
-import { COLOR_OF_THE_TYPE_OF_EXERCISE, MOCK_USER } from '../../mocks/user_data';
+import React, { useEffect, useState } from 'react';
+import { MOCK_USER } from '../../mocks/user_data';
 import { genWorkoutRow } from '../../service/workoutSchedule';
 // import { filterWorkoutAndRestDay } from '../../service/workoutSchedule';
 import Pagination from '../Pagination/Pagination';
 import ColorRow from '../UserWorkoutSchedule/ColorRow';
 // import SwitchRestDay from '../UserWorkoutSchedule/SwitchResDay/SwitchRestDay';
 import './WorkoutSchedule.css';
+import axios from '../../config/axios';
 
 function WorkoutSchedule() {
   const [onPage, setOnPage] = useState(2);
+  const [colorExercisePostures, setColorExercisePostures] = useState([]);
 
-  const rowColors = COLOR_OF_THE_TYPE_OF_EXERCISE.map((element) => {
-    return <ColorRow element={element} key={element.id} />;
+  useEffect(() => {
+    const fetchColorExercisePosture = async () => {
+      try {
+        const res = await axios.get('/color_exercise_posture');
+        setColorExercisePostures(res.data.colorExercisePostures);
+      } catch (err) {
+        console.dir(err);
+      }
+    };
+    fetchColorExercisePosture();
+  }, []);
+
+  const rowColors = colorExercisePostures.map((colorExercisePosture) => {
+    return <ColorRow colorExercisePosture={colorExercisePosture} key={colorExercisePosture.id} />;
   });
 
   const { workout_schedule } = MOCK_USER.find((item) => item.id === 1);

@@ -8,6 +8,10 @@
   margin-top: 0.5vw;
 }
 
+.workout-schedule #workout-schedule-table thead {
+  border-collapse: collapse;
+}
+
 .workout-schedule #workout-schedule-table tr {
   height: 3.125vw;
 }

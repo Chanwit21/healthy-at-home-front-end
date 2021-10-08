@@ -7,7 +7,7 @@
 }
 
 .food-schedule-contnt {
-  width: 80%;
+  width: 90%;
 }
 
 .food-schedule-contnt select {
@@ -22,7 +22,7 @@
 /* Table */
 #food-schedule-table {
   border-collapse: collapse;
-  /* width: 70%; */
+  width: 100%;
   margin-top: 0.5vw;
 }
 

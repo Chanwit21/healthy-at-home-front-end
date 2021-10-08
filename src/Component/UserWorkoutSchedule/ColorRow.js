@@ -1,16 +1,16 @@
 import React from 'react';
 
-function ColorRow({ element }) {
+function ColorRow({ colorExercisePosture }) {
   return (
     <tr
       style={{
-        backgroundColor: element.bgColor,
-        color: element.fontColor,
+        backgroundColor: colorExercisePosture.backgroundColor,
+        color: colorExercisePosture.fontColor,
       }}
     >
-      <th colSpan={3}>{element.executive_posture}</th>
-      <th colSpan={3}>{element.reps_sets}</th>
-      <th colSpan={2}>{element.break_period}</th>
+      <th colSpan={3}>{colorExercisePosture.title}</th>
+      <th colSpan={3}>{colorExercisePosture.repSet}</th>
+      <th colSpan={2}>{colorExercisePosture.breakPeriod}</th>
     </tr>
   );
 }
