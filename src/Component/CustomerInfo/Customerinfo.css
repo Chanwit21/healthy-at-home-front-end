@@ -1,0 +1,28 @@
+.text-in-content-profile-and-consult-trainer {
+  width: 52vw;
+  margin-top: 2vw;
+}
+
+.text-in-content-profile-and-consult-trainer .text-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.5vw;
+}
+
+.text-in-content-profile-and-consult-trainer .text-row .content-in-right {
+  width: 55%;
+}
+
+.text-in-content-profile-and-consult-trainer .text-row h1 {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 1.5625vw;
+  color: #000000;
+}
+
+.text-in-content-profile-and-consult-trainer .text-row p {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1.5625vw;
+  color: #000000;
+}

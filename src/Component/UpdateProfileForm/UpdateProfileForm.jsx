@@ -141,7 +141,7 @@ function UpdateProfileForm({
         window.scrollTo(0, 0);
         await axios.put('/users/update_profile', form);
         const res = await axios.get('/refresh_token');
-        console.log(res.data);
+        // console.log(res.data);
         removeToken();
         dispatch({ type: 'LOGIN', payload: { token: res.data.token } });
         window.location.reload();

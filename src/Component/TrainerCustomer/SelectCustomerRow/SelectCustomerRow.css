@@ -1,0 +1,56 @@
+.row-of-select-customer {
+  margin-bottom: 1vw;
+  width: 100%;
+}
+
+select#customer {
+  width: 14.63541666vw;
+  height: 2.0833333333vw;
+  background: #ffffff;
+  border: 0.05208333333vw solid #2b90c4;
+  box-sizing: border-box;
+  border-radius: 0.5208333333vw;
+  font-weight: 600;
+  font-size: 1.04166666666vw;
+  color: #000000;
+}
+
+.row-of-select-customer select#customer option {
+  width: 14.63541666vw;
+  height: 2.0833333333vw;
+  background: #ffffff;
+  border: 0.05208333333vw solid #2b90c4;
+  box-sizing: border-box;
+  border-radius: 0.5208333333vw;
+  font-weight: 600;
+  font-size: 1.04166666666vw;
+  color: #000000;
+}
+
+.row-of-select-customer select#type-of-schedule,
+select#day-of-schedule {
+  /* width: 7.3645833333333vw; */
+  height: 2.0833333333vw;
+  background: #ffffff;
+  border: 0.05208333333vw solid #2b90c4;
+  box-sizing: border-box;
+  border-radius: 0.5208333333vw;
+  margin-left: 1vw;
+  font-weight: 600;
+  font-size: 1.04166666666vw;
+  color: #000000;
+}
+
+.row-of-select-customer select#type-of-schedule option,
+select#day-of-schedule option {
+  /* width: 5.3645833333333vw; */
+  height: 2.0833333333vw;
+  background: #ffffff;
+  border: 0.05208333333vw solid #2b90c4;
+  box-sizing: border-box;
+  border-radius: 0.5208333333vw;
+  margin-left: 1vw;
+  font-weight: 600;
+  font-size: 1.04166666666vw;
+  color: #000000;
+}

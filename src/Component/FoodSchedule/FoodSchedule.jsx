@@ -66,7 +66,7 @@ function FoodSchedule() {
         {arrayOfDay.map((item, index) => {
           return (
             <option key={index} value={`Day${item}`}>
-              {item}
+              {`Day${item}`}
             </option>
           );
         })}

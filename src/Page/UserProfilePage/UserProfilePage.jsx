@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import ContactUsComponent from '../../Component/ContactUsComponent/ContactUsComponent';
 import NavBarLeftForUserComponent from '../../Component/NavBarLeftForUserComponent/NavBarLeftForUserComponent';
 import Profile from '../../Component/ProfileComponent/Profile';
+import TrainerCustomer from '../../Component/TrainerCustomer/TrainerCustomer';
 import UpdateProfileForm from '../../Component/UpdateProfileForm/UpdateProfileForm';
 import UserInprogressProgramCardComponent from '../../Component/UserInprogressProgramCardComponent/UserInprogressProgramCardComponent';
 import axios from '../../config/axios';
@@ -28,7 +29,7 @@ function UserProfilePage() {
   useEffect(() => {
     const fetchUserAndInprogressProgram = async () => {
       const res = await axios.get('/users/user_info');
-      console.log(res.data.user);
+      // console.log(res.data.user);
       const objProfile = { ...res.data.user };
       if (res.data.user.role === 'CUSTOMER') {
         const res2 = await axios.get('/inprogress_program/current_program');
@@ -87,6 +88,7 @@ function UserProfilePage() {
                   profileImage={profile.image}
                 />
               ) : null}
+              {onPage === 'TrainerCustomerPage' ? <TrainerCustomer trainerId={profile.id} /> : null}
             </div>
           </div>
         </section>

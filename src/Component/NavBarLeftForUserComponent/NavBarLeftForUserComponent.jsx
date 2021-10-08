@@ -3,6 +3,33 @@ import './NavBarLeftForUserComponent.css';
 import avatar_image from '../../PIC/Icon/user.png';
 
 function NavBarLeftForUserComponent(props) {
+  const pagNavLeft = {
+    TRAINER: [
+      { page: 'TrainerCustomerPage', title: 'Customer' },
+      { page: 'TrainerFoodMenuPage', title: 'Food menu' },
+      { page: 'TrainerExerciseVedioPage', title: 'Exercise vedio' },
+    ],
+    ADMIN: [{ page: '', title: '' }],
+  };
+
+  const addOnNav = ['TRAINER', 'ADMIN'].includes(props.role)
+    ? pagNavLeft[props.role].map((item, index) => {
+        return (
+          <button
+            key={index}
+            className={`btn-nav${props.Page === item.page ? ' onPage' : ''}`}
+            style={{
+              color: props.Page === item.page ? '#000000FF' : '',
+              fontWeight: props.Page === item.page ? '600' : '',
+            }}
+            onClick={(e) => props.setOnPage(item.page)}
+          >
+            {item.title}
+          </button>
+        );
+      })
+    : null;
+
   return (
     <div className='nav-bar-left-for-user-component'>
       <div className='nav-body-box'>
@@ -39,6 +66,8 @@ function NavBarLeftForUserComponent(props) {
               Inprogress program
             </button>
           ) : null}
+
+          {addOnNav}
 
           <button
             className={`btn-nav${props.Page === 'EditProfilePage' ? ' onPage' : ''}`}

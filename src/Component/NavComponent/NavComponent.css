@@ -87,13 +87,13 @@
   align-items: center;
   border-radius: 1.0416vw;
   height: 2.4833vw;
-  width: 12.41667vw;
+  /* width: 12.41667vw; */
   text-align: right;
   font-style: normal;
   font-weight: 500;
   font-size: 0.9375vw;
   background-color: #fff6dd;
-  padding: 0 0.4vw;
+  padding: 0 1vw;
   /* margin-top: 1.1vw; */
 }
 

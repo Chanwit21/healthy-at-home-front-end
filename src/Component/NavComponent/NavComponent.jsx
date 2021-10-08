@@ -21,9 +21,9 @@ function NavComponent() {
   };
 
   const name = user
-    ? user.firstName.length + user.lastName.length <= 15
-      ? `${user.firstName} ${user.lastName}`
-      : `${user.firstName} ${user.lastName}`.slice(0, 11) + '...'
+    ? user.firstName.length <= 13
+      ? `${user.firstName}`
+      : `${user.firstName}`.slice(0, 10) + '...'
     : '';
 
   return (

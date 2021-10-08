@@ -1,0 +1,95 @@
+.food-schedule-trainer h1 {
+  font-weight: 600;
+  font-size: 2.60416666vw;
+  color: #000000;
+  margin-bottom: 1vw;
+  width: 90%;
+}
+
+#food-schedule-trainer {
+  border-collapse: collapse;
+  width: 100%;
+  margin-top: 0.5vw;
+}
+
+#food-schedule-trainer tr {
+  height: 3.125vw;
+}
+
+#food-schedule-trainer td,
+#food-schedule-trainer th {
+  border: 0.1041666666vw solid #000;
+  text-align: center;
+}
+
+#food-schedule-trainer td {
+  background-color: #fff;
+  height: 6.41666666666667vw;
+  font-weight: 600;
+  font-size: 1.5625vw;
+  color: #000000;
+}
+
+#food-schedule-trainer td input[type='submit'] {
+  width: 13.66666vw;
+  height: 2.083333333vw;
+  background: #2b90c4;
+  border: 0.052083333vw solid #2b90c4;
+  border-radius: 0.52083333vw;
+  font-weight: 600;
+  font-size: 1.5625vw;
+  color: #ffffff;
+  margin-bottom: 1vw;
+  padding: 0;
+  cursor: pointer;
+}
+
+#food-schedule-trainer td .btn-delete {
+  background: #2b90c4;
+  border: 0.052083333vw solid #2b90c4;
+  border-radius: 0.52083333vw;
+  font-weight: 600;
+  font-size: 1.1625vw;
+  color: #ffffff;
+  padding: 0.3vw 1vw;
+  cursor: pointer;
+}
+
+#food-schedule-trainer td .btn-save {
+  background: #2b90c4;
+  border: 0.052083333vw solid #2b90c4;
+  border-radius: 0.52083333vw;
+  font-weight: 600;
+  font-size: 1.1625vw;
+  color: #ffffff;
+  padding: 0.3vw 1vw;
+  cursor: pointer;
+}
+
+#food-schedule-trainer td .btn-edit {
+  background: #2b90c4;
+  border: 0.052083333vw solid #2b90c4;
+  border-radius: 0.52083333vw;
+  font-weight: 600;
+  font-size: 1.1625vw;
+  color: #ffffff;
+  padding: 0.4vw 1vw;
+  cursor: pointer;
+  width: 60%;
+}
+
+#food-schedule-trainer th {
+  font-weight: 600;
+  font-size: 1.5625vw;
+  color: #ffffff;
+}
+
+#food-schedule-trainer textarea {
+  width: 90%;
+  height: 70%;
+  background: #ffffff;
+  border: 0.052083vw solid rgba(43, 144, 196, 0.5);
+  box-sizing: border-box;
+  border-radius: 0.52083vw;
+  margin-top: 14px;
+}
