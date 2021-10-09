@@ -40,7 +40,7 @@ function AddFoodScheduleBody({ time, content, error, setError, setFoodScheduleFo
         </>
       </td>
       <td colSpan='2' style={{ width: '20%' }}>
-        <button className='btn-delete' onClick={handleClickClear}>
+        <button className='btn-clear' onClick={handleClickClear}>
           Clear
         </button>
       </td>

@@ -40,6 +40,7 @@ function SelectCustomerRow({
           setType(e.target.value);
           setOnDay('');
         }}
+        disabled={!onCustomer}
       >
         <option value=''>Choose type</option>
         <option value='Food'>Food</option>

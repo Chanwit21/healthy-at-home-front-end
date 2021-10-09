@@ -1,15 +1,7 @@
 import React, { useState } from 'react';
 import { formatText } from '../../../service/formatting';
 
-function TrainnerFoodScheduleRow({
-  time,
-  menuAndQuality,
-  setFoodScheduleForEdit,
-  foodScheduleForEdit,
-  setIsHaveEdit,
-  error,
-  setError,
-}) {
+function TrainnerFoodScheduleRow({ time, setFoodSchedule, foodSchedule, setIsHaveEdit, error, setError }) {
   const [isEdit, setIsEdit] = useState(false);
 
   const handleChangeEdit = (e) => {
@@ -18,7 +10,7 @@ function TrainnerFoodScheduleRow({
   };
 
   const handleClickClear = (e) => {
-    setFoodScheduleForEdit((cur) => {
+    setFoodSchedule((cur) => {
       const clone = { ...cur };
       clone[time] = '';
       return clone;
@@ -26,7 +18,7 @@ function TrainnerFoodScheduleRow({
   };
 
   const handleClickSave = (e) => {
-    if (!foodScheduleForEdit[time]) {
+    if (!foodSchedule[time]) {
       setError((cur) => {
         const clone = { ...cur };
         clone[time] = `${formatText(time)} is require.`;
@@ -38,7 +30,7 @@ function TrainnerFoodScheduleRow({
   };
 
   const handleChangeTextArea = (e) => {
-    setFoodScheduleForEdit((cur) => {
+    setFoodSchedule((cur) => {
       const clone = { ...cur };
       clone[time] = e.target.value;
       return clone;
@@ -62,13 +54,13 @@ function TrainnerFoodScheduleRow({
               <textarea
                 className={error[time] ? 'input-invalid' : ''}
                 type='text'
-                value={foodScheduleForEdit[time]}
+                value={foodSchedule[time]}
                 onChange={handleChangeTextArea}
               />
               {error[time] ? <div className='invalid-text'>{error[time]}</div> : null}
             </>
           ) : (
-            <> {menuAndQuality}</>
+            <> {foodSchedule[time]}</>
           )}
         </td>
         {isEdit ? (
@@ -79,7 +71,7 @@ function TrainnerFoodScheduleRow({
               </button>
             </td>
             <td colSpan='1' style={{ width: '15%' }}>
-              <button className='btn-delete' onClick={handleClickClear}>
+              <button className='btn-clear' onClick={handleClickClear}>
                 Clear
               </button>
             </td>

@@ -31,8 +31,8 @@
 }
 
 #food-schedule-trainer td input[type='submit'] {
-  width: 13.66666vw;
-  height: 2.083333333vw;
+  width: 80%;
+  height: 3.083333333vw;
   background: #2b90c4;
   border: 0.052083333vw solid #2b90c4;
   border-radius: 0.52083333vw;
@@ -44,9 +44,9 @@
   cursor: pointer;
 }
 
-#food-schedule-trainer td .btn-delete {
-  background: #2b90c4;
-  border: 0.052083333vw solid #2b90c4;
+#food-schedule-trainer td .btn-clear {
+  background: #b23b3b;
+  border: 0.052083333vw solid #b23b3b;
   border-radius: 0.52083333vw;
   font-weight: 600;
   font-size: 1.1625vw;
@@ -55,9 +55,22 @@
   cursor: pointer;
 }
 
+#food-schedule-trainer td .btn-delete {
+  background: #b23b3b;
+  border: 0.052083333vw solid #b23b3b;
+  border-radius: 0.52083333vw;
+  font-weight: 600;
+  font-size: 1.5625vw;
+  color: #ffffff;
+  padding: 0.3vw 1vw;
+  cursor: pointer;
+  width: 80%;
+  height: 3.083333333vw;
+}
+
 #food-schedule-trainer td .btn-save {
-  background: #2b90c4;
-  border: 0.052083333vw solid #2b90c4;
+  background: #77d970;
+  border: 0.052083333vw solid #77d970;
   border-radius: 0.52083333vw;
   font-weight: 600;
   font-size: 1.1625vw;
@@ -85,6 +98,16 @@
 }
 
 #food-schedule-trainer textarea {
+  width: 90%;
+  height: 40%;
+  background: #ffffff;
+  border: 0.052083vw solid rgba(43, 144, 196, 0.5);
+  box-sizing: border-box;
+  border-radius: 0.52083vw;
+  margin-top: 14px;
+}
+
+#food-schedule-trainer select {
   width: 90%;
   height: 40%;
   background: #ffffff;

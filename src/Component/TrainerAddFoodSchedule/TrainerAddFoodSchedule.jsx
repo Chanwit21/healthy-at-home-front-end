@@ -3,6 +3,7 @@ import AlertBox from '../AlertBox/AlertBox';
 import AddFoodScheduleBody from './AddFoodScheduleBody/AddFoodScheduleBody';
 import AddFoodScheduleHead from './AddFoodScheduleHead/AddFoodScheduleHead';
 import axios from '../../config/axios';
+import { formatText } from '../../service/formatting';
 
 function TrainerAddFoodSchedule({ day, relationId, setFoodSchedule, setAlertMessageMain, setAlertBoxColor }) {
   const [foodScheduleForAdd, setFoodScheduleForAdd] = useState({
@@ -53,14 +54,34 @@ function TrainerAddFoodSchedule({ day, relationId, setFoodSchedule, setAlertMess
 
   const handleSubmitAddFoodSachdule = async (e) => {
     e.preventDefault();
-    try {
-      const res = await axios.post(`/food_schedule`, { day, relationId, ...foodScheduleForAdd });
-      setFoodSchedule(res.data.foodScheDule);
-      isSubmit.current = true;
-    } catch (err) {
-      setAlertMessage('Create failed!!');
+    const checkAllPass = (obj) => {
+      let allPass = true;
+      for (let key in obj) {
+        if (!obj[key]) {
+          setError((cur) => {
+            const clone = { ...cur };
+            clone[key] = `${formatText(key)} is require.`;
+            return clone;
+          });
+          allPass = false;
+        }
+      }
+      return allPass;
+    };
+    if (!checkAllPass(foodScheduleForAdd)) {
+      setAlertMessage('All field is require.');
       setalertBoxColor('alert-box-invalid');
       setTimeout(() => setAlertMessage(''), 3000);
+    } else {
+      try {
+        const res = await axios.post(`/food_schedule`, { day, relationId, ...foodScheduleForAdd });
+        setFoodSchedule(res.data.foodScheDule);
+        isSubmit.current = true;
+      } catch (err) {
+        setAlertMessage('Create failed!!');
+        setalertBoxColor('alert-box-invalid');
+        setTimeout(() => setAlertMessage(''), 3000);
+      }
     }
   };
 

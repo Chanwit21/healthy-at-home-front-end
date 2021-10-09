@@ -8,11 +8,11 @@ import InformationServiceToRegisterProgramPage from '../Page/InformationServiceT
 import ExpenseSummaryPage from '../Page/ExpenseSummaryPage/ExpenseSummaryPage';
 import PaymentPage from '../Page/PaymentPage/PaymentPage';
 import PaymentSuccessPage from '../Page/PaymentSuccessPage/PaymentSuccessPage';
-import UserInprogressProgramPage from '../Page/UserInprogressProgramPage/UserInprogressProgramPage';
+// import UserInprogressProgramPage from '../Page/UserInprogressProgramPage/UserInprogressProgramPage';
 import UserProfilePage from '../Page/UserProfilePage/UserProfilePage';
-import UserWorkoutSchedulePage from '../Page/UserWorkoutSchedulePage/UserWorkoutSchedulePage';
-import UserFoodSchedulePage from '../Page/UserFoodSchedulePage/UserFoodSchedulePage';
-import UserWeeklyUpdatePage from '../Page/UserWeeklyUpdateSchedulePage/UserWeeklyUpdatePage';
+// import UserWorkoutSchedulePage from '../Page/UserWorkoutSchedulePage/UserWorkoutSchedulePage';
+// import UserFoodSchedulePage from '../Page/UserFoodSchedulePage/UserFoodSchedulePage';
+// import UserWeeklyUpdatePage from '../Page/UserWeeklyUpdateSchedulePage/UserWeeklyUpdatePage';
 import AdminProfilePage from '../Page/AdminProfilePage/AdminProfilePage';
 import AdminManageVediosAndFoodPage from '../Page/AdminManageVediosAndFoodPage/AdminManageVediosAndFoodPage';
 import AdminCustomersPage from '../Page/AdminCustomersPage/AdminCustomersPage';

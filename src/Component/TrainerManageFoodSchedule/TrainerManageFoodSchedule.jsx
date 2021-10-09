@@ -1,26 +1,26 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import './TrainerManageFoodSchedule.css';
 import axios from '../../config/axios';
 import AlertBox from '../AlertBox/AlertBox';
 import TrainnerFoodScheduleRow from './TrainnerFoodScheduleRow/TrainnerFoodScheduleRow';
 import TrainerFoodScheduleHead from './TrainerFoodScheduleHead/TrainerFoodScheduleHead';
 
-function TrainerManageFoodSchedule({ foodSchedule, setFoodSchedule }) {
-  const [foodScheduleForEdit, setFoodScheduleForEdit] = useState(foodSchedule);
+function TrainerManageFoodSchedule({ foodSchedule, setFoodSchedule, setAlertMessageMain, setAlertBoxColor }) {
+  // const [foodScheduleForEdit, setFoodScheduleForEdit] = useState(foodSchedule);
   const [error, setError] = useState({});
   const [isHaveEdit, setIsHaveEdit] = useState(false);
   const [alertMessage, setAlertMessage] = useState('');
   const [alertBoxColor, setalertBoxColor] = useState('alert-box-invalid');
+  const haveClickDelete = useRef(false);
 
-  const tableBody = Object.keys(foodScheduleForEdit).map((item, index) => {
+  const tableBody = Object.keys(foodSchedule).map((item, index) => {
     if (['breakfast', 'brunch', 'lunch', 'afternoon', 'diner', 'lastnight'].includes(item)) {
       return (
         <TrainnerFoodScheduleRow
           key={index}
           time={item}
-          menuAndQuality={foodScheduleForEdit[item]}
-          foodScheduleForEdit={foodScheduleForEdit}
-          setFoodScheduleForEdit={setFoodScheduleForEdit}
+          foodSchedule={foodSchedule}
+          setFoodSchedule={setFoodSchedule}
           setIsHaveEdit={setIsHaveEdit}
           error={error}
           setError={setError}
@@ -33,7 +33,7 @@ function TrainerManageFoodSchedule({ foodSchedule, setFoodSchedule }) {
   const handleSubmitEditFoodSachdule = async (e) => {
     e.preventDefault();
     try {
-      await axios.put(`/food_schedule/${foodScheduleForEdit.id}`, { ...foodScheduleForEdit });
+      await axios.put(`/food_schedule/${foodSchedule.id}`, { ...foodSchedule });
 
       setIsHaveEdit(false);
       setAlertMessage('Update food schedule Successful !!');
@@ -45,13 +45,35 @@ function TrainerManageFoodSchedule({ foodSchedule, setFoodSchedule }) {
     }
   };
 
+  useEffect(() => {
+    return () => {
+      if (haveClickDelete.current) {
+        setAlertMessageMain('Delete food schedule successful !!');
+        setTimeout(() => setAlertMessageMain(''), 3000);
+        setAlertBoxColor('alert-box-valid');
+      }
+    };
+  }, [setAlertMessageMain, setAlertBoxColor]);
+
+  const handleClickDelete = async () => {
+    try {
+      await axios.delete(`/food_schedule/${foodSchedule.id}`);
+      haveClickDelete.current = true;
+      setFoodSchedule(null);
+    } catch (err) {
+      setAlertMessageMain('Can not delete foodschedule!!');
+      setAlertBoxColor('alert-box-invalid');
+      setTimeout(() => setAlertMessageMain(''), 3000);
+    }
+  };
+
   return (
     <div className='food-schedule-trainer'>
       {alertMessage ? <AlertBox alertMessage={alertMessage} color={alertBoxColor} /> : null}
       <h1>Food schedule</h1>
       <table id='food-schedule-trainer'>
         <thead>
-          <TrainerFoodScheduleHead day={foodScheduleForEdit.day} />
+          <TrainerFoodScheduleHead day={foodSchedule.day} />
         </thead>
         <tbody>
           {tableBody}
@@ -64,6 +86,13 @@ function TrainerManageFoodSchedule({ foodSchedule, setFoodSchedule }) {
               </td>
             </tr>
           ) : null}
+          <tr>
+            <td colSpan='5'>
+              <button className='btn-delete' onClick={handleClickDelete}>
+                Delete
+              </button>
+            </td>
+          </tr>
         </tbody>
       </table>
     </div>
