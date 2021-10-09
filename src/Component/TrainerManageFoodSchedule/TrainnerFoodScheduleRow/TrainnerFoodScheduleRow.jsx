@@ -1,7 +1,15 @@
 import React, { useState } from 'react';
 import { formatText } from '../../../service/formatting';
 
-function TrainnerFoodScheduleRow({ time, menuAndQuality, setFoodSchedule, foodSchedule, setIsHaveEdit }) {
+function TrainnerFoodScheduleRow({
+  time,
+  menuAndQuality,
+  setFoodScheduleForEdit,
+  foodScheduleForEdit,
+  setIsHaveEdit,
+  error,
+  setError,
+}) {
   const [isEdit, setIsEdit] = useState(false);
 
   const handleChangeEdit = (e) => {
@@ -10,7 +18,32 @@ function TrainnerFoodScheduleRow({ time, menuAndQuality, setFoodSchedule, foodSc
   };
 
   const handleClickClear = (e) => {
-    setFoodSchedule((cur) => {
+    setFoodScheduleForEdit((cur) => {
+      const clone = { ...cur };
+      clone[time] = '';
+      return clone;
+    });
+  };
+
+  const handleClickSave = (e) => {
+    if (!foodScheduleForEdit[time]) {
+      setError((cur) => {
+        const clone = { ...cur };
+        clone[time] = `${formatText(time)} is require.`;
+        return clone;
+      });
+    } else {
+      setIsEdit(false);
+    }
+  };
+
+  const handleChangeTextArea = (e) => {
+    setFoodScheduleForEdit((cur) => {
+      const clone = { ...cur };
+      clone[time] = e.target.value;
+      return clone;
+    });
+    setError((cur) => {
       const clone = { ...cur };
       clone[time] = '';
       return clone;
@@ -25,17 +58,15 @@ function TrainnerFoodScheduleRow({ time, menuAndQuality, setFoodSchedule, foodSc
         </td>
         <td colSpan='2' style={{ width: '60%' }}>
           {isEdit ? (
-            <textarea
-              type='text'
-              value={foodSchedule[time]}
-              onChange={(e) =>
-                setFoodSchedule((cur) => {
-                  const clone = { ...cur };
-                  clone[time] = e.target.value;
-                  return clone;
-                })
-              }
-            />
+            <>
+              <textarea
+                className={error[time] ? 'input-invalid' : ''}
+                type='text'
+                value={foodScheduleForEdit[time]}
+                onChange={handleChangeTextArea}
+              />
+              {error[time] ? <div className='invalid-text'>{error[time]}</div> : null}
+            </>
           ) : (
             <> {menuAndQuality}</>
           )}
@@ -43,7 +74,7 @@ function TrainnerFoodScheduleRow({ time, menuAndQuality, setFoodSchedule, foodSc
         {isEdit ? (
           <>
             <td colSpan='1' style={{ width: '15%' }}>
-              <button className='btn-save' onClick={(e) => setIsEdit(false)}>
+              <button className='btn-save' onClick={handleClickSave}>
                 Save
               </button>
             </td>

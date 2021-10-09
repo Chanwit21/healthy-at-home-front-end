@@ -4,6 +4,8 @@ import './TrainerCustomer.css';
 import axios from '../../config/axios';
 import Customerinfo from '../CustomerInfo/Customerinfo';
 import TrainerManageFoodSchedule from '../TrainerManageFoodSchedule/TrainerManageFoodSchedule';
+import TrainerAddFoodSchedule from '../TrainerAddFoodSchedule/TrainerAddFoodSchedule';
+import AlertBox from '../AlertBox/AlertBox';
 
 const genArrayOfDay = (number) => {
   const result = [];
@@ -13,7 +15,7 @@ const genArrayOfDay = (number) => {
   return result;
 };
 
-function TrainerCustomer({ trainerId }) {
+function TrainerCustomer() {
   const [relations, setRelations] = useState([]);
   const [onCustomer, setOnCustomer] = useState('');
   const [customerSelect, setCustomerSelect] = useState({});
@@ -21,6 +23,8 @@ function TrainerCustomer({ trainerId }) {
   const [type, setType] = useState('');
   const [onDay, setOnDay] = useState('');
   const [foodSchedule, setFoodSchedule] = useState(null);
+  const [alertMessageMain, setAlertMessageMain] = useState('');
+  const [alertBoxColor, setAlertBoxColor] = useState('alert-box-invalid');
   const isFirstRender = useRef(true);
 
   useEffect(() => {
@@ -69,6 +73,7 @@ function TrainerCustomer({ trainerId }) {
 
   return (
     <div className='TrainerCustomer'>
+      {alertMessageMain ? <AlertBox alertMessage={alertMessageMain} color={alertBoxColor} /> : null}
       <SelectCustomerRow
         relations={relations}
         onCustomer={onCustomer}
@@ -82,6 +87,15 @@ function TrainerCustomer({ trainerId }) {
       {Object.keys(customerSelect).length === 0 || !!type ? null : <Customerinfo profile={customerSelect} />}
       {foodSchedule ? (
         <TrainerManageFoodSchedule foodSchedule={foodSchedule} setFoodSchedule={setFoodSchedule} />
+      ) : null}
+      {!foodSchedule && onCustomer && onDay ? (
+        <TrainerAddFoodSchedule
+          day={onDay}
+          relationId={relations.find((item) => item.user.userId === onCustomer).relationId}
+          setFoodSchedule={setFoodSchedule}
+          setAlertMessageMain={setAlertMessageMain}
+          setAlertBoxColor={setAlertBoxColor}
+        />
       ) : null}
     </div>
   );
