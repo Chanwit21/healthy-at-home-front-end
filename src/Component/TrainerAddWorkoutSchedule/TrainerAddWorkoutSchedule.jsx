@@ -1,9 +1,16 @@
 import axios from '../../config/axios';
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import TrainerAddWorkoutScheduleHead from './TrainerAddWorkoutScheduleHead';
 import TrainerAddWorkoutScheduleRow from './TrainerAddWorkoutScheduleRow';
 
-function TrainerAddWorkoutSchedule({ onDay, setAlertMessageMain, setAlertBoxColor, relationId, fetchWorkoutSchedule }) {
+function TrainerAddWorkoutSchedule({
+  exercisePostureSelect,
+  onDay,
+  setAlertMessageMain,
+  setAlertBoxColor,
+  relationId,
+  fetchWorkoutSchedule,
+}) {
   const [exercisePosture, setExercisePosture] = useState({
     col1: '',
     col2: '',
@@ -22,6 +29,15 @@ function TrainerAddWorkoutSchedule({ onDay, setAlertMessageMain, setAlertBoxColo
     col6: '',
     col7: '',
   });
+
+  const isFirstRender = useRef(true);
+
+  useEffect(() => {
+    if (isFirstRender.current) {
+      window.scrollTo(0, 0);
+      isFirstRender.current = false;
+    }
+  }, []);
 
   const handleSubmitAddFoodSachdule = async (e) => {
     e.preventDefault();
@@ -53,9 +69,8 @@ function TrainerAddWorkoutSchedule({ onDay, setAlertMessageMain, setAlertBoxColo
         col={col}
         exercisePosture={exercisePosture}
         setExercisePosture={setExercisePosture}
-        setAlertMessageMain={setAlertMessageMain}
-        setAlertBoxColor={setAlertBoxColor}
         error={error}
+        exercisePostureSelect={exercisePostureSelect}
       />
     );
   });

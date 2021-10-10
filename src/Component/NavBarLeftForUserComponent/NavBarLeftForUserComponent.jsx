@@ -6,10 +6,13 @@ function NavBarLeftForUserComponent(props) {
   const pagNavLeft = {
     TRAINER: [
       { page: 'TrainerCustomerPage', title: 'Customer' },
-      { page: 'TrainerFoodMenuPage', title: 'Food menu' },
-      { page: 'TrainerExerciseVedioPage', title: 'Exercise vedio' },
+      { page: 'ManageFoodMenuPage', title: 'Food menu' },
+      { page: 'ManageExerciseVedioPage', title: 'Exercise vedio' },
     ],
-    ADMIN: [{ page: '', title: '' }],
+    ADMIN: [
+      { page: 'ManageFoodMenuPage', title: 'Food menu' },
+      { page: 'ManageExerciseVedioPage', title: 'Exercise vedio' },
+    ],
   };
 
   const addOnNav = ['TRAINER', 'ADMIN'].includes(props.role)

@@ -1,0 +1,132 @@
+.ManageFoodMenu {
+  width: 65%;
+}
+
+.ManageFoodMenu select {
+  height: 2.0833333333vw;
+  background: #ffffff;
+  border: 0.05208333333vw solid #2b90c4;
+  box-sizing: border-box;
+  border-radius: 0.5208333333vw;
+
+  font-weight: 600;
+  font-size: 1.04166666666vw;
+  color: #000000;
+}
+
+.ManageFoodMenu option {
+  height: 2.0833333333vw;
+  background: #ffffff;
+
+  font-weight: 600;
+  font-size: 1.04166666666vw;
+  color: #000000;
+}
+
+.ManageFoodMenu img {
+  width: 100%;
+  margin-bottom: 0;
+  display: block;
+}
+
+.ManageFoodMenu .image-row {
+  height: fit-content !important;
+}
+
+.ManageFoodMenu .header-row {
+  display: flex;
+}
+
+.ManageFoodMenu .btn-add {
+  background: #2b90c4;
+  border: 0.052083333vw solid #2b90c4;
+  border-radius: 0.52083333vw;
+  font-weight: 600;
+  font-size: 1.1625vw;
+  color: #ffffff;
+  padding: 0.4vw 1vw;
+  cursor: pointer;
+  width: 20%;
+}
+
+.ManageFoodMenu .add-image-form {
+  background: #ffffff;
+  box-shadow: 0.20833333vw 0.20833333vw 0.52083vw 0.15625vw rgba(0, 0, 0, 0.25);
+  border-radius: 0.52083333vw;
+  font-weight: 600;
+  font-size: 1.1625vw;
+  padding: 0.4vw 1vw;
+  margin-bottom: 1vw;
+  width: 100%;
+}
+
+.ManageFoodMenu .add-image-form h1 {
+  margin: 1vw auto;
+  width: 80%;
+  display: block;
+  font-size: 2.0625vw;
+  text-align: center;
+}
+
+.ManageFoodMenu .add-image-area {
+  border: 0.052083333vw dashed #2b90c4;
+  border-radius: 1.52083333vw;
+  margin: 2vw auto;
+  width: 80%;
+  min-height: 25vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.ManageFoodMenu .add-image-area img {
+  border-radius: 1.52083333vw;
+}
+
+.ManageFoodMenu input[type='submit'] {
+  width: 80%;
+  display: block;
+  height: 3.083333333vw;
+  background: #2b90c4;
+  border: 0.052083333vw solid #2b90c4;
+  border-radius: 0.52083333vw;
+  font-weight: 600;
+  font-size: 1.5625vw;
+  color: #ffffff;
+  margin: 0 auto;
+  margin-bottom: 1vw;
+  padding: 0;
+  cursor: pointer;
+}
+
+.ManageFoodMenu .btn-clear {
+  width: 80%;
+  display: block;
+  height: 3.083333333vw;
+  background: #b23b3b;
+  border: 0.052083333vw solid #b23b3b;
+  border-radius: 0.52083333vw;
+  font-weight: 600;
+  font-size: 1.5625vw;
+  color: #ffffff;
+  margin: 0 auto;
+  margin-bottom: 1vw;
+  padding: 0;
+  cursor: pointer;
+}
+
+.ManageFoodMenu .select-add {
+  height: 2.0833333333vw;
+  width: 80%;
+  background: #ffffff;
+  border: 0.05208333333vw solid #2b90c4;
+  box-sizing: border-box;
+  border-radius: 0.5208333333vw;
+  font-weight: 600;
+  font-size: 1.04166666666vw;
+  color: #000000;
+  margin: 0 auto;
+  display: block;
+  margin-bottom: 1vw;
+}

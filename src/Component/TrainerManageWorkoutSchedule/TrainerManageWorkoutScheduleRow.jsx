@@ -2,21 +2,19 @@ import React, { useEffect, useRef, useState } from 'react';
 import { formatText } from '../../service/formatting';
 import axios from '../../config/axios';
 
-function TrainerManageWorkoutScheduleRow({ exercisePosture, setAlertMessage, setAlertBoxColor, workoutScheduleId }) {
+function TrainerManageWorkoutScheduleRow({
+  exercisePostureSelect,
+  exercisePosture,
+  setAlertMessage,
+  setAlertBoxColor,
+  workoutScheduleId,
+}) {
   const [exercisepostureToEdit, setExercisepostureToEdit] = useState(exercisePosture.ExercisePosture);
-  const [exercisePostureSelect, setExercisePostureSelect] = useState([]);
+
   const [selectEditExercisePosture, setSelectEditExercisePosture] = useState(exercisepostureToEdit?.id || '');
   const [selectStyle, setSelectStyle] = useState({ color: '', backgroundColor: '' });
   const [isEdit, setIsEdit] = useState(false);
   const isFirstRender = useRef(true);
-
-  useEffect(() => {
-    const fetchExercisePosture = async () => {
-      const res = await axios.get('/exercise');
-      setExercisePostureSelect(res.data.exercisePostures);
-    };
-    fetchExercisePosture();
-  }, []);
 
   useEffect(() => {
     if (isFirstRender.current) {
@@ -38,27 +36,37 @@ function TrainerManageWorkoutScheduleRow({ exercisePosture, setAlertMessage, set
   }, [selectEditExercisePosture, exercisePostureSelect]);
 
   const handleClickSave = async (e) => {
-    try {
-      await axios.put('/workout_schedule', {
-        col: exercisePosture.col,
-        workoutScheduleId: workoutScheduleId,
-        exercisePostureId: selectEditExercisePosture,
-      });
-      const exerciseSelect = exercisePostureSelect.find((item) => item.id === selectEditExercisePosture);
-      setExercisepostureToEdit(exerciseSelect);
-      setAlertMessage('Update Success !!');
-      setAlertBoxColor('alert-box-valid');
-      setTimeout(() => setAlertMessage(''), 2000);
-      setIsEdit(false);
-    } catch (err) {
-      setAlertMessage('Update failed!!');
+    if (exercisePosture.col === 'col1' && !selectEditExercisePosture) {
+      setAlertMessage('Col 1 is require!!');
       setAlertBoxColor('alert-box-invalid');
       setTimeout(() => setAlertMessage(''), 2000);
+    } else {
+      try {
+        await axios.put('/workout_schedule', {
+          col: exercisePosture.col,
+          workoutScheduleId: workoutScheduleId,
+          exercisePostureId: selectEditExercisePosture,
+        });
+        const exerciseSelect = exercisePostureSelect.find((item) => item.id === selectEditExercisePosture);
+        setExercisepostureToEdit(exerciseSelect);
+        setAlertMessage('Update Success !!');
+        setAlertBoxColor('alert-box-valid');
+        setTimeout(() => setAlertMessage(''), 2000);
+        setIsEdit(false);
+      } catch (err) {
+        setAlertMessage('Update failed!!');
+        setAlertBoxColor('alert-box-invalid');
+        setTimeout(() => setAlertMessage(''), 2000);
+      }
     }
   };
 
   const handleClickEdit = (e) => {
     setIsEdit(true);
+  };
+  const handleClickCancle = (e) => {
+    setSelectEditExercisePosture(exercisepostureToEdit?.id || '');
+    setIsEdit(false);
   };
 
   const handleChangeSelect = (e) => {
@@ -88,16 +96,24 @@ function TrainerManageWorkoutScheduleRow({ exercisePosture, setAlertMessage, set
           colSpan='2'
           style={{
             width: '65%',
-            backgroundColor: exercisepostureToEdit && !isEdit ? exercisepostureToEdit.backgroundColor : '',
+            backgroundColor:
+              exercisepostureToEdit && !isEdit ? exercisepostureToEdit.backgroundColor : selectStyle.backgroundColor,
           }}
         >
           {isEdit ? (
             <>
               <select style={selectStyle} value={selectEditExercisePosture} onChange={handleChangeSelect}>
-                <option value=''>none</option>
+                <option
+                  value=''
+                  style={{
+                    color: '#000',
+                    backgroundColor: '#FFF',
+                  }}
+                >
+                  none
+                </option>
                 {optionToSelect}
               </select>
-              {/* {error[time] ? <div className='invalid-text'>{error[time]}</div> : null} */}
             </>
           ) : (
             <>
@@ -118,9 +134,14 @@ function TrainerManageWorkoutScheduleRow({ exercisePosture, setAlertMessage, set
         </td>
         {isEdit ? (
           <>
-            <td colSpan='2' style={{ width: '20%' }}>
+            <td colSpan='1' style={{ width: '10%' }}>
               <button className='btn-save' onClick={handleClickSave}>
                 Save
+              </button>
+            </td>
+            <td colSpan='1' style={{ width: '10%' }}>
+              <button className='btn-clear' onClick={handleClickCancle}>
+                Cancle
               </button>
             </td>
           </>

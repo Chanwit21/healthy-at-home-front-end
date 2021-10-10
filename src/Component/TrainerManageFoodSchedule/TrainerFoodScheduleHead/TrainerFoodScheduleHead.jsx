@@ -1,5 +1,4 @@
 import React from 'react';
-import './TrainerFoodSchwduleHead.css';
 
 function TrainerFoodScheduleHead({ day }) {
   return (

@@ -1,8 +1,8 @@
-.food-schedule-trainer {
+.manage-exercise {
   margin-bottom: 1vw;
-  width: 100%;
+  width: 70%;
 }
-.food-schedule-trainer h1 {
+.manage-exercise h1 {
   font-weight: 600;
   font-size: 2.60416666vw;
   color: #000000;
@@ -10,23 +10,23 @@
   width: 90%;
 }
 
-#food-schedule-trainer {
+.manage-exercise table {
   border-collapse: collapse;
   width: 100%;
   margin-top: 0.5vw;
 }
 
-#food-schedule-trainer tr {
+#manage-exercise tr {
   height: 3.125vw;
 }
 
-#food-schedule-trainer td,
-#food-schedule-trainer th {
+#manage-exercise td,
+#manage-exercise th {
   border: 0.1041666666vw solid #000;
   text-align: center;
 }
 
-#food-schedule-trainer td {
+#manage-exercise td {
   background-color: #fff;
   height: 6.41666666666667vw;
   font-weight: 600;
@@ -34,7 +34,7 @@
   color: #000000;
 }
 
-#food-schedule-trainer td input[type='submit'] {
+#manage-exercise td input[type='submit'] {
   width: 80%;
   height: 3.083333333vw;
   background: #2b90c4;
@@ -48,23 +48,12 @@
   cursor: pointer;
 }
 
-#food-schedule-trainer td .btn-clear {
+#manage-exercise .btn-delete {
   background: #b23b3b;
   border: 0.052083333vw solid #b23b3b;
   border-radius: 0.52083333vw;
   font-weight: 600;
-  font-size: 1.1625vw;
-  color: #ffffff;
-  padding: 0.3vw 1vw;
-  cursor: pointer;
-}
-
-#food-schedule-trainer td .btn-delete {
-  background: #b23b3b;
-  border: 0.052083333vw solid #b23b3b;
-  border-radius: 0.52083333vw;
-  font-weight: 600;
-  font-size: 1.5625vw;
+  font-size: 1.05625vw;
   color: #ffffff;
   padding: 0.3vw 1vw;
   cursor: pointer;
@@ -72,46 +61,60 @@
   height: 3.083333333vw;
 }
 
-#food-schedule-trainer td .btn-save {
-  background: #77d970;
-  border: 0.052083333vw solid #77d970;
+#manage-exercise .btn-clear {
+  background: #b23b3b;
+  border: 0.052083333vw solid #b23b3b;
   border-radius: 0.52083333vw;
   font-weight: 600;
   font-size: 1.1625vw;
   color: #ffffff;
   padding: 0.3vw 1vw;
   cursor: pointer;
+  box-shadow: 0.20833333vw 0.20833333vw 0.52083vw 0.15625vw rgba(0, 0, 0, 0.25);
 }
 
-#food-schedule-trainer td .btn-edit {
+#manage-exercise .btn-save {
+  background: #77d970;
+  border: 0.052083333vw solid #77d970;
+  border-radius: 0.52083333vw;
+  font-weight: 600;
+  font-size: 1.01625vw;
+  color: #ffffff;
+  padding: 0.3vw 1vw;
+  cursor: pointer;
+  box-shadow: 0.20833333vw 0.20833333vw 0.52083vw 0.15625vw rgba(0, 0, 0, 0.25);
+}
+
+#manage-exercise .btn-edit {
   background: #2b90c4;
   border: 0.052083333vw solid #2b90c4;
   border-radius: 0.52083333vw;
   font-weight: 600;
-  font-size: 1.1625vw;
+  font-size: 1.01625vw;
   color: #ffffff;
   padding: 0.4vw 1vw;
   cursor: pointer;
   width: 60%;
+  box-shadow: 0.20833333vw 0.20833333vw 0.52083vw 0.15625vw rgba(0, 0, 0, 0.25);
 }
 
-#food-schedule-trainer th {
+#manage-exercise th {
   font-weight: 600;
-  font-size: 1.5625vw;
+  font-size: 1.05625vw;
   color: #ffffff;
 }
 
-#food-schedule-trainer textarea {
+#manage-exercise textarea {
   width: 90%;
   height: 40%;
-  background: #ffffff;
+  /* background: #ffffff; */
   border: 0.052083vw solid rgba(43, 144, 196, 0.5);
   box-sizing: border-box;
   border-radius: 0.52083vw;
   margin-top: 14px;
 }
 
-#food-schedule-trainer select {
+#manage-exercise select {
   width: 90%;
   height: 40%;
   background: #ffffff;

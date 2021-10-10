@@ -1,31 +1,10 @@
 import React, { useEffect, useRef, useState } from 'react';
-import axios from '../../config/axios';
+
 import { formatText } from '../../service/formatting';
 
-function TrainerAddWorkoutScheduleRow({
-  col,
-  setExercisePosture,
-  exercisePosture,
-  error,
-  setAlertMessageMain,
-  setAlertBoxColor,
-}) {
-  const [exercisePostureSelect, setExercisePostureSelect] = useState([]);
+function TrainerAddWorkoutScheduleRow({ col, setExercisePosture, exercisePosture, error, exercisePostureSelect }) {
   const [selectStyle, setSelectStyle] = useState({ color: '', backgroundColor: '' });
   const isFirstRender = useRef(true);
-
-  useEffect(() => {
-    const fetchExercisePosture = async () => {
-      try {
-        const res = await axios.get('/exercise');
-        setExercisePostureSelect(res.data.exercisePostures);
-      } catch (err) {
-        setAlertMessageMain('Server is denine!');
-        setAlertBoxColor('alert-box-invalid');
-      }
-    };
-    fetchExercisePosture();
-  }, [setExercisePostureSelect, setAlertMessageMain, setAlertBoxColor]);
 
   useEffect(() => {
     if (isFirstRender.current) {
@@ -77,6 +56,7 @@ function TrainerAddWorkoutScheduleRow({
           colSpan='2'
           style={{
             width: '65%',
+            ...selectStyle,
           }}
         >
           <>

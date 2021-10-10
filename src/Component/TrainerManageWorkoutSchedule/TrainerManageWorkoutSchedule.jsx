@@ -1,13 +1,14 @@
 import axios from '../../config/axios';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import AlertBox from '../AlertBox/AlertBox';
 import TrainerManageWorkoutScheduleHead from './TrainerManageWorkoutScheduleHead';
 import TrainerManageWorkoutScheduleRow from './TrainerManageWorkoutScheduleRow';
 
-function TrainerManageWorkoutSchedule({ workoutSchedule }) {
+function TrainerManageWorkoutSchedule({ workoutSchedule, deleteWorkoutScheDule, exercisePostureSelect }) {
   const [colorExercise, setColorExercise] = useState([]);
   const [alertMessage, setAlertMessage] = useState('');
   const [alertBoxColor, setAlertBoxColor] = useState('');
+  const isFirstRender = useRef(true);
 
   useEffect(() => {
     const fetchColorExercise = async () => {
@@ -19,7 +20,15 @@ function TrainerManageWorkoutSchedule({ workoutSchedule }) {
       }
     };
     fetchColorExercise();
+    if (isFirstRender.current) {
+      window.scrollTo(0, 0);
+      isFirstRender.current = false;
+    }
   }, []);
+
+  const handleClickDelete = (e) => {
+    deleteWorkoutScheDule(workoutSchedule.id);
+  };
 
   const tableBody = workoutSchedule.ExercisePostureWorkoutSchedules.map((item) => {
     return (
@@ -29,6 +38,7 @@ function TrainerManageWorkoutSchedule({ workoutSchedule }) {
         setAlertMessage={setAlertMessage}
         setAlertBoxColor={setAlertBoxColor}
         workoutScheduleId={workoutSchedule.id}
+        exercisePostureSelect={exercisePostureSelect}
       />
     );
   });
@@ -47,8 +57,8 @@ function TrainerManageWorkoutSchedule({ workoutSchedule }) {
             }}
           >
             <th colSpan='2'>Executive posture</th>
-            <th colSpan='1.5'>Reps x Setss</th>
-            <th colSpan='1.5'>Break period</th>
+            <th colSpan='1'>Reps x Setss</th>
+            <th colSpan='2'>Break period</th>
           </tr>
 
           {colorExercise.map((element) => {
@@ -64,10 +74,10 @@ function TrainerManageWorkoutSchedule({ workoutSchedule }) {
                 <th colSpan='2' style={{ color: 'inherit', backgroundColor: 'inherit', fontSize: 'inherit' }}>
                   {element.title}
                 </th>
-                <th colSpan='1.5' style={{ color: 'inherit', backgroundColor: 'inherit', fontSize: 'inherit' }}>
+                <th colSpan='1' style={{ color: 'inherit', backgroundColor: 'inherit', fontSize: 'inherit' }}>
                   {element.repSet}
                 </th>
-                <th colSpan='1.5' style={{ color: 'inherit', backgroundColor: 'inherit', fontSize: 'inherit' }}>
+                <th colSpan='2' style={{ color: 'inherit', backgroundColor: 'inherit', fontSize: 'inherit' }}>
                   {element.breakPeriod}
                 </th>
               </tr>
@@ -75,7 +85,16 @@ function TrainerManageWorkoutSchedule({ workoutSchedule }) {
           })}
           <TrainerManageWorkoutScheduleHead day={workoutSchedule.day} />
         </thead>
-        <tbody>{tableBody}</tbody>
+        <tbody>
+          {tableBody}
+          <tr>
+            <td colSpan='5'>
+              <button className='btn-delete' onClick={handleClickDelete}>
+                Delete
+              </button>
+            </td>
+          </tr>
+        </tbody>
       </table>
     </div>
   );

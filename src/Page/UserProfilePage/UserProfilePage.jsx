@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import ContactUsComponent from '../../Component/ContactUsComponent/ContactUsComponent';
+import ManageExercise from '../../Component/ManageExercise/ManageExercise';
+import ManageFoodMenu from '../../Component/ManageFoodMenu/ManageFoodMenu';
 import NavBarLeftForUserComponent from '../../Component/NavBarLeftForUserComponent/NavBarLeftForUserComponent';
 import Profile from '../../Component/ProfileComponent/Profile';
 import TrainerCustomer from '../../Component/TrainerCustomer/TrainerCustomer';
@@ -89,6 +91,8 @@ function UserProfilePage() {
                 />
               ) : null}
               {onPage === 'TrainerCustomerPage' ? <TrainerCustomer trainerId={profile.id} /> : null}
+              {onPage === 'ManageFoodMenuPage' ? <ManageFoodMenu /> : null}
+              {onPage === 'ManageExerciseVedioPage' ? <ManageExercise /> : null}
             </div>
           </div>
         </section>
