@@ -49,8 +49,8 @@ function ManageExerciseVedioRow({ exerciseVedio, updateExercise, deleteExercises
     deleteExercises(exerciseVedio.id);
   };
 
-  const handleClickClear = () => {
-    setExerciseVedioToEdit({ name: '', fontColor: '', backgroundColor: '', link: '' });
+  const handleClickCancle = () => {
+    setIsEdit(false);
   };
 
   return (
@@ -150,8 +150,8 @@ function ManageExerciseVedioRow({ exerciseVedio, updateExercise, deleteExercises
             <button className='btn-save' onClick={handleClickSave}>
               Save
             </button>
-            <button className='btn-clear' onClick={handleClickClear}>
-              Clear
+            <button className='btn-clear' onClick={handleClickCancle}>
+              <i class='bi bi-x'></i>
             </button>
           </td>
         </tr>

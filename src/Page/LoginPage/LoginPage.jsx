@@ -21,7 +21,6 @@ function LoginPage() {
       setAlertMessage(location.state.message);
       setTimeout(() => {
         setAlertMessage('');
-        // Clear history
         history.replace();
       }, 3000);
     }
@@ -86,11 +85,6 @@ function LoginPage() {
                 />
                 {err.password ? <div className='error'>{err.password}</div> : null}
                 {loginError ? <div className='login-error'>{loginError}</div> : null}
-                <p>
-                  <Link to='#' className='fogot-password'>
-                    Forgot Your Password?
-                  </Link>
-                </p>
                 <input type='submit' value='LOG IN' />
                 <p>
                   Don’t have an account?

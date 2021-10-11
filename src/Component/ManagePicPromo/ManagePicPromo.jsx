@@ -1,12 +1,11 @@
 import React, { useEffect, useRef, useState } from 'react';
-import './ManageFoodMenu.css';
 import AlertBox from '../AlertBox/AlertBox';
 import Pagination from '../Pagination/Pagination';
 import axios from '../../config/axios';
 import { css } from '@emotion/react';
 import BounceLoader from 'react-spinners/BounceLoader';
 
-function ManageFoodMenu() {
+function ManagePicPromo() {
   const [images, setImages] = useState([]);
   const [alertMessage, setAlertMessage] = useState('');
   const [alertBoxColor, setalertBoxColor] = useState('alert-box-invalid');
@@ -14,59 +13,55 @@ function ManageFoodMenu() {
   const [onAddImage, setOnAddImage] = useState(false);
   const [imageFile, setImageFile] = useState(null);
   const [fileToshow, setFileToshow] = useState('');
-  const [selectTypeToAdd, setSelectTypeToAdd] = useState('');
   const [error, setError] = useState({ selectTypeAdd: '', imageFile: '' });
   const [loading, setLoading] = useState(false);
   const inputFile = useRef();
 
-  const [selectType, setSelectType] = useState('');
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
-  const handleClickDelete = async (id) => {
+  const fetchImage = async () => {
     try {
       setLoading(true);
-      const newImages = [...images].filter((item) => item.id !== id);
-      setImages(newImages);
-      await axios.delete(`/food_image/${id}`);
-      setSelectType('');
-      setAlertMessage('Delete Success');
-      setalertBoxColor('alert-box-valid');
-      setTimeout(() => setAlertMessage(''), 2000);
+      const res = await axios.get(`/promotion_image`);
+      setImages(res.data.promotion_images);
       setLoading(false);
-      window.scrollTo(0, 0);
     } catch (err) {
-      setAlertMessage('Delete failed!!');
+      setAlertMessage('Server failed!!');
       setalertBoxColor('alert-box-invalid');
       setTimeout(() => setAlertMessage(''), 2000);
     }
   };
 
-  const handleChangeType = async (e) => {
-    setSelectType(e.target.value);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    fetchImage();
+  }, []);
 
-    if (e.target.value) {
+  const handleClickDelete = async (id) => {
+    if (images.length === 5) {
+      setAlertMessage('The Promotion image must be at least 5 images, please add one before you can delete it.');
+      setalertBoxColor('alert-box-invalid');
+      setTimeout(() => setAlertMessage(''), 5000);
+    } else {
       try {
         setLoading(true);
-        const res = await axios.get(`/food_image?type=${e.target.value}`);
-        setImages(res.data.images);
+        const newImages = [...images].filter((item) => item.id !== id);
+        setImages(newImages);
+        await axios.delete(`/promotion_image/${id}`);
+        setAlertMessage('Delete Success');
+        setalertBoxColor('alert-box-valid');
+        setTimeout(() => setAlertMessage(''), 2000);
+        setOnPage(1);
         setLoading(false);
+        window.scrollTo(0, 0);
       } catch (err) {
-        setAlertMessage('Select Error.');
+        setAlertMessage('Delete failed!!');
         setalertBoxColor('alert-box-invalid');
         setTimeout(() => setAlertMessage(''), 2000);
       }
-    } else {
-      setImages([]);
     }
   };
 
   const handleClickAddButton = (e) => {
     setOnAddImage(true);
-    setSelectType('');
-    setImages([]);
   };
 
   const handleClickAddFile = () => {
@@ -91,42 +86,28 @@ function ManageFoodMenu() {
   const handleClickAddImage = async (e) => {
     e.preventDefault();
 
-    let allPass = true;
-
-    if (!selectTypeToAdd) {
-      allPass = false;
-      setError((cur) => {
-        const clone = { ...cur };
-        clone.selectTypeAdd = 'Type is require !!';
-        return clone;
-      });
-    }
-
     if (!imageFile) {
-      allPass = false;
       setError((cur) => {
         const clone = { ...cur };
         clone.imageFile = 'Image is require !!';
         return clone;
       });
-    }
-
-    if (allPass) {
+    } else {
       const form = new FormData();
-      form.append('type', selectTypeToAdd);
-      form.append('food_image', imageFile);
+      form.append('promotion_image', imageFile);
 
       try {
         setLoading(true);
         window.scrollTo(0, 0);
-        await axios.post('/food_image', form);
+        await axios.post('/promotion_image', form);
+        fetchImage();
         setAlertMessage('Add file success.');
         setalertBoxColor('alert-box-valid');
         setTimeout(() => setAlertMessage(''), 2000);
         setOnAddImage(false);
         setImageFile(null);
         setFileToshow('');
-        setSelectTypeToAdd('');
+        setOnPage(1);
         setLoading(false);
       } catch (err) {
         setAlertMessage('Add file failed.');
@@ -139,13 +120,11 @@ function ManageFoodMenu() {
   const handleClickClear = () => {
     setImageFile(null);
     setFileToshow('');
-    setSelectTypeToAdd('');
   };
 
   const handleClickClose = () => {
     setImageFile(null);
     setFileToshow('');
-    setSelectTypeToAdd('');
     setOnAddImage(false);
   };
 
@@ -185,7 +164,7 @@ function ManageFoodMenu() {
       {onAddImage ? (
         <div className='add-image-form'>
           <div style={{ display: 'flex', alignItems: 'center' }}>
-            <h1>Add Food Menu</h1>{' '}
+            <h1>Result Photo</h1>{' '}
             <button className='btn-clear' style={{ width: '5%', marginBottom: '0' }} onClick={handleClickClose}>
               <i class='bi bi-x'></i>
             </button>
@@ -204,31 +183,13 @@ function ManageFoodMenu() {
               </div>
             ) : null}
             <input type='file' hidden ref={inputFile} onChange={handleChangeFile} />
-            <select
-              className={`select-add${error.selectTypeAdd ? ' input-invalid' : ''}`}
-              value={selectTypeToAdd}
-              onChange={(e) => {
-                setSelectTypeToAdd(e.target.value);
-                setError((cur) => {
-                  const clone = { ...cur };
-                  clone.selectTypeAdd = '';
-                  return clone;
-                });
-              }}
-            >
-              <option value=''>Choose type</option>
-              <option value='food_menu_postworkout'>Post workout</option>
-              <option value='food_menu_preworkout'>Pre workout</option>
-              <option value='food_menu_normal'>Normal</option>
-              <option value='food_menu_snack'>Snack</option>
-            </select>
             {error.selectTypeAdd ? (
               <div className='invalid-text' style={{ margin: '0 auto', width: '80%', marginBottom: '1vw' }}>
                 {error.selectTypeAdd}
               </div>
             ) : null}
             {fileToshow ? (
-              <button type='button' className='btn-clear' onClick={handleClickClear}>
+              <button type='button' className='btn-clear' style={{ marginBottom: '1.5vw' }} onClick={handleClickClear}>
                 Clear
               </button>
             ) : null}
@@ -240,18 +201,12 @@ function ManageFoodMenu() {
         <div className='food-schedule-trainer'>
           {alertMessage ? <AlertBox alertMessage={alertMessage} color={alertBoxColor} /> : null}
           <div className='header-row'>
-            <h1>Food schedule</h1>
+            <h1>Result Photo</h1>
             <button className='btn-add' onClick={handleClickAddButton}>
               Add Image
             </button>
           </div>
-          <select value={selectType} onChange={handleChangeType}>
-            <option value=''>Choose type</option>
-            <option value='food_menu_postworkout'>Post workout</option>
-            <option value='food_menu_preworkout'>Pre workout</option>
-            <option value='food_menu_normal'>Normal</option>
-            <option value='food_menu_snack'>Snack</option>
-          </select>
+          <p>{`Showing ${onPage} of ${images.length}`}</p>
           <table id='food-schedule-trainer'>
             <tbody>{tableBody}</tbody>
           </table>
@@ -262,4 +217,4 @@ function ManageFoodMenu() {
   );
 }
 
-export default ManageFoodMenu;
+export default ManagePicPromo;

@@ -14,6 +14,7 @@
 .menu-bar-component .food-menu-bar {
   outline: 0.0520833vw solid rgba(0, 0, 0, 0.2);
   border-width: 100%;
+  border-radius: 0 0 0.52083vw 0.52083vw;
 }
 
 /* Button  */
@@ -31,6 +32,6 @@
   border-radius: 0.52083vw 0.52083vw 0 0;
 }
 
-.content-box > button:last-child {
+.content-box button:last-child {
   border-radius: 0 0 0.52083vw 0.52083vw;
 }

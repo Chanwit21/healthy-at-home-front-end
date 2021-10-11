@@ -130,8 +130,10 @@
 
 /* error-password */
 .loginPage .error {
-  font-size: 3px;
+  font-size: 1vw;
+  font-weight: 600;
   margin-top: 1vw;
+  color: red;
 }
 
 /* Alert Box */

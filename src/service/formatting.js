@@ -13,3 +13,6 @@ export const formatText = (text) => {
   }
   return result[0].toUpperCase() + result.slice(1);
 };
+
+export const currencyFormat = (amount) =>
+  new Intl.NumberFormat('th-TH', { style: 'currency', currency: 'THB' }).format(amount);

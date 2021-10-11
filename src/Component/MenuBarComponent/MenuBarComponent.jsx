@@ -26,6 +26,7 @@ function MenuBarComponent(props) {
           className={Page.includes('UserFoodSchedulePage') ? 'onPage' : ''}
           style={{
             fontWeight: Page.includes('UserFoodSchedulePage') ? '900' : '600',
+            borderRadius: !Page.includes('UserFoodSchedulePage') ? '0 0 0.52083vw 0.52083vw' : '',
           }}
         >
           Food
@@ -91,16 +92,6 @@ function MenuBarComponent(props) {
             Food schedule
           </button>
         </div>
-
-        <button
-          onClick={(e) => setOnPage('UserWeeklyUpdatePage')}
-          className={Page === 'UserWeeklyUpdatePage' ? 'onPage' : ''}
-          style={{
-            fontWeight: Page === 'UserWeeklyUpdatePage' ? '900' : '600',
-          }}
-        >
-          Weekly Update
-        </button>
       </div>
     </div>
   );

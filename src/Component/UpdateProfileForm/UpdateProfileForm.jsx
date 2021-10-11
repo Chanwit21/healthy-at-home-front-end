@@ -22,10 +22,10 @@ function UpdateProfileForm({
   const [updateProfile, setUpdateProfile] = useState({
     firstName,
     lastName,
-    weight,
-    height,
+    weight: '',
+    height: '',
     nickName,
-    phoneNumber,
+    phoneNumber: '',
     gender,
     education,
   });
@@ -100,7 +100,7 @@ function UpdateProfileForm({
       setError((cur) => ({ ...cur, nickName: 'Nickname is require.' }));
     }
 
-    if (updateProfile.phoneNumber.length !== 10 && updateProfile.phoneNumber !== '') {
+    if (updateProfile.phoneNumber && updateProfile.phoneNumber.length !== 10 && updateProfile.phoneNumber !== '') {
       allPass = false;
       setError((cur) => ({ ...cur, phoneNumber: 'Phone Number is invalid length.' }));
     }
@@ -150,7 +150,12 @@ function UpdateProfileForm({
         dispatch({ type: 'LOGIN', payload: { token: res.data.token } });
         window.location.reload();
         setLoading(false);
-      } catch (err) {}
+      } catch (err) {
+        console.dir(err);
+        setAlertMessage('Update failed!!');
+        setTimeout(() => setAlertMessage(''), 3000);
+        setLoading(false);
+      }
     }
   };
 

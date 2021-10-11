@@ -4,23 +4,42 @@ import axios from '../../config/axios';
 import { css } from '@emotion/react';
 import BounceLoader from 'react-spinners/BounceLoader';
 import Pagination from '../Pagination/Pagination';
-import { currencyFormat } from '../../service/formatting';
+import ManageTrainerRow from './ManageTrainerRow';
 
-function AdminWatchTransaction() {
-  const [transactions, setTransactions] = useState([]);
+function ManageTrainer() {
+  const [relations, setRelations] = useState([]);
   const [alertMessage, setAlertMessage] = useState('');
   const [alertBoxColor, setAlertBoxColor] = useState('alert-box-invalid');
   const [loading, setLoading] = useState(false);
-  const [sort, setSort] = useState('userName');
   const [limit, setLimit] = useState(5);
   const [onPage, setOnPage] = useState(1);
   const [length, setLength] = useState(0);
+  const [trainers, setTrainers] = useState([]);
 
-  const fetchTransactions = async (sort, limit, onPage) => {
+  const fetchTrainer = async () => {
     try {
       setLoading(true);
-      const res = await axios.get(`transaction/search?sort=${sort}&limit=${limit}&offset=${limit * (onPage - 1)}`);
-      setTransactions(res.data.transactions);
+      const res = await axios.get(`/trainer_info`);
+      setLoading(false);
+      setTrainers(res.data.trainers);
+    } catch (err) {
+      setAlertMessage('Server failed!!');
+      setAlertBoxColor('alert-box-invalid');
+      setTimeout(() => setAlertMessage(''), 2000);
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    fetchTrainer();
+  }, []);
+
+  const fetchRelations = async (limit, onPage) => {
+    try {
+      setLoading(true);
+      const res = await axios.get(`/relation/search?limit=${limit}&offset=${limit * (onPage - 1)}`);
+      setRelations(res.data.relations);
 
       setLength(res.data.length);
       setLoading(false);
@@ -33,31 +52,39 @@ function AdminWatchTransaction() {
   };
 
   useEffect(() => {
-    fetchTransactions(sort, limit, onPage);
-  }, [sort, limit, onPage]);
+    fetchRelations(limit, onPage);
+  }, [limit, onPage]);
 
-  const tableBody = transactions.map((item) => {
+  const updateRelations = async (relationId, trainer) => {
+    try {
+      setLoading(true);
+      await axios.put(`/relation/${relationId}`, { trainerId: trainer.id });
+      const clone = [...relations];
+      const idx = clone.findIndex((item) => item.relationId === relationId);
+      clone[idx].trainer = trainer;
+      setRelations(clone);
+      setAlertMessage('Update success!!');
+      setAlertBoxColor('alert-box-valid');
+      setTimeout(() => setAlertMessage(''), 2000);
+      setLoading(false);
+    } catch (err) {
+      setAlertMessage('Update failed!!');
+      setAlertBoxColor('alert-box-invalid');
+      setTimeout(() => setAlertMessage(''), 2000);
+      setLoading(false);
+    }
+  };
+
+  const tableBody = relations.map((relation) => {
     return (
-      <tr key={item.id} style={{ backgroundColor: item.status === 'successful' ? '#67F55F' : '#ADADAD' }}>
-        <th colSpan='2' style={{ width: '35%', color: '#000' }}>
-          {item.userName}
-        </th>
-        <th colSpan='2' style={{ width: '35%', color: '#000' }}>
-          {item.courseName}
-        </th>
-        <th colSpan='1' style={{ color: '#000' }}>
-          {item.amount}
-        </th>
-        <th colSpan='1' style={{ color: '#000' }}>
-          {item.status}
-        </th>
-      </tr>
+      <ManageTrainerRow
+        key={relation.relationId}
+        relation={relation}
+        trainers={trainers}
+        updateRelations={updateRelations}
+      />
     );
   });
-
-  const handleChangeSort = (e) => {
-    setSort(e.target.value);
-  };
 
   const handleChangeLimit = (e) => {
     setLimit(e.target.value);
@@ -76,26 +103,13 @@ function AdminWatchTransaction() {
     return <BounceLoader color='#000' loading={loading} css={cssOverride} size={150} />;
   }
 
-  const amount = transactions.reduce((acc, cur) => {
-    if (cur.status === 'successful') {
-      return acc + +cur.amount;
-    }
-    return acc;
-  }, 0);
-
   return (
     <div className='manage-exercise'>
       {alertMessage ? <AlertBox alertMessage={alertMessage} color={alertBoxColor} /> : null}
       <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-        <div>
-          <h1>Transactions</h1>
-          <label>sort:</label>
-          <select value={sort} onChange={handleChangeSort}>
-            <option value='userName'>User name</option>
-            <option value='amount'>Amount</option>
-            <option value='status'>Status</option>
-          </select>
-          <select value={limit} onChange={handleChangeLimit}>
+        <div style={{ width: '50%' }}>
+          <h1>Customer and User</h1>
+          <select value={limit} onChange={handleChangeLimit} style={{ width: '20%' }}>
             <option value='5'>5</option>
             <option value='10'>10</option>
             <option value='15'>15</option>
@@ -104,7 +118,6 @@ function AdminWatchTransaction() {
             limit * onPage > length ? length : limit * onPage
           } of ${length}`}</p>
         </div>
-        <div style={{ display: 'flex', alignItems: 'flex-end' }}> Amount : {currencyFormat(amount)}</div>
       </div>
       <table id='manage-exercise'>
         <thead>
@@ -115,14 +128,13 @@ function AdminWatchTransaction() {
               height: '3.125vw',
             }}
           >
-            <th colSpan='2' style={{ width: '35%' }}>
+            <th colSpan='2' style={{ width: '40%' }}>
               User Name
             </th>
-            <th colSpan='2' style={{ width: '35%' }}>
-              Course Name
+            <th colSpan='2' style={{ width: '40%' }}>
+              Trainer Name
             </th>
-            <th colSpan='1'>Amount</th>
-            <th colSpan='1'>Status</th>
+            <th colSpan='1'>Edit</th>
           </tr>
 
           {tableBody}
@@ -133,4 +145,4 @@ function AdminWatchTransaction() {
   );
 }
 
-export default AdminWatchTransaction;
+export default ManageTrainer;

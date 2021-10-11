@@ -7,6 +7,9 @@ import ContactUsComponent from '../../Component/ContactUsComponent/ContactUsComp
 import ManageExerciseColor from '../../Component/ManageExerciseColor/ManageExerciseColor';
 import ManageExerciseVedio from '../../Component/ManageExerciseVedio/ManageExerciseVedio';
 import ManageFoodMenu from '../../Component/ManageFoodMenu/ManageFoodMenu';
+import ManagePicPromo from '../../Component/ManagePicPromo/ManagePicPromo';
+import ManagePicResult from '../../Component/ManagePicResult/ManagePicResult';
+import ManageTrainer from '../../Component/ManageTrainer/ManageTrainer';
 import NavBarLeftForUserComponent from '../../Component/NavBarLeftForUserComponent/NavBarLeftForUserComponent';
 import Profile from '../../Component/ProfileComponent/Profile';
 import TrainerCustomer from '../../Component/TrainerCustomer/TrainerCustomer';
@@ -101,6 +104,9 @@ function UserProfilePage() {
               {onPage === 'TransactionsPage' ? <AdminWatchTransaction /> : null}
               {onPage === 'ContactUsPage' ? <AdminContactUs /> : null}
               {onPage === 'ChangeRolePage' ? <AdminChangeRole /> : null}
+              {onPage === 'ManageResultPage' ? <ManagePicResult /> : null}
+              {onPage === 'ManagePromotionPage' ? <ManagePicPromo /> : null}
+              {onPage === 'ManageTrainerPage' ? <ManageTrainer /> : null}
             </div>
           </div>
         </section>

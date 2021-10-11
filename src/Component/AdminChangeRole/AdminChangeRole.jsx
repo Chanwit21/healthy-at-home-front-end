@@ -37,11 +37,36 @@ function AdminChangeRole() {
   };
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  useEffect(() => {
     fetchUser(sort, limit, onPage, word);
   }, [sort, limit, onPage, word]);
 
+  const updateRole = async (role, userId) => {
+    try {
+      setLoading(true);
+      await axios.put(`/users/changerole`, { role, userId });
+      const clone = [...users];
+      const idx = clone.findIndex((item) => item.id === userId);
+      clone[idx].role = role;
+      setUsers(clone);
+      setAlertMessage('Update role success!!');
+      setAlertBoxColor('alert-box-valid');
+      setTimeout(() => setAlertMessage(''), 2000);
+      setLoading(false);
+    } catch (err) {
+      console.dir(err);
+      setAlertMessage('Update role failed!!');
+      setAlertBoxColor('alert-box-invalid');
+      setTimeout(() => setAlertMessage(''), 2000);
+      setLoading(false);
+    }
+  };
+
   const tableBody = users.map((user) => {
-    return <AdminChangeRoleRow key={user.id} user={user} />;
+    return <AdminChangeRoleRow key={user.id} user={user} updateRole={updateRole} />;
   });
 
   const handleChangeSort = (e) => {
