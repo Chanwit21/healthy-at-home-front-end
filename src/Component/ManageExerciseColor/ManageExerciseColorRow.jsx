@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { formatText } from '../../service/formatting';
 import axios from '../../config/axios';
 
-function ManageExerciseRow({
+function ManageExerciseColorRow({
   deleteColorExercises,
   colorExercise,
   setAlertMessage,
@@ -159,4 +159,4 @@ function ManageExerciseRow({
   );
 }
 
-export default ManageExerciseRow;
+export default ManageExerciseColorRow;

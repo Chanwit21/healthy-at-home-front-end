@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { formatText } from '../../service/formatting';
 
-function AddExercisePosture({ addColorExercises }) {
+function AddExercisePostureColor({ addColorExercises, setIsAdding }) {
   const [addColorExercise, setAddColorExercise] = useState({
     backgroundColor: '',
     fontColor: '',
@@ -47,6 +47,17 @@ function AddExercisePosture({ addColorExercises }) {
     if (allPass) {
       addColorExercises({ ...addColorExercise });
     }
+  };
+
+  const handleCLickClose = () => {
+    setAddColorExercise({
+      backgroundColor: '',
+      fontColor: '',
+      repSet: '',
+      title: '',
+      breakPeriod: '',
+    });
+    setIsAdding(false);
   };
 
   return (
@@ -133,10 +144,13 @@ function AddExercisePosture({ addColorExercises }) {
           >
             Add
           </button>
+          <button onClick={handleCLickClose} className='btn-clear' style={{ margin: '0 1vw', width: '10%' }}>
+            Close
+          </button>
         </th>
       </tr>
     </>
   );
 }
 
-export default AddExercisePosture;
+export default AddExercisePostureColor;

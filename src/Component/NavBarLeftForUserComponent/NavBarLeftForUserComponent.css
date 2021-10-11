@@ -1,11 +1,11 @@
 .nav-bar-left-for-user-component .nav-body-box {
   width: 19.94791666vw;
-  height: 37.44791666vw;
   background: #ffffff;
   box-shadow: 0.2083vw 0.2083vw 0.52083vw 0.26vw rgba(0, 0, 0, 0.25);
   border-radius: 0.52083vw;
   padding-top: 2.03125vw;
   text-align: center;
+  padding-bottom: 2vw;
 }
 
 .nav-bar-left-for-user-component .img-user {

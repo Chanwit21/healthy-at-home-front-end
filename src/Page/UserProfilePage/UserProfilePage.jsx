@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import AdminChangeRole from '../../Component/AdminChangeRole/AdminChangeRole';
+import AdminContactUs from '../../Component/AdminContactUs/AdminContactUs';
+import AdminWatchTransaction from '../../Component/AdminWatchTransaction/AdminWatchTransaction';
 import ContactUsComponent from '../../Component/ContactUsComponent/ContactUsComponent';
-import ManageExercise from '../../Component/ManageExercise/ManageExercise';
+import ManageExerciseColor from '../../Component/ManageExerciseColor/ManageExerciseColor';
+import ManageExerciseVedio from '../../Component/ManageExerciseVedio/ManageExerciseVedio';
 import ManageFoodMenu from '../../Component/ManageFoodMenu/ManageFoodMenu';
 import NavBarLeftForUserComponent from '../../Component/NavBarLeftForUserComponent/NavBarLeftForUserComponent';
 import Profile from '../../Component/ProfileComponent/Profile';
@@ -92,7 +96,11 @@ function UserProfilePage() {
               ) : null}
               {onPage === 'TrainerCustomerPage' ? <TrainerCustomer trainerId={profile.id} /> : null}
               {onPage === 'ManageFoodMenuPage' ? <ManageFoodMenu /> : null}
-              {onPage === 'ManageExerciseVedioPage' ? <ManageExercise /> : null}
+              {onPage === 'ManageExerciseColorPage' ? <ManageExerciseColor /> : null}
+              {onPage === 'ManageExerciseVedioPage' ? <ManageExerciseVedio /> : null}
+              {onPage === 'TransactionsPage' ? <AdminWatchTransaction /> : null}
+              {onPage === 'ContactUsPage' ? <AdminContactUs /> : null}
+              {onPage === 'ChangeRolePage' ? <AdminChangeRole /> : null}
             </div>
           </div>
         </section>

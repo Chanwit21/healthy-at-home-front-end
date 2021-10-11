@@ -97,16 +97,21 @@ function ExpenseSummaryPage() {
             setAleartMessage('Payment failed');
           }
         } else {
-          console.log(nonce);
-          const res = await axios.post('/payment/source', {
-            source: nonce,
-            amount: +state.price.slice(1).split(',').join('') * 100,
-            serviceId: state.serviceId,
-            state: state,
-          });
-          // console.log(res.data.charge);
-          // window.open(res.data.charge.authorize_uri, '_blank');
-          window.location.href = res.data.charge.authorize_uri;
+          // console.log(nonce);
+          try {
+            const res = await axios.post('/payment/source', {
+              source: nonce,
+              amount: +state.price.slice(1).split(',').join('') * 100,
+              serviceId: state.serviceId,
+              state: state,
+            });
+            // console.log(res.data.charge);
+            // window.open(res.data.charge.authorize_uri, '_blank');
+            window.location.href = res.data.charge.authorize_uri;
+          } catch (err) {
+            setAleartMessage('Server failed');
+            setTimeout(() => setAleartMessage(''), 3000);
+          }
         }
       },
       onFormClosed: () => {

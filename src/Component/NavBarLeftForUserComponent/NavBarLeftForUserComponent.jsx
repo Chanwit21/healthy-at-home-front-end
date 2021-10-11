@@ -7,10 +7,19 @@ function NavBarLeftForUserComponent(props) {
     TRAINER: [
       { page: 'TrainerCustomerPage', title: 'Customer' },
       { page: 'ManageFoodMenuPage', title: 'Food menu' },
+      { page: 'ManageExerciseColorPage', title: 'Exercise color' },
       { page: 'ManageExerciseVedioPage', title: 'Exercise vedio' },
     ],
     ADMIN: [
+      { page: 'TransactionsPage', title: 'Transactions' },
+      { page: 'ContactUsPage', title: 'Contact us' },
+      { page: 'ProductPage', title: 'Product' },
+      { page: 'ChangeRolePage', title: 'Manage Role' },
+      { page: 'ManageTrainerPage', title: 'Manage Trainer' },
+      { page: 'ManagePromotionPage', title: 'Manage Promotion' },
+      { page: 'ManageResultPage', title: 'Manage Result' },
       { page: 'ManageFoodMenuPage', title: 'Food menu' },
+      { page: 'ManageExerciseColorPage', title: 'Exercise color' },
       { page: 'ManageExerciseVedioPage', title: 'Exercise vedio' },
     ],
   };

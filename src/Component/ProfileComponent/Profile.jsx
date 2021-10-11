@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './Profile.css';
 
 function Profile({ profile }) {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div className='content-profile-and-consult-trainer'>
       <div className='text-in-content-profile-and-consult-trainer'>

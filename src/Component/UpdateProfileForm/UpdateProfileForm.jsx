@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import './UpdateProfileForm.css';
 import AlertBox from '../AlertBox/AlertBox';
 import axios from '../../config/axios';
@@ -36,6 +36,10 @@ function UpdateProfileForm({
   const { dispatch } = useUserContext();
 
   const inputProfileImage = useRef();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const handleClickAddProfileImage = (e) => {
     if (!updateProfileImage) {

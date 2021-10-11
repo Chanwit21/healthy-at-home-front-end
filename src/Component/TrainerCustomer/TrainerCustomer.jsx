@@ -51,6 +51,7 @@ function TrainerCustomer() {
   useEffect(() => {
     if (isFirstRender.current) {
       isFirstRender.current = false;
+      window.scrollTo(0, 0);
     } else {
       const relationSelect = relations.find((item) => item.user.userId === onCustomer);
       //   console.log(relationSelect);

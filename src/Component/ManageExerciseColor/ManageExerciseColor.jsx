@@ -4,10 +4,10 @@ import './ManageExercise.css';
 import axios from '../../config/axios';
 import { css } from '@emotion/react';
 import BounceLoader from 'react-spinners/BounceLoader';
-import ManageExerciseRow from './ManageExerciseRow';
-import AddExercisePosture from './AddExercisePosture';
+import ManageExerciseColorRow from './ManageExerciseColorRow';
+import AddExercisePostureColor from './AddExercisePostureColor';
 
-function ManageExercise() {
+function ManageExerciseColor() {
   const [colorExercises, setColorExercises] = useState([]);
   const [alertMessage, setAlertMessage] = useState('');
   const [alertBoxColor, setAlertBoxColor] = useState('');
@@ -120,7 +120,7 @@ function ManageExercise() {
 
           {colorExercises.map((colorExercise) => {
             return (
-              <ManageExerciseRow
+              <ManageExerciseColorRow
                 key={colorExercise.id}
                 colorExercise={colorExercise}
                 setAlertMessage={setAlertMessage}
@@ -132,7 +132,7 @@ function ManageExercise() {
             );
           })}
           {isAdding ? (
-            <AddExercisePosture addColorExercises={addColorExercises} />
+            <AddExercisePostureColor addColorExercises={addColorExercises} setIsAdding={setIsAdding} />
           ) : (
             <tr>
               <th colSpan='7'>
@@ -152,4 +152,4 @@ function ManageExercise() {
   );
 }
 
-export default ManageExercise;
+export default ManageExerciseColor;

@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import './ManageFoodMenu.css';
 import AlertBox from '../AlertBox/AlertBox';
 import Pagination from '../Pagination/Pagination';
@@ -20,6 +20,10 @@ function ManageFoodMenu() {
   const inputFile = useRef();
 
   const [selectType, setSelectType] = useState('');
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const handleClickDelete = async (id) => {
     try {
