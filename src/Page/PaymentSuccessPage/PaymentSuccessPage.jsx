@@ -21,11 +21,6 @@ function PaymentSuccessPage() {
         const res = await axios.get('/transaction');
         setStatus(res.data.latestTransaction.status);
         setLoading(false);
-        if (res.data.latestTransaction.status === 'successful') {
-          setTimeout(() => history.push('/user-profile-page'), 5000);
-        } else {
-          setTimeout(() => history.push('/servicepage'), 5000);
-        }
       } catch (err) {
         setAlertMessage('Server failed!!');
         setAlertBoxColor('alert-box-invalid');
@@ -34,7 +29,11 @@ function PaymentSuccessPage() {
         setLoading(false);
       }
     };
-    fetchLatestTransaction();
+    setLoading(true);
+    setTimeout(() => {
+      fetchLatestTransaction();
+      setLoading(false);
+    }, 3000);
   }, [history]);
 
   const cssOverride = css`
@@ -47,7 +46,11 @@ function PaymentSuccessPage() {
   `;
 
   if (loading) {
-    return <BounceLoader color='#000' loading={loading} css={cssOverride} size={150} />;
+    return (
+      <div style={{ minHeight: '100vh', marginTop: '5vw' }}>
+        <BounceLoader color='#000' loading={loading} css={cssOverride} size={150} />
+      </div>
+    );
   }
 
   return (
@@ -63,7 +66,7 @@ function PaymentSuccessPage() {
               {status === 'successful' ? (
                 <>
                   <p>Go to Your Program Now !</p>
-                  <Link to='/inprogressprogrampage'>
+                  <Link to='/user-profile-page'>
                     <button>Go To Program</button>
                   </Link>
                 </>

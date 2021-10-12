@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import ContactUsComponent from '../../Component/ContactUsComponent/ContactUsComponent';
 import FoodContentCardComponent from '../../Component/FoodContentCardComponent/FoodContentCardComponent';
 import FoodSchedule from '../../Component/FoodSchedule/FoodSchedule';
@@ -9,9 +9,23 @@ import PreWorkout from '../../Component/PreworkOutComponent/PreWorkout';
 import Snack from '../../Component/SnackComponent/Snack';
 import WorkoutSchedule from '../../Component/WorkoutSchedule/WorkoutSchedule';
 import './UserProgramPage.css';
+import axios from '../../config/axios';
 
 function UserProgramPage() {
   const [onPage, setOnPage] = useState('UserWorkoutSchedulePage');
+  const [relation, setRelation] = useState({});
+
+  useEffect(() => {
+    const fetchInprogressProgram = async () => {
+      try {
+        const res = await axios.get('/inprogress_program/current_program');
+        setRelation(res.data.relation);
+      } catch (err) {
+        console.dir(err);
+      }
+    };
+    fetchInprogressProgram();
+  }, []);
 
   return (
     <div className='user-program-page'>
@@ -22,7 +36,7 @@ function UserProgramPage() {
               <MenuBarComponent Page={onPage} setOnPage={setOnPage} />
             </div>
             <div className='content'>
-              {onPage === 'UserWorkoutSchedulePage' ? <WorkoutSchedule /> : null}
+              {onPage === 'UserWorkoutSchedulePage' ? <WorkoutSchedule relation={relation} /> : null}
               {onPage === 'UserFoodSchedulePage' ? (
                 <FoodContentCardComponent
                   headerTitle={'WHAT IS NORMAL PRE PERI POST SNACK ?'}
@@ -38,7 +52,7 @@ function UserProgramPage() {
               {onPage === 'UserFoodSchedulePagePostWorkout' ? <PostWorkout /> : null}
               {onPage === 'UserFoodSchedulePageSnack' ? <Snack /> : null}
               {onPage === 'UserFoodSchedulePageNormalMeal' ? <NormalMeal /> : null}
-              {onPage === 'UserFoodSchedulePageFoodSchedule' ? <FoodSchedule /> : null}
+              {onPage === 'UserFoodSchedulePageFoodSchedule' ? <FoodSchedule relation={relation} /> : null}
             </div>
           </div>
         </div>

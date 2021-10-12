@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { Link, useHistory, useLocation } from 'react-router-dom';
 import axios from '../../config/axios';
 import './ExpenseSummaryPage.css';
+import { css } from '@emotion/react';
+import BounceLoader from 'react-spinners/BounceLoader';
 
 function ExpenseSummaryPage() {
   const [state, setState] = useState({
@@ -22,6 +24,7 @@ function ExpenseSummaryPage() {
     serviceId: '',
   });
   const [aleartMessage, setAleartMessage] = useState('');
+  const [loading, setLoading] = useState(false);
   const location = useLocation();
   // console.log(location.state);
 
@@ -63,6 +66,7 @@ function ExpenseSummaryPage() {
       onCreateTokenSuccess: async (nonce) => {
         if (nonce.startsWith('tokn_')) {
           try {
+            setLoading(true);
             const res = await axios.post('/payment/card', {
               token: nonce,
               amount: +state.price.slice(1).split(',').join('') * 100,
@@ -93,12 +97,15 @@ function ExpenseSummaryPage() {
             } else {
               setAleartMessage('Payment failed');
             }
+            setLoading(false);
           } catch (err) {
             setAleartMessage('Payment failed');
+            setLoading(false);
           }
         } else {
           // console.log(nonce);
           try {
+            setLoading(true);
             const res = await axios.post('/payment/source', {
               source: nonce,
               amount: +state.price.slice(1).split(',').join('') * 100,
@@ -107,10 +114,12 @@ function ExpenseSummaryPage() {
             });
             // console.log(res.data.charge);
             // window.open(res.data.charge.authorize_uri, '_blank');
+            setLoading(false);
             window.location.href = res.data.charge.authorize_uri;
           } catch (err) {
             setAleartMessage('Server failed');
             setTimeout(() => setAleartMessage(''), 3000);
+            setLoading(false);
           }
         }
       },
@@ -123,6 +132,23 @@ function ExpenseSummaryPage() {
   const handleClickCloseAlertBox = () => {
     setAleartMessage('');
   };
+
+  const cssOverride = css`
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    border-color: #000;
+  `;
+
+  if (loading) {
+    return (
+      <div style={{ minHeight: '100vh', marginTop: '5vw' }}>
+        <BounceLoader color='#000' loading={loading} css={cssOverride} size={150} />
+      </div>
+    );
+  }
 
   return (
     <div>

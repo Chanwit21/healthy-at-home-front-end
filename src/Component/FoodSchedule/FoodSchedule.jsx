@@ -1,8 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import FoodScheduleHead from '../UserFoodSchedule/FoodScheduleHead';
 import UserFoodScheduleRow from '../UserFoodSchedule/UserFoodScheduleRow';
 import './FoodSchedule.css';
 import axios from '../../config/axios';
+import { css } from '@emotion/react';
+import BounceLoader from 'react-spinners/BounceLoader';
+import AlertBox from '../AlertBox/AlertBox';
 
 function firstUpperCase(value) {
   return value[0].toUpperCase() + value.slice(1);
@@ -16,32 +19,27 @@ function createArrayDay(number) {
   return result;
 }
 
-function FoodSchedule() {
+function FoodSchedule({ relation }) {
   const [onDay, setOnDay] = useState('');
-  const [relation, setRelation] = useState({});
   const [foodScheDuleByDay, setFoodScheDuleByDay] = useState({});
-
-  useEffect(() => {
-    const fetchInprogressProgram = async () => {
-      try {
-        const res = await axios.get('/inprogress_program/current_program');
-        setRelation(res.data.relation);
-      } catch (err) {
-        console.dir(err);
-      }
-    };
-    fetchInprogressProgram();
-  }, []);
+  const [alertMessage, setAlertMessage] = useState('');
+  const [alertBoxColor, setalertBoxColor] = useState('alert-box-invalid');
+  const [loading, setLoading] = useState(false);
 
   const handleChangeDay = async (e) => {
     setOnDay(e.target.value);
     try {
       if (e.target.value) {
+        setLoading(true);
         const res = await axios.get(`/food_schedule/${e.target.value}/${relation.id}`);
         setFoodScheDuleByDay(res.data.foodSchedule);
+        setLoading(false);
       }
     } catch (err) {
-      console.dir(err);
+      setAlertMessage('Server failed!!');
+      setalertBoxColor('alert-box-invalid');
+      setTimeout(() => setAlertMessage(''), 2000);
+      setLoading(false);
     }
   };
 
@@ -58,8 +56,22 @@ function FoodSchedule() {
 
   const tableBody = foodScheDuleByDay ? genTableBody(foodScheDuleByDay) : null;
 
+  const cssOverride = css`
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    border-color: #000;
+  `;
+
+  if (loading) {
+    return <BounceLoader color='#000' loading={loading} css={cssOverride} size={150} />;
+  }
+
   return (
     <div className='food-schedule-contnt'>
+      {alertMessage ? <AlertBox alertMessage={alertMessage} color={alertBoxColor} /> : null}
       <h1>Food schedule</h1>
       <select name='filterDay' id='day' onChange={handleChangeDay} value={onDay}>
         <option value=''>none</option>

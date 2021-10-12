@@ -8,9 +8,15 @@ function ColorRow({ colorExercisePosture }) {
         color: colorExercisePosture.fontColor,
       }}
     >
-      <th colSpan={3}>{colorExercisePosture.title}</th>
-      <th colSpan={3}>{colorExercisePosture.repSet}</th>
-      <th colSpan={2}>{colorExercisePosture.breakPeriod}</th>
+      <th colSpan={4} style={{ width: '50%' }}>
+        {colorExercisePosture.title}
+      </th>
+      <th colSpan={2} style={{ width: '25%' }}>
+        {colorExercisePosture.repSet}
+      </th>
+      <th colSpan={2} style={{ width: '25%' }}>
+        {colorExercisePosture.breakPeriod}
+      </th>
     </tr>
   );
 }

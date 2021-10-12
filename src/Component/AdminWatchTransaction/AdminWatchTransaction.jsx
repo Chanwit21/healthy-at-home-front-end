@@ -15,6 +15,7 @@ function AdminWatchTransaction() {
   const [limit, setLimit] = useState(5);
   const [onPage, setOnPage] = useState(1);
   const [length, setLength] = useState(0);
+  const [allamount, setAllamount] = useState(0);
 
   const fetchTransactions = async (sort, limit, onPage) => {
     try {
@@ -32,8 +33,23 @@ function AdminWatchTransaction() {
     }
   };
 
+  const fetchAllAmount = async () => {
+    try {
+      setLoading(true);
+      const res = await axios.get(`transaction/all_amount`);
+      setAllamount(res.data.total_amount);
+      setLoading(false);
+    } catch (err) {
+      setAlertMessage('Server failed!!');
+      setAlertBoxColor('alert-box-invalid');
+      setTimeout(() => setAlertMessage(''), 2000);
+      setLoading(false);
+    }
+  };
+
   useEffect(() => {
     fetchTransactions(sort, limit, onPage);
+    fetchAllAmount();
   }, [sort, limit, onPage]);
 
   const tableBody = transactions.map((item) => {
@@ -76,13 +92,6 @@ function AdminWatchTransaction() {
     return <BounceLoader color='#000' loading={loading} css={cssOverride} size={150} />;
   }
 
-  const amount = transactions.reduce((acc, cur) => {
-    if (cur.status === 'successful') {
-      return acc + +cur.amount;
-    }
-    return acc;
-  }, 0);
-
   return (
     <div className='manage-exercise'>
       {alertMessage ? <AlertBox alertMessage={alertMessage} color={alertBoxColor} /> : null}
@@ -104,7 +113,7 @@ function AdminWatchTransaction() {
             limit * onPage > length ? length : limit * onPage
           } of ${length}`}</p>
         </div>
-        <div style={{ display: 'flex', alignItems: 'flex-end' }}> Amount : {currencyFormat(amount)}</div>
+        <div style={{ display: 'flex', alignItems: 'flex-end' }}> Amount : {currencyFormat(allamount)}</div>
       </div>
       <table id='manage-exercise'>
         <thead>

@@ -238,7 +238,7 @@ function InformationServiceToRegisterProgramPage() {
                       id='weight'
                       value={weight}
                       onChange={handleChangeWeight}
-                      maxLength={3}
+                      maxLength={4}
                     />
                     {error.weight ? <div className='invalid-text'>{error.weight}</div> : null}
                   </div>
@@ -252,7 +252,7 @@ function InformationServiceToRegisterProgramPage() {
                       id='height'
                       value={height}
                       onChange={handleChangeHeight}
-                      maxLength={3}
+                      maxLength={6}
                     />
                     {error.height ? <div className='invalid-text'>{error.height}</div> : null}
                   </div>

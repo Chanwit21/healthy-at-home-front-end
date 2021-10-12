@@ -1,3 +1,7 @@
+.workout-schedule {
+  width: 100%;
+}
+
 .workout-schedule h1 {
   font-size: 2.5vw;
 }
@@ -26,102 +30,26 @@
   font-size: 1.1416666666vw;
 }
 
-.workout-schedule #workout-schedule-table .contentExercise td {
+.workout-schedule #workout-schedule-table td {
   column-span: none;
   font-weight: 600;
   font-size: 1.0416666666vw;
-  color: #000000;
   height: 7.1145833vw;
   box-sizing: border-box;
   width: 7.1145833vw;
   padding: 0.3vw;
 }
 
-.workout-schedule #workout-schedule-table .contentExercise td input[type='checkbox'] {
-  width: 1.1625vw;
-  height: 1.1625vw;
-  background: #ffffff;
-  border-radius: 10px;
-  margin: 0 0.2vw;
-  display: inline-block;
-}
-
-.workout-schedule #workout-schedule-table .contentExercise .checkBox label {
-  font-size: 1.3vw;
-  display: inline-block;
-}
-
-.workout-schedule #workout-schedule-table .contentExercise td a {
-  column-span: none;
+.workout-schedule #workout-schedule-table td a {
   font-weight: 600;
-  font-size: 0.9416666666vw;
-  color: #000000;
+  font-size: 1.0416666666vw;
 }
 
-/* Switch Rest Day */
-.workout-schedule .switch-rest-day {
-  margin-top: 5vw;
-}
-
-.workout-schedule .switch-rest-day h1 {
-  margin-bottom: 1vw;
-  font-weight: 600;
-  font-size: 2.60416666vw;
-  color: #000000;
-}
-
-/* Input Switch Form */
-.workout-schedule .switch-box-for-form form {
-  width: 100%;
-}
-
-.workout-schedule .switch-box-for-form {
-  width: 64.11458333vw;
-  height: 13.95833vw;
-  background: #ffffff;
-  box-shadow: 0.2083vw 0.2083vw 0.52083vw 0.26vw rgba(0, 0, 0, 0.25);
-  border-radius: 0.52083vw;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.workout-schedule .switch-box-for-form .input-selector-row {
-  display: flex;
-  width: 85%;
-  margin: 0 auto;
-  justify-content: space-between;
-}
-
-.workout-schedule .switch-box-for-form .input-selector-row select {
-  width: 24.4791666vw;
-  height: 3.125vw;
+.workout-schedule select {
+  width: 8.4791666vw;
+  height: 2.125vw;
   background: #ffffff;
   border: 0.052083vw solid #2b90c4;
   border-radius: 0.52083vw;
-}
-
-.workout-schedule .switch-box-for-form .input-selector-row label {
-  font-weight: 600;
-  font-size: 1.5625vw;
-  color: #000000;
-  margin-bottom: 0.8vw;
-  display: inline-block;
-}
-
-.workout-schedule .switch-box-for-form .submit-form {
-  width: 85%;
-  margin: 0 auto;
-  margin-top: 1.3vw;
-}
-
-.workout-schedule .switch-box-for-form .submit-form input[type='submit'] {
-  width: 100%;
-  font-weight: 600;
-  font-size: 1.5625vw;
-  color: #ffffff;
-  height: 2.604166vw;
-  background: #2b90c4;
-  border-radius: 0.52083vw;
-  border: 0.052083vw solid #2b90c4;
+  margin: 1vw;
 }
