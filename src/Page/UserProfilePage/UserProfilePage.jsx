@@ -9,6 +9,7 @@ import ManageExerciseVedio from '../../Component/ManageExerciseVedio/ManageExerc
 import ManageFoodMenu from '../../Component/ManageFoodMenu/ManageFoodMenu';
 import ManagePicPromo from '../../Component/ManagePicPromo/ManagePicPromo';
 import ManagePicResult from '../../Component/ManagePicResult/ManagePicResult';
+import ManageProduct from '../../Component/ManageProduct/ManageProduct';
 import ManageTrainer from '../../Component/ManageTrainer/ManageTrainer';
 import NavBarLeftForUserComponent from '../../Component/NavBarLeftForUserComponent/NavBarLeftForUserComponent';
 import Profile from '../../Component/ProfileComponent/Profile';
@@ -107,6 +108,7 @@ function UserProfilePage() {
               {onPage === 'ManageResultPage' ? <ManagePicResult /> : null}
               {onPage === 'ManagePromotionPage' ? <ManagePicPromo /> : null}
               {onPage === 'ManageTrainerPage' ? <ManageTrainer /> : null}
+              {onPage === 'ManageProductPage' ? <ManageProduct /> : null}
             </div>
           </div>
         </section>

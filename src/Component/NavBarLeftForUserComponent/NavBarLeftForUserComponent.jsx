@@ -13,7 +13,7 @@ function NavBarLeftForUserComponent(props) {
     ADMIN: [
       { page: 'TransactionsPage', title: 'Transactions' },
       { page: 'ContactUsPage', title: 'Contact us' },
-      { page: 'ProductPage', title: 'Product' },
+      { page: 'ManageProductPage', title: 'Product' },
       { page: 'ChangeRolePage', title: 'Manage Role' },
       { page: 'ManageTrainerPage', title: 'Manage Trainer' },
       { page: 'ManagePromotionPage', title: 'Manage Promotion' },

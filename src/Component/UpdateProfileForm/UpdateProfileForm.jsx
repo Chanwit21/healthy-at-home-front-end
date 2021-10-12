@@ -66,17 +66,19 @@ function UpdateProfileForm({
   };
 
   const handleChangeInputFile = (e) => {
-    if (['image/jpg', 'image/jpeg', 'image/png'].includes(e.target.files[0].type)) {
-      const file = e.target.files[0];
-      setImagefile(file);
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        setUpdateProfileImage(reader.result);
-      };
-      reader.readAsDataURL(file);
-    } else {
-      setAlertMessage('Only .png, .jpg and .jpeg format allowed!');
-      setTimeout(() => setAlertMessage(''), 3000);
+    if (e.target.files[0]) {
+      if (['image/jpg', 'image/jpeg', 'image/png'].includes(e.target.files[0].type)) {
+        const file = e.target.files[0];
+        setImagefile(file);
+        const reader = new FileReader();
+        reader.onloadend = () => {
+          setUpdateProfileImage(reader.result);
+        };
+        reader.readAsDataURL(file);
+      } else {
+        setAlertMessage('Only .png, .jpg and .jpeg format allowed!');
+        setTimeout(() => setAlertMessage(''), 3000);
+      }
     }
   };
 
