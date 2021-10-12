@@ -61,7 +61,7 @@ function UpdateProfileForm({
   };
 
   const handleClickClearImage = () => {
-    setUpdateProfileImage(null);
+    setUpdateProfileImage('');
     setImagefile(null);
   };
 
@@ -140,6 +140,12 @@ function UpdateProfileForm({
 
       if (imagefile) {
         form.append('profile-image', imagefile);
+      }
+
+      if (!updateProfileImage) {
+        form.append('isDeleteImage', true);
+      } else {
+        form.append('isDeleteImage', false);
       }
 
       try {
