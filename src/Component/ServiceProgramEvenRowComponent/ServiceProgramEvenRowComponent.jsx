@@ -11,26 +11,39 @@ function ServiceProgramEvenRowComponent(props) {
   const history = useHistory();
 
   const handleClickJoin = async (e) => {
-    if (userState.user?.role === 'CUSTOMER') {
-      const res = await axios.get('/user_trainer_relational/check_user_trainer_relational');
-      if (!res.data.already) {
-        history.push({
-          pathname: userState.user?.role === 'CUSTOMER' ? '/informatioservicetoregisterprogrampage' : '/loginpage',
-          state: {
-            courseName: props.courseName,
-            serImgPath: props.serImgPath,
-            serviceId: props.serviceId,
-            price: props.Price,
-            message: !userState.user ? 'You must login before buy course.' : null,
-          },
-        });
+    if (userState.user?.role) {
+      if (userState.user?.role === 'CUSTOMER') {
+        const res = await axios.get('/user_trainer_relational/check_user_trainer_relational');
+        if (!res.data.already) {
+          history.push({
+            pathname: '/informatioservicetoregisterprogrampage',
+            state: {
+              courseName: props.courseName,
+              serImgPath: props.serImgPath,
+              serviceId: props.serviceId,
+              price: props.Price,
+              message: !userState.user ? 'You must login before buy course.' : null,
+            },
+          });
+        } else {
+          setAlertMessage('You has already in progress course !!');
+          setTimeout(() => setAlertMessage(''), 3000);
+        }
       } else {
-        setAlertMessage('You has already in progress course !!');
+        setAlertMessage('You can view only!!');
         setTimeout(() => setAlertMessage(''), 3000);
       }
     } else {
-      setAlertMessage('You can view only!!');
-      setTimeout(() => setAlertMessage(''), 3000);
+      history.push({
+        pathname: '/loginpage',
+        state: {
+          courseName: props.courseName,
+          serImgPath: props.serImgPath,
+          serviceId: props.serviceId,
+          price: props.Price,
+          message: !userState.user ? 'You must login before buy course.' : null,
+        },
+      });
     }
   };
 

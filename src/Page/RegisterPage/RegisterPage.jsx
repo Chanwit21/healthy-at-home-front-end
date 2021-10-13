@@ -5,6 +5,7 @@ import h_Logo from '../../PIC/LOGO/h.png';
 import healthyAtHomeLogo from '../../PIC/LOGO/He__2_-removebg-preview.png';
 import { isEmail, isStrongPassword } from 'validator';
 import axios from '../../config/axios';
+import AlertBox from '../../Component/AlertBox/AlertBox';
 
 function RegisterPage() {
   const [register, setRegister] = useState({
@@ -15,6 +16,8 @@ function RegisterPage() {
     confirmPassword: '',
   });
   const [error, setError] = useState({ firstName: '', lastName: '', email: '', password: '', confirmPassword: '' });
+  const [alertMessage, setAlertMessage] = useState('');
+  const [alertBoxColor, setAlertBoxColor] = useState('alert-box-invalid');
   const history = useHistory();
 
   const handleChangeInput = (field, e) => {
@@ -79,11 +82,16 @@ function RegisterPage() {
     }
 
     if (allPass) {
-      await axios.post('/users/register', { ...register });
-      history.push({ pathname: '/loginpage', state: { message: 'Successfully registered and you can login.' } });
       try {
+        await axios.post('/users/register', { ...register });
+        history.push({ pathname: '/loginpage', state: { message: 'Successfully registered and you can login.' } });
       } catch (err) {
-        console.dir(err);
+        console.clear();
+        if (err.response.status === 400 && err.response.data.message === 'Email has already created.') {
+          setAlertMessage('Email has  already been registered! ');
+          setAlertBoxColor('alert-box-invalid');
+          setTimeout(() => setAlertMessage(''), 3000);
+        }
       }
     }
   };
@@ -91,6 +99,7 @@ function RegisterPage() {
   return (
     <div>
       <div className='registerPage'>
+        {alertMessage ? <AlertBox alertMessage={alertMessage} color={alertBoxColor} /> : null}
         <section className='register'>
           <div className='container'>
             <div className='form-register'>

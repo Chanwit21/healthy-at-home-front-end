@@ -70,10 +70,12 @@ function AdminChangeRole() {
   });
 
   const handleChangeSort = (e) => {
+    setOnPage(1);
     setSort(e.target.value);
   };
 
   const handleChangeLimit = (e) => {
+    setOnPage(1);
     setLimit(e.target.value);
   };
 
@@ -86,6 +88,7 @@ function AdminChangeRole() {
 
   const handleCLickSearch = () => {
     setWord(searchWord);
+    setOnPage(1);
   };
   const cssOverride = css`
     height: 100%;

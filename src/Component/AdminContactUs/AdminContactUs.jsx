@@ -57,11 +57,13 @@ function AdminContactUs() {
 
   const handleChangeSort = (e) => {
     setSort(e.target.value);
+    setOnPage(1);
     // fetchContactUs(e.target.value, limit, onPage);
   };
 
   const handleChangeLimit = (e) => {
     setLimit(e.target.value);
+    setOnPage(1);
     // fetchContactUs(sort, e.target.value, onPage);
   };
 

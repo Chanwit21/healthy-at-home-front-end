@@ -88,6 +88,7 @@ function ManageTrainer() {
 
   const handleChangeLimit = (e) => {
     setLimit(e.target.value);
+    setOnPage(1);
   };
 
   const cssOverride = css`

@@ -10,7 +10,7 @@ import BounceLoader from 'react-spinners/BounceLoader';
 
 function WorkoutSchedule({ relation }) {
   const [workoutSchedule, setWorkoutSchedule] = useState([]);
-  const [onPage, setOnPage] = useState(2);
+  const [onPage, setOnPage] = useState(1);
   const [colorExercisePostures, setColorExercisePostures] = useState([]);
   const [alertMessage, setAlertMessage] = useState('');
   const [alertBoxColor, setAlertBoxColor] = useState('alert-box-invalid');
@@ -36,6 +36,7 @@ function WorkoutSchedule({ relation }) {
         setLoading(true);
         const res = await axios.get(`/workout_schedule/all/${relation.id}`);
         setWorkoutSchedule(res.data.workOutSchedules);
+        console.log(res.data.workOutSchedules);
         setLoading(false);
       } catch (err) {
         setAlertMessage('Server failed!!');
@@ -54,10 +55,11 @@ function WorkoutSchedule({ relation }) {
 
   const handleChangeLimit = (e) => {
     setLimit(+e.target.value);
+    setOnPage(1);
   };
 
-  const workoutRow = workoutSchedule.slice(limit * (onPage - 1), limit * onPage).map((workoutRow) => {
-    const { scheduleId, day, exercises } = workoutRow;
+  const workoutRow = workoutSchedule.slice(limit * (onPage - 1), limit * onPage).map((workoutRow, index) => {
+    const { day, exercises } = workoutRow;
 
     const countExercise = exercises.reduce((acc, cur) => {
       if (cur.haveExercise) {
@@ -69,7 +71,7 @@ function WorkoutSchedule({ relation }) {
     const cols = genWorkoutCols(countExercise, exercises);
 
     return (
-      <tr key={scheduleId}>
+      <tr key={index}>
         <td
           colSpan='1'
           style={{

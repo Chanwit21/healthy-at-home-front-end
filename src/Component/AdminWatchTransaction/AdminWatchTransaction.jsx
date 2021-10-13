@@ -73,10 +73,12 @@ function AdminWatchTransaction() {
 
   const handleChangeSort = (e) => {
     setSort(e.target.value);
+    setOnPage(1);
   };
 
   const handleChangeLimit = (e) => {
     setLimit(e.target.value);
+    setOnPage(1);
   };
 
   const cssOverride = css`

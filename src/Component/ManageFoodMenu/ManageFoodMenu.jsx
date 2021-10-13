@@ -45,6 +45,7 @@ function ManageFoodMenu() {
   };
 
   const handleChangeType = async (e) => {
+    setOnPage(1);
     setSelectType(e.target.value);
 
     if (e.target.value) {
