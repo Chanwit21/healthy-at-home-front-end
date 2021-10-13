@@ -108,7 +108,7 @@ function ManageTrainer() {
       {alertMessage ? <AlertBox alertMessage={alertMessage} color={alertBoxColor} /> : null}
       <div style={{ display: 'flex', justifyContent: 'space-between' }}>
         <div style={{ width: '50%' }}>
-          <h1>Customer and User</h1>
+          <h1>Customer and Trainer</h1>
           <select value={limit} onChange={handleChangeLimit} style={{ width: '20%' }}>
             <option value='5'>5</option>
             <option value='10'>10</option>

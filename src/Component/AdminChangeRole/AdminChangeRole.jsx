@@ -102,7 +102,7 @@ function AdminChangeRole() {
   return (
     <div className='manage-exercise'>
       {alertMessage ? <AlertBox alertMessage={alertMessage} color={alertBoxColor} /> : null}
-      <h1>Transactions</h1>
+      <h1>Change Role</h1>
       <>
         <label>sort:</label>
         <select value={sort} onChange={handleChangeSort}>

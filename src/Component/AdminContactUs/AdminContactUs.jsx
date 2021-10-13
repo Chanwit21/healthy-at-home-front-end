@@ -81,7 +81,7 @@ function AdminContactUs() {
   return (
     <div className='manage-exercise'>
       {alertMessage ? <AlertBox alertMessage={alertMessage} color={alertBoxColor} /> : null}
-      <h1>Transactions</h1>
+      <h1>Contact us</h1>
       <>
         <label>sort:</label>
         <select value={sort} onChange={handleChangeSort}>

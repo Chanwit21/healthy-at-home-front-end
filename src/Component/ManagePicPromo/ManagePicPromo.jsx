@@ -164,7 +164,7 @@ function ManagePicPromo() {
       {onAddImage ? (
         <div className='add-image-form'>
           <div style={{ display: 'flex', alignItems: 'center' }}>
-            <h1>Result Photo</h1>{' '}
+            <h1>Promotion Photo</h1>{' '}
             <button className='btn-clear' style={{ width: '5%', marginBottom: '0' }} onClick={handleClickClose}>
               <i class='bi bi-x'></i>
             </button>
